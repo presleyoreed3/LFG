@@ -1,4 +1,9 @@
 # LFG
+### Creators
+- Brian Ko
+- Chris Park
+- Jerry Phan
+- Presley Reed III
 
 ## Design and Color Scheme
 ![Color Scheme](./readme_images/color_scheme.png)
