@@ -1,29 +1,32 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import './session_form.scss'
 
-class SignupForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       email: "",
-      handle: "",
       password: "",
-      password2: "",
       errors: {},
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
+  // Once the user has been authenticated, redirect to the Tweets page
   componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push("/login");
+    if (nextProps.currentUser === true) {
+      this.props.history.push("/tweets");
     }
 
+    // Set or clear errors
     this.setState({ errors: nextProps.errors });
   }
 
+  // Handle field updates (called in the render method)
   update(field) {
     return (e) =>
       this.setState({
@@ -31,18 +34,19 @@ class SignupForm extends React.Component {
       });
   }
 
+  // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
+
     let user = {
       email: this.state.email,
-      handle: this.state.handle,
       password: this.state.password,
-      password2: this.state.password2,
     };
 
-    this.props.signup(user, this.props.history);
+    this.props.login(user);
   }
 
+  // Render the session errors if there are any
   renderErrors() {
     return (
       <ul>
@@ -56,21 +60,13 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="session-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
-            <br />
+        <form className="session-form" onSubmit={this.handleSubmit}>
+          <h2>Log In</h2>
             <input
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
               placeholder="Email"
-            />
-            <br />
-            <input
-              type="text"
-              value={this.state.handle}
-              onChange={this.update("handle")}
-              placeholder="Handle"
             />
             <br />
             <input
@@ -80,20 +76,12 @@ class SignupForm extends React.Component {
               placeholder="Password"
             />
             <br />
-            <input
-              type="password"
-              value={this.state.password2}
-              onChange={this.update("password2")}
-              placeholder="Confirm Password"
-            />
-            <br />
-            <input type="submit" value="Submit" />
+            <button>Log In</button>
             {this.renderErrors()}
-          </div>
         </form>
       </div>
     );
   }
 }
 
-export default withRouter(SignupForm);
+export default withRouter(LoginForm);

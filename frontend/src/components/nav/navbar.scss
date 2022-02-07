@@ -1,23 +1,23 @@
+@import '../../_colors.scss';
 
-header {
+#header {
   display: flex;
   width: 100vw;
   height: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: #5CDB95;
+  background-color: $Green-hex;
   padding: 20px 0px;
 }
 
 .main-logo {
-  color: #05386B;
+  color: $Deep-Blue-hex;
   padding-left: 25px;
 }
 
-.navbar-signup-login {
-  color: #F97F2B;
-  padding-right: 25px;
-  margin: 10px 0px;
+.main-logo{
+  font-weight: 600;
+  font-size: 24px;
 }
 
 .navbar-signup-login a{
@@ -25,9 +25,9 @@ header {
   width: 100%;
   justify-content: center;
   margin: 10px;
-  background-color: #5CDB95;
-  color: #05386B;
-  border: 1px solid #05386B;
+  background-color: $Deep-Blue-hex;
+  color: $Green-hex;
+  border: 1px solid $Deep-Blue-hex;
   height: 40px;
   padding: 10px;
   text-decoration: none;
@@ -35,10 +35,10 @@ header {
 }
 
 .navbar-signup-login a:hover{
-  background-color: #05386B;
-  color: #5CDB95;
+  background-color: $Green-hex;
+  color: $Deep-Blue-hex;
 }
 
 .navbar-signup-login a:hover:active{
-  background-color: #379683;
+  background-color: $Dark-Green-hex;
 }
