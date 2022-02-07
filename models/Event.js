@@ -1,0 +1,60 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const EventSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  eventStart: {
+    type: Date,
+    required: true
+  },
+  eventEnd: {
+    type: Date,
+    required: true
+  },
+  location: {
+    type: String,
+    required: false
+  },
+  website: {
+    type: String,
+    required: false
+  },
+  limit: {
+    type: Number,
+    required: false
+  },
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: 'users'
+  },
+  eventType: {
+    type: String,
+    required: true
+  },
+  category: {
+    type: String,
+    required: true
+  },
+  attendees: {
+    type: [Schema.Types.ObjectId],
+    ref: 'users',
+    required: true,
+    default: []
+  }
+  // comments: {
+  //   type: [Schema.Types.ObjectId],
+  //   ref: 'comments',
+  //   required: true,
+  //   default: []
+  // }
+}, {
+  date: {
+    type: Date,
+    default: Date.now
+  }
+})
+
+module.exports = User = mongoose.model('events', EventSchema);

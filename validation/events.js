@@ -1,21 +1,23 @@
-// const Validator = require('validator');
-// const validText = require('./valid-text');
+const Validator = require('validator');
+const validText = require('./valid-text');
 
-// module.exports = function validateEventInput(data) {
-//   let errors = {};
+module.exports = function validateEventInput(data) {
+  let errors = {};
 
-//   data.text = validText(data.text) ? data.text : '';
+  data.name = validText(data.name) ? data.name : '';
+  data.category = validText(data.category) ? data.category : '';
+  data.eventType = validText(data.eventType) ? data.eventType : '';
 
-//   if(!Validator.isLength(data.text, { min: 5, max: 140})) {
-//     errors.text = "Tweet must be between 5 and 140 chars"
-//   }
+  if(!Validator.isISO8601(data.eventStart)) {
+    errors.eventStart = "Start date is not valid"
+  }
 
-//   if(Validator.isEmpty(data.text)) {
-//     errors.text = "Text field is required";
-//   }
+  if(!Validator.isISO8601(data.eventEnd)) {
+    errors.eventEnd = "End date is not valid"
+  }
 
-//   return {
-//     errors,
-//     isValid: Object.keys(errors).length === 0
-//   }
-// }
+  return {
+    errors,
+    isValid: Object.keys(errors).length === 0
+  }
+}
