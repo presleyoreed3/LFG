@@ -1,8 +1,44 @@
+
 header {
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100%;
-  padding: 20px;
   justify-content: space-between;
   align-items: center;
+  background-color: #5CDB95;
+  padding: 20px 0px;
+}
+
+.main-logo {
+  color: #05386B;
+  padding-left: 25px;
+}
+
+.navbar-signup-login {
+  color: #F97F2B;
+  padding-right: 25px;
+  margin: 10px 0px;
+}
+
+.navbar-signup-login a{
+  font-size: 14px;
+  width: 100%;
+  justify-content: center;
+  margin: 10px;
+  background-color: #5CDB95;
+  color: #05386B;
+  border: 1px solid #05386B;
+  height: 40px;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.navbar-signup-login a:hover{
+  background-color: #05386B;
+  color: #5CDB95;
+}
+
+.navbar-signup-login a:hover:active{
+  background-color: #379683;
 }

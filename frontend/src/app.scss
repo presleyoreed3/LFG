@@ -1,9 +1,8 @@
-$dark-blue: #0528F2;
-$middle-blue: #3061F2;
-$light-blue: #3D79F2;
-$orange: #F26716;
-$text-color: #262626;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 
 body {
   height: 100%;
+  font-family: 'Inter', sans-serif;
 }
+

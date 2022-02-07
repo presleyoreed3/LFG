@@ -1,4 +1,4 @@
-@import "./reset.css";
+@import "./0reset.css";
 @import "./components/nav/navbar.scss";
 @import "./app.scss";
 @import "./components/session/session_form.scss"
