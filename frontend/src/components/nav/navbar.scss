@@ -3,11 +3,14 @@
 #header {
   display: flex;
   width: 100vw;
-  height: 100%;
   justify-content: space-between;
   align-items: center;
   background-color: $Green-hex;
   padding: 20px 0px;
+}
+
+#logo{
+  background-color: $Deep-Blue-hex;
 }
 
 .main-logo {
