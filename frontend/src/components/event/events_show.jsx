@@ -1,5 +1,6 @@
 import React from "react";
 import IndexItem from "../index/index_item";
+import "./events.scss"
 
 
 
@@ -40,16 +41,18 @@ class EventShow extends React.Component {
     return (
       <div className="home-page-container">
         <div className="event-show-container">
-          <div className="event-title-desc">
+          <div className="event-title">
             <p>{event.title}</p>
-            <p>{event.description}</p>
           </div>
           <div className="event-gen-info">
             <p>
-              {new Date(event.eventStart).toDateString()} +++++++{" "}
-              {new Date(event.eventEnd).toLocaleTimeString()}
+              {eventStartDate} {eventStartDate === eventEndDate ? "" : "to " + eventEndDate}
             </p>
-            <p>{event.location}</p>
+            <p>From: {eventStartTime} to {eventEndTime}</p>
+            <p>Location: {event.location}</p>
+          </div>
+          <div className="event-desc">
+            {event.description}
           </div>
         </div>
         <div className="events-index">
