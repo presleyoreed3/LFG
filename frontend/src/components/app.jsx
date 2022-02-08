@@ -8,10 +8,13 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import FooterContainer from './footer/footer_container'
 import HomeContainer from "./home/home_container";
+import Modal from './modal/modal'
 import '../app.scss'
+
 
 const App = () => (
   <main>
+    <Modal />
     <NavBarContainer />
     <Switch>
       <Route exact path="/home" component={HomeContainer} />
