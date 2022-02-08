@@ -1,6 +1,6 @@
 import React from "react";
 
-class MainPage extends React.Component {
+class SplashPage extends React.Component {
   render() {
     return (
       <div className="splash-page-background">
@@ -14,4 +14,4 @@ class MainPage extends React.Component {
   }
 }
 
-export default MainPage;
+export default SplashPage;
