@@ -12,7 +12,7 @@ class HomeCalendar extends React.Component {
     const newEvents = [];
     events.forEach((event) => {
       let eventObj = {
-        title: event.name,
+        title: event.title,
         start: event.eventStart,
         end: event.eventEnd,
       }
