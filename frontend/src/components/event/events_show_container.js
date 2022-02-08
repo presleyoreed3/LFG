@@ -1,4 +1,4 @@
-import {connect} from 'react-router-dom';
+import {connect} from 'react-redux';
 import EventShow from './events_show';
 import {fetchEvent} from '../../actions/event_actions';
 
