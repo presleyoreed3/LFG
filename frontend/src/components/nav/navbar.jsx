@@ -35,7 +35,13 @@ class NavBar extends React.Component {
   render() {
     return (
       <header id="header">
-        <h1 className="main-logo">LFG</h1>
+        <div id="header-links">
+          <h1 className="main-logo">LFG</h1> 
+          <span><hr id="seperator"/></span>
+          <a className="hover-underline-animation">Home</a>
+          <a className="hover-underline-animation">Calendar</a>
+          <a className="hover-underline-animation">Create</a>
+        </div>
         {this.getLinks()}
       </header>
     );

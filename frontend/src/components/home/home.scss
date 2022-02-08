@@ -14,13 +14,16 @@
 .events-index{
 	width: 25%;
 	height: 100%;
-	background-color: $Tan-hex;
+	background-color: $Deep-Blue-hex;
+	border: 1px solid $Deep-Blue-hex;
+	padding: 10px;
+	border-radius: 5px;
 	margin-right: 50px;
 }
 
 .events-index h1{
 	font-size: 30px;
-	color: $Deep-Blue-hex;
+	color: $Tan-hex;
 	margin-bottom: 10px;
 }
 
