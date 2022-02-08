@@ -12,11 +12,10 @@ import Modal from './modals/modal'
 import EventShowContainer from './event/events_show_container';
 import '../app.scss'
 
-
 const App = () => (
   <main>
     <Modal />
-    <NavBarContainer />
+    <NavBarContainer /> 
     <Switch>
       <Route exact path="/home" component={HomeContainer} />
       <Route exact path='/events/:eventId' component={EventShowContainer}/>

@@ -1,10 +1,32 @@
+@import '../../_colors.scss';
+
 #calendar {
-  width: 800px;
+  width: 900px;
   margin: auto;
   background-color: white;
+  border: 2px solid $Deep-Blue-hex;
   padding: 15px;
+  border-radius: 5px;
+}
+
+.fc-toolbar-title{
+  color: $Dark-Green-hex;
 }
 
 .fc-button{
-  background-color: lightblue !important;
+  background-color: $Dark-Green-hex !important;
+  border-color: $Deep-Blue-hex;
+}
+
+.fc-daygrid-event{
+  text-decoration: none;
+  border-color: $Dark-Green-hex;
+  background-color: $Dark-Green-hex;
+  color: $Deep-Blue-hex !important;
+}
+
+.fc-daygrid-event:hover{
+  border-color: $Green-hex;
+  background-color: $Green-hex;
+  color: $Tan-hex;
 }

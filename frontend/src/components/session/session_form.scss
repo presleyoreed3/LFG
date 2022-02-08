@@ -49,6 +49,7 @@ form button{
   height: 40px;
   margin-bottom: 30px;
   border-radius: 10px;
+  font-size: 22px;
 }
 
 form button:hover{
@@ -65,17 +66,23 @@ form button:hover:active{
   background-color: $Deep-Blue-hex;
   box-sizing: border-box;
   border-bottom: 1px solid $Green-hex;
-  color: $Green-hex;
+  color: $Tan-hex;
   height: 42px;
   width: 80%;
-  font-size:  14px;
+  font-size:  20px;
   margin-top: 10px;
   margin-bottom: 10px;
   padding-left: 10px;
-  // -webkit-transition: background-color 500ms linear;
+  -webkit-transition: background-color 500ms linear;
+}
+
+::placeholder{
+  color: $Tan-hex;
+  opacity: 75%;
 }
 
 .session-form input:focus{
   outline: none;
-  // background-color: $Green-hex;
+  background-color: $Dark-Green-hex;
+  border-radius: 5px;
 }
