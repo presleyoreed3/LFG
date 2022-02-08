@@ -1,8 +1,44 @@
-header {
+@import '../../_colors.scss';
+
+#header {
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(225, 225, 225);
+  background-color: $Green-hex;
+  padding: 20px 0px;
+}
+
+.main-logo {
+  color: $Deep-Blue-hex;
+  padding-left: 25px;
+}
+
+.main-logo{
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.navbar-signup-login a{
+  font-size: 14px;
+  width: 100%;
+  justify-content: center;
+  margin: 10px;
+  background-color: $Deep-Blue-hex;
+  color: $Green-hex;
+  border: 1px solid $Deep-Blue-hex;
+  height: 40px;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.navbar-signup-login a:hover{
+  background-color: $Green-hex;
+  color: $Deep-Blue-hex;
+}
+
+.navbar-signup-login a:hover:active{
+  background-color: $Dark-Green-hex;
 }

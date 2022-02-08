@@ -70,6 +70,5 @@ router.delete('/:id', (req, res) => {
     .catch( error => res.status(404).json({noEventFound: "No Event was found with that ID"}))
 })
 
-// router.get("/test", (req, res) => res.json({ msg: "This is the tweets route" }));
 
 module.exports = router;
