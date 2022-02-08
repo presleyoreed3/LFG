@@ -32,27 +32,27 @@ export const receiveComment = (comment) => {
   }
 }
 
-export const fetchEventComments = (eventId) => (
+export const fetchEventComments = (eventId) => dispatch => (
   CommentAPIUtil.getEventComments(eventId)
     .then(comments => dispatch(receiveEventComments))
     .catch(err => console.log(err))
 )
 
-export const createComment = (comment) => (
+export const createComment = (comment) => dispatch => (
   CommentAPIUtil.createComment(comment)
     .then(comment => dispatch(receiveNewComment(comment)))
     .catch(err => console.log(err))
 )
 
-export const updateComment = (comment) => (
+export const updateComment = (comment) => dispatch => (
   CommentAPIUtil.updateComment(comment)
     .then(comment => dispatch(receiveComment(comment)))
     .catch(err => console.log(err))
 )
 
-export const deleteComment = (commentId) => (
+export const deleteComment = (commentId) => dispatch => (
   CommentAPIUtil.deleteComment(commentId)
-    .then(() => dispatch(removeEvent(eventId)))
+    .then(() => dispatch(removeComment(commentId)))
     .catch(err => console.log(err))
 )
 
