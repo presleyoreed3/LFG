@@ -44,7 +44,8 @@ router.post('/',
   
       const newEvent = new Event({
         owner: req.user.id,
-        name: req.body.name,
+        title: req.body.title,
+        description: req.body.description,
         eventStart: req.body.eventStart,
         eventEnd: req.body.eventEnd,
         location: req.body.location,
