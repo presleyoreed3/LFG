@@ -20,7 +20,6 @@ class Home extends React.Component {
     return <div className="home-page-container">
       <div className="home-left-container">
         <HomeCalendar  events={events}/>
-        <EventShow className="hide"/>
       </div>
     </div>
   }
