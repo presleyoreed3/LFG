@@ -1,8 +1,81 @@
+@import '../../_colors.scss';
+
 .session-form-container {
   display: flex;
-  flex-direction: column;
-  height: 600px;
   align-items: center;
-  margin-top: 100px;
-  background-color: rgb(254, 254, 220);
+  flex-direction: column;
+  margin-top: 75px;
+}
+
+.signup-form{
+  display: block;
+  flex-direction: column;
+  padding: 30px;
+  margin-bottom: 30vh;
+  border-radius: 20px;
+
+}
+
+form{
+  text-decoration-color: #282828;
+  width: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: $Deep-Blue-hex;
+  border-color: $Deep-Blue-hex;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 20px;
+  align-items: center;
+  margin: 20px;
+}
+
+form h2{
+  margin-top: 30px;
+  color: $Green-hex;
+  font-size: 32px;
+}
+
+form button{
+  font-size: 14px;
+  width: 50%;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom:  10px;
+  background-color: $Deep-Blue-hex;
+  color: $Green-hex;
+  border: 1px solid $Green-hex;
+  height: 40px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+form button:hover{
+  background-color: $Green-hex;
+  color: $Deep-Blue-hex;
+}
+
+form button:hover:active{
+  background-color: $Dark-Green-hex;
+}
+
+.session-form input{
+  border: none;
+  background-color: $Deep-Blue-hex;
+  box-sizing: border-box;
+  border-bottom: 1px solid $Green-hex;
+  color: $Green-hex;
+  height: 42px;
+  width: 80%;
+  font-size:  14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  // -webkit-transition: background-color 500ms linear;
+}
+
+.session-form input:focus{
+  outline: none;
+  // background-color: $Green-hex;
 }
