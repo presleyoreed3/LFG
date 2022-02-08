@@ -41,12 +41,13 @@ class EventShow extends React.Component {
     return (
       <div className="home-page-container">
         <div className="event-show-container">
+          
           <div className="event-title">
-            <p>{event.title}</p>
+            <p>Title: {event.title}</p>
           </div>
           <div className="event-gen-info">
             <p>
-              {eventStartDate} {eventStartDate === eventEndDate ? "" : "to " + eventEndDate}
+              Date: {eventStartDate} {eventStartDate === eventEndDate ? "" : "to " + eventEndDate}
             </p>
             <p>From: {eventStartTime} to {eventEndTime}</p>
             <p>Location: {event.location}</p>
