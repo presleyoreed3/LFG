@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: $Green-hex;
-  padding: 20px 0px;
+  padding: 20px 0px 20px;
 }
 
 #logo{
@@ -23,13 +23,17 @@
   font-size: 24px;
 }
 
+.navbar-signup-login{
+  margin-right: 20px;
+}
+
 .navbar-signup-login a{
-  font-size: 14px;
+  font-size: 16px;
   width: 100%;
   justify-content: center;
   margin: 10px;
   background-color: $Deep-Blue-hex;
-  color: $Green-hex;
+  color: $Tan-hex;
   border: 1px solid $Deep-Blue-hex;
   height: 40px;
   padding: 10px;
@@ -43,5 +47,31 @@
 }
 
 .navbar-signup-login a:hover:active{
+  background-color: $Dark-Green-hex;
+}
+
+.navbar-logout{
+  margin-right: 20px;
+}
+
+.navbar-logout button{
+  font-size: 16px;
+  width: 100%;
+  justify-content: center;
+  background-color: $Deep-Blue-hex;
+  color: $Tan-hex;
+  border: 1px solid $Deep-Blue-hex;
+  height: 40px;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.navbar-logout button:hover{
+  background-color: $Green-hex;
+  color: $Deep-Blue-hex;
+}
+
+.navbar-logout button:hover:active{
   background-color: $Dark-Green-hex;
 }
