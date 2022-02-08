@@ -19,14 +19,14 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className="navbar-logout">
-          <button onClick={this.logoutUser}>Logout</button>
+          <Link className="hover-underline-animation" onClick={this.logoutUser}>Logout</Link>
         </div>
       );
     } else {
       return (
         <div className="navbar-signup-login">
-          <Link to={"/signup"}>Sign Up</Link>
-          <Link to={"/login"}>Login</Link>
+          <Link className="hover-underline-animation" to={"/signup"}>Sign Up</Link>
+          <Link className="hover-underline-animation" to={"/login"}>Login</Link>
         </div>
       );
     }
@@ -38,8 +38,8 @@ class NavBar extends React.Component {
         <div id="header-links">
           <h1 className="main-logo">LFG</h1> 
           <span><hr id="seperator"/></span>
-          <a className="hover-underline-animation">Home</a>
-          <a className="hover-underline-animation">Calendar</a>
+          <Link to={"/"} className="hover-underline-animation">Home</Link>
+          <Link to={"/home"} className="hover-underline-animation">Calendar</Link>
           <a className="hover-underline-animation">Create</a>
         </div>
         {this.getLinks()}

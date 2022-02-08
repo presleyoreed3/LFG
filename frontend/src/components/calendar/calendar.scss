@@ -19,9 +19,10 @@
 }
 
 .fc-daygrid-event{
+  text-decoration: none;
   border-color: $Dark-Green-hex;
   background-color: $Dark-Green-hex;
-  color: $Tan-hex;
+  color: $Deep-Blue-hex !important;
 }
 
 .fc-daygrid-event:hover{
