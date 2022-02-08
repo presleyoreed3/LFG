@@ -8,7 +8,7 @@
 }
 
 #footer-content{
-	height: 50px;
+	height: 150px;
 	padding: 20px;
 	display: flex;
 	justify-content: space-evenly;
@@ -16,4 +16,39 @@
 	border: 1px solid $Deep-Blue-hex;
 	background-color: $Deep-Blue-hex;
 	color: $Green-hex;
+}
+
+#devs{
+	display: flex;
+}
+
+#dev-links{
+	display: flex;
+	flex-direction: column;
+	margin-left: 25px;
+	margin-right: 25px;
+	text-align: center;
+}
+
+#nav-links h3{
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+#dev-links h3{
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+#dev-links a{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: $Green-hex;
+	text-decoration: none;
+}
+
+#dev-links a:hover{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: $Dark-Green-hex;
 }
