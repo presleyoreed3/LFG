@@ -6,6 +6,7 @@ import NavBarContainer from "./nav/navbar_container";
 import MainPage from "./splash/splash";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
+import FooterContainer from './footer/footer_container'
 import '../app.scss'
 
 const App = () => (
@@ -16,6 +17,7 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
     </Switch>
+    <FooterContainer />
   </div>
 );
 
