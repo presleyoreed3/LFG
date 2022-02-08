@@ -2,7 +2,7 @@ import React from "react";
 import EventShow from "../event/events_show";
 import HomeCalendar from './../calendar/calendar'
 import IndexItem from '../index/index_item'
-import './home.scss'
+import './home.scss';
 
 class Home extends React.Component {
 
