@@ -1,5 +1,5 @@
 import React from "react";
-import EventShow from "../event/event";
+import EventShow from "../event/events_show";
 import HomeCalendar from './../calendar/calendar'
 import './home.scss'
 
