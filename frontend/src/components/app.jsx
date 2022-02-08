@@ -10,7 +10,7 @@ import FooterContainer from './footer/footer_container'
 import '../app.scss'
 
 const App = () => (
-  <div>
+  <main>
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
@@ -18,7 +18,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
     </Switch>
     <FooterContainer />
-  </div>
+  </main>
 );
 
 export default App;

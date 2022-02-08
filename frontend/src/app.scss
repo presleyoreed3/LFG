@@ -50,8 +50,16 @@ table {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   height: 100%;
+  padding-bottom: 100px;
   font-family: 'Inter', sans-serif;
   background-color: $Green-hex;
+}
+
+main{
+  position: relative;
+  min-height: 100vh;
 }
 
