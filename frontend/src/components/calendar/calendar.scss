@@ -1,9 +1,10 @@
 @import '../../_colors.scss';
 
 #calendar {
-  width: 800px;
+  width: 900px;
   margin: auto;
   background-color: white;
+  border: 2px solid $Deep-Blue-hex;
   padding: 15px;
   border-radius: 5px;
 }
