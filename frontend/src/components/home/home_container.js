@@ -11,6 +11,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
   return {
     fetchEvents: () => dispatch(fetchEvents())
+    // fetchEvent: (eventId) => dispatch(fetchEvent(eventId))
   }
 }
 

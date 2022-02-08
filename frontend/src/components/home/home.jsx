@@ -1,5 +1,7 @@
 import React from "react";
+import EventShow from "../event/event";
 import HomeCalendar from './../calendar/calendar'
+import './home.scss'
 
 class Home extends React.Component {
 
@@ -16,7 +18,10 @@ class Home extends React.Component {
     const {events} = this.props;
     
     return <div className="home-page-container">
-      <HomeCalendar events={events}/>
+      <div className="home-left-container">
+        <HomeCalendar  events={events}/>
+        <EventShow className="hide"/>
+      </div>
     </div>
   }
 }
