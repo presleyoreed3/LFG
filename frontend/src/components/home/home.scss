@@ -1,0 +1,27 @@
+@import '../../_colors.scss';
+
+.home-page-container{
+	display: flex;
+	justify-content: space-evenly;
+	margin-top: 50px;
+}
+
+.calendar{
+	margin-left: 50px;
+	width: 75%;
+}
+
+.events-index{
+	width: 25%;
+	height: 100%;
+	background-color: $Tan-hex;
+	margin-right: 50px;
+	text-align: center;
+}
+
+.events-index h1{
+	font-size: 30px;
+	color: $Deep-Blue-hex;
+	margin-bottom: 10px;
+}
+
