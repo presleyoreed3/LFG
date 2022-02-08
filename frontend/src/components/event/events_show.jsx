@@ -33,6 +33,7 @@ class EventShow extends React.Component {
     // {console.log(this.props.match.params.eventId)}
     const event = this.findEvent()[0]
     const eventStartDate = new Date(event.eventStart).toDateString();
+    const eventEndDate = new Date(event.eventEnd).toDateString();
     const eventStartTime = new Date(event.eventStart).toLocaleTimeString()
     const eventEndTime = new Date(event.eventEnd).toLocaleTimeString();
 
