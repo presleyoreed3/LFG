@@ -8,22 +8,21 @@ import './calendar.scss'
 
 class HomeCalendar extends React.Component {
 
-  // componentDidMount() {
-  //   const calendar = document.getElementById('calendar')
-  //   const events = [{ title: "event 1", date: "2022-02-08", url: "/#/login" }];
-  //   this.createCal(calendar, events)
-  // }
-
-  // createCal(calendar, events) {
-  //   let cal = new FullCalendar.Calendar(calendar, {
-  //     plugins: [dayGridPlugin, interactionPlugin],
-  //     events: events
-  //   })
-  //   return cal;
-  // }
+  formatEvents(events) {
+    const newEvents = [];
+    events.forEach((event) => {
+      let eventObj = {
+        title: event.name,
+        start: event.eventStart,
+        end: event.eventEnd,
+      }
+      newEvents.push(eventObj)
+    })
+    return newEvents
+  }
 
   render() {
-    const events = [{title: 'event 1', date: '2022-02-08', url: "/#/login"}]
+    const events = this.formatEvents(this.props.events)
 
     return (
       <div id="calendar">

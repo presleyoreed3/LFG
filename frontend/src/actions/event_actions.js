@@ -9,7 +9,7 @@ export const receiveEvents = (events) => {
   }
 }
 
-export const fetchTweets = () => dispatch => (
+export const fetchEvents = () => dispatch => (
   getEvents()
     .then(events => dispatch(receiveEvents(events)))
     .catch(err => console.log(err))
