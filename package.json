@@ -15,6 +15,10 @@
   "author": "Brian Ko, Jerry Phan, Chris Park, Presley Reed",
   "license": "ISC",
   "dependencies": {
+    "@fullcalendar/core": "^5.10.1",
+    "@fullcalendar/daygrid": "^5.10.1",
+    "@fullcalendar/interaction": "^5.10.1",
+    "@fullcalendar/react": "^5.10.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",
     "concurrently": "^7.0.0",
