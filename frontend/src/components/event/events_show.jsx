@@ -6,7 +6,7 @@ class EventShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchEvent();
+    this.props.fetchEvents();
   }
 
   // componentDidUpdate(prevProps) {
@@ -16,7 +16,13 @@ class EventShow extends React.Component {
   // }
 
   render() {
-    return null;
+    if (!this.props.event) return null;
+    
+    return(
+      <div className="test">
+
+      </div>
+    )
   }
 }
 

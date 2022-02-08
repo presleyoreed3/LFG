@@ -1,16 +1,17 @@
 import {connect} from 'react-redux';
 import EventShow from './events_show';
-import {fetchEvent} from '../../actions/event_actions';
+import {fetchEvent, fetchEvents} from '../../actions/event_actions';
 
 const mSTP = (state,ownProps) => {
   return {
-    events: state.entities.events[ownProps.match.params.eventId]
+    event: state.entities.events[ownProps.match.params.eventId]
   }
 }
 
 const mDTP = (dispatch) => {
   return {
-    fetchEvent: (eventId) => dispatch(fetchEvent(eventId))
+    fetchEvents: () => dispatch(fetchEvents()),
+    // fetchEvent: (eventId) => dispatch(fetchEvent(eventId))
   }
 }
 
