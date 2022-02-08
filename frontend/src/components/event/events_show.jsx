@@ -50,7 +50,12 @@ class EventShow extends React.Component {
               Date: {eventStartDate} {eventStartDate === eventEndDate ? "" : "to " + eventEndDate}
             </p>
             <p>From: {eventStartTime} to {eventEndTime}</p>
-            <p>Location: {event.location}</p>
+            <p className="event-show-location">Location:    
+               {event.eventType === 'Online' ? ' Online' : <a href={`http://maps.google.com/?q=${event.location}`} target='_blank'> {event.location}</a>}
+            </p>
+
+            
+
           </div>
           <div className="event-desc">
             {event.description}
