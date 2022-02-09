@@ -34,7 +34,7 @@ export const receiveComment = (comment) => {
 
 export const fetchEventComments = (eventId) => dispatch => (
   CommentAPIUtil.getEventComments(eventId)
-    .then(comments => dispatch(receiveEventComments))
+    .then(comments => dispatch(receiveEventComments(comments)))
     .catch(err => console.log(err))
 )
 

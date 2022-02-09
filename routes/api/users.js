@@ -9,7 +9,12 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
 
-router.get("/", (req, res) => res.json({ msg: "This is the users route" }));
+router.get('/', (req, res) => {
+  User.find()
+      .sort({ date: -1 })
+      .then(users => res.json(users))
+      .catch(err => res.status(404).json({ nousersfound: 'No Users found' }));
+});
 
 
 router.post('/register', (req, res) => {
@@ -74,7 +79,7 @@ router.post('/login', (req,res) => {
           if (isMatch) {
             const payload = {
               id: user.id,
-              handle: user.handle,
+              username: user.username,
               email: user.email
             }
             jwt.sign(

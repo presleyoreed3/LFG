@@ -1,5 +1,6 @@
 import React from "react";
 import IndexItem from "../index/index_item";
+import CommentIndexContainer from "../comments/comment_index_container";
 import "./events.scss"
 
 
@@ -54,6 +55,7 @@ class EventShow extends React.Component {
           <div className="event-desc">
             {event.description}
           </div>
+          <CommentIndexContainer eventId={event._id}/>
         </div>
         <div className="events-index">
           <h1>Events</h1>
