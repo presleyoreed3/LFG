@@ -7,6 +7,8 @@ class CommentIndexItem extends React.Component{
     this.state = {
       edit: false
     }
+
+    this.editComment = this.editComment.bind(this)
   }
 
   commentUserCheck(){
@@ -15,6 +17,21 @@ class CommentIndexItem extends React.Component{
         return this.props.users[i]
       }
     }
+  }
+
+  editComment(){
+    (this.state.edit) ? this.setState({edit: false}) : this.setState({edit: true})
+    if (this.state.edit) {
+      this.setActive()
+    }
+  }
+
+  setActive(e){
+    e.preventDefault();
+    e.stopPropagation();
+    let dropdown = document.querySelector('.comment-dropdown-content')
+    console.log(dropdown)
+    dropdown.classList.toggle('active')
   }
 
   render(){
@@ -33,12 +50,12 @@ class CommentIndexItem extends React.Component{
       <div className="comment-index-item-container">
         <div className="comment-index-username-dropdown">
             <h2 className="comment-index-item-username">{user.username}</h2>
-            <div className="comment-index-dropdown">
-                <p className="comment-index-option">{commentOptions}</p>
-                {/* <div className="comment-dropdown-content"> 
+            <div className="comment-index-dropdown" onClick={this.setActive}>
+                <p className="comment-index-option" >{commentOptions}</p>
+                <div className="comment-dropdown-content"> 
                   <p className="comment-dropdown-options" >Edit</p>
                   <p className="comment-dropdown-options" >Delete</p>
-                </div> */}
+                </div>
             </div>
         </div>
           
