@@ -4,33 +4,63 @@ import CommentIndexContainer from "../comments/comment_index_container";
 import "./events.scss"
 import Count from '../attendees/count'
 
-
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       render: ''
     }
-    this.findEvent = this.findEvent.bind(this)
+    this.findEvent = this.findEvent.bind(this);
+
+    this.dropDownClose();
   }
 
   componentDidMount() {
     this.props.fetchEvents();
   }
 
-
-
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.match.params.eventId !== prevProps.match.params.eventId) {
-  //     this.componentDidMount();
-  //   }
-  // }
+  dropDownClose() {
+    document.addEventListener("click", (event) => {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    })
+  }
 
   checkLogin(){
     if (this.props.loggedIn){
       return(
         <button>Join the Fun</button>
       )
+    }
+  }
+
+  handleDropdown() {
+    document.getElementById('myDropdown').classList.toggle("show");
+  }
+
+  checkOwner(owner){
+    if (this.props.currentUser.id === owner) {
+      return (
+        <div className="dropdown">
+          <div onClick={this.handleDropdown} className="dropbtn">
+            PH
+          </div>
+          <div id="myDropdown" className="dropdown-content">
+            <div onClick={() => this.props.openModal('eventUpdateForm', this.props.match.params.eventId)}>Update</div>
+            <div onClick={() => this.props.openModal('deleteEvent', this.props.match.params.eventId)}>Delete</div>
+          </div>
+        </div>
+      )
+    } else {
+      return null;
     }
   }
 
@@ -60,11 +90,15 @@ class EventShow extends React.Component {
     const eventEndDate = new Date(event.eventEnd).toDateString();
     const eventStartTime = new Date(event.eventStart).toLocaleTimeString()
     const eventEndTime = new Date(event.eventEnd).toLocaleTimeString();
+    const eventOwner = event.owner;
+
 
     return (
       <div className="home-page-container">
         <div className="event-show-left-container">
+          {/* {this.checkOwner(eventOwner)} */}
           <div id="event" className="event-show-container">
+            {this.checkOwner(eventOwner)}
             <div id="details">
               <div className="event-title">
                 <h3>{event.title}</h3>
@@ -96,7 +130,6 @@ class EventShow extends React.Component {
           <CommentIndexContainer eventId={event._id}/>
         </div>
         <button className="test-button" onClick={() => this.props.openModal('eventForm', 1)}>Create</button>
-        <button className="test-button" onClick={() => this.props.openModal('eventUpdateForm', this.props.match.params.eventId)}>Update</button>
         <div className="events-index">
           <h1>Events</h1>
           {this.props.events.map((event) => (
