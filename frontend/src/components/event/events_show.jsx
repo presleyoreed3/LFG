@@ -15,6 +15,8 @@ class EventShow extends React.Component {
     this.findEvent = this.findEvent.bind(this)
     this.checkAttendance = this.checkAttendance.bind(this)
     this.getOwnerName = this.getOwnerName.bind(this)
+    this.collapseDescription = this.collapseDescription.bind(this)
+    this.collapseUser = this.collapseUser.bind(this);
     this.dropDownClose();
 
   }
@@ -41,6 +43,7 @@ class EventShow extends React.Component {
         return (<p>Created By: {this.props.users[i].username}</p>)
       }
     }
+  }
 
   dropDownClose() {
     document.addEventListener("click", (event) => {
@@ -67,14 +70,14 @@ class EventShow extends React.Component {
   }
 
 
-  collapseDescription(){
-    let col = document.getElementsByClassName("collapsible-description")
+
 
   handleDropdown() {
     document.getElementById('myDropdown').classList.toggle("show");
-  }
+}
 
   checkOwner(owner){
+    if (!this.props.currentUser) return
     if (this.props.currentUser.id === owner) {
       return (
         <div className="dropdown">
@@ -92,8 +95,8 @@ class EventShow extends React.Component {
     }
   }
 
-  collapse(){
-    let col = document.getElementsByClassName("collapsible")
+  collapseDescription(){
+    let col = document.getElementsByClassName("collapsible-description")
 
     col[0].classList.toggle("active");
     var content = document.getElementsByClassName("content");
