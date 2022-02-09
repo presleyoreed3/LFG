@@ -1,5 +1,15 @@
 @import '../../_colors.scss';
 
+#event{
+	width: 900px;
+	margin-right: auto;
+  background-color: white;
+  border: 1px solid $Deep-Blue-hex;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 3px 3px rgba(0,0,0,.25);
+}
+
 .home-page-container{
 	display: flex;
 	justify-content: space-evenly;
@@ -20,6 +30,8 @@
 }
 
 .event-show-container {
+	display: flex;
+	justify-content: space-between;
 	width: 75%;
   margin-left: 50px;
 	font-size: 24px;
@@ -38,3 +50,46 @@
 .event-show-location a:hover{
   color: $Dark-Green-hex;
 }
+
+#details{
+	width: 75%;
+	margin: 10px;
+}
+
+#counter{
+	display: flex;
+	margin: 10px;
+	width: 25%;
+	justify-content: space-evenly;
+}
+
+#limit {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#limit p{
+	margin-bottom: 5px;
+}
+
+#goal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#goal p{
+	font-size: 35px;
+	line-height: 50px;
+	margin-right: 10px;
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+
+
+

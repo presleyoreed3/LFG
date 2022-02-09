@@ -27,13 +27,6 @@ class Home extends React.Component {
           <IndexItem 
             key={event._id}
             event={event}
-            title={event.title}
-            category={event.category}
-            eventType={event.eventType}
-            start={event.eventStart}
-            end={event.eventEnd}
-            limit={event.limit}
-    
           />
         ))}
       </div>

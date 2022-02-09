@@ -4,6 +4,7 @@
 	display: flex;
 	justify-content: space-evenly;
 	margin-top: 50px;
+	padding-bottom: 200px;
 }
 
 .calendar{
@@ -19,6 +20,7 @@
 	padding: 10px;
 	border-radius: 5px;
 	margin-right: 50px;
+	box-shadow: 3px 3px rgba(0,0,0,.25);
 }
 
 .events-index h1{
