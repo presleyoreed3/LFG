@@ -17,6 +17,19 @@
   color: #053868;
 }
 
+.comment-index-username-dropdown{
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-index-option{
+  margin-right: 30px;
+}
+
+.fas.fa-ellipsis-v{
+  color: #053868;
+}
+
 .comment-index-item-username{
   font-size: 25px;
 }

@@ -40,7 +40,7 @@ class CommentIndex extends React.Component {
               <CommentForm eventId={this.props.eventId} user={this.props.currentUser} createComment={this.props.createComment} />
             {
               EventsComments.map((comment) => {
-                return <CommentIndexItem key={comment._id} comment={comment} users={this.props.users}/>
+                return <CommentIndexItem key={comment._id} comment={comment} users={this.props.users} currentUser={this.props.currentUser}/>
               })
             }
         </div>
