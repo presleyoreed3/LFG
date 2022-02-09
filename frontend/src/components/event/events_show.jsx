@@ -115,9 +115,9 @@ class EventShow extends React.Component {
               </div>
               <hr />
               <button onClick={() => this.collapse()} className="collapsible">View Details</button>
-              <div className="content">
+              <pre className="content">
                 {event.description}
-              </div>
+              </pre>
             </div>
             <div id="attendence">
               <Count event={event}/>

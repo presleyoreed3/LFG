@@ -134,6 +134,9 @@ button:hover:active{
 }
 
 .content {
+	overflow-x: auto;
+	white-space: break-spaces;
+	word-wrap: break-word; 
 	padding: 20px;
 	border-radius: 5px;
   display: none;

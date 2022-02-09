@@ -36,7 +36,6 @@ router.get('/:id', (req, res) => {
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-      // debugger
       const { errors, isValid } = validateCommentInput(req.body);
       if (!isValid) {
         return res.status(400).json(errors);
@@ -45,17 +44,34 @@ router.post('/',
       const newComment = new Comment({
         ownerId: req.user.id,
         text: req.body.text,
-        eventId: req.body.eventId
+        eventId: req.body.eventId,
       });
   
       newComment.save().then(comment => res.json(comment));
     }
   );
 
-router.patch('/:id', (req, res) => {
-  Comment.updateOne({_id: req.params.id})
-    .then(() => res.json({updated: "Comment has been successfully updated"}, req.body))
-    .catch( error => res.status(404).json({noCommentFound: "No Comment was found with that ID"}))
+// router.patch('/:id', (req, res) => {
+//   Comment.updateOne({_id: req.params.id})
+//     .then(() => res.json({updated: "Comment has been successfully updated"}, req.body))
+//     .catch( error => res.status(404).json({noCommentFound: "No Comment was found with that ID"}))
+// })
+
+
+router.patch('/:id', async (req, res) => {
+  const id = req.body._id;
+  const index = req.body.index
+  try {
+    await Comment.findById(id, (error, commentToUpdate) => {
+      commentToUpdate.text= req.body.text,
+      commentToUpdate.index = index,
+      commentToUpdate.save();
+      res.send(commentToUpdate)
+    })
+  } catch (error) {
+    console.log(error);
+  }
+
 })
 
 router.delete('/:id', (req, res) => {

@@ -14,7 +14,6 @@ export const receiveEvents = (events) => {
 }
 
 export const receiveEvent = (event) => {
-  debugger
   return {
     type: RECEIVE_EVENT,
     event
@@ -53,7 +52,6 @@ export const createEvent = (event) => dispatch => (
 )
 
 export const updateEvent = (event) => dispatch => {
-  debugger
   return EventAPIUtil.updateEvent(event)
     .then((event) => dispatch(receiveEvent(event)))
     .catch(err => console.log(err))
