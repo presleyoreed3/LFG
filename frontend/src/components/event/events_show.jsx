@@ -80,7 +80,7 @@ class EventShow extends React.Component {
                 </p>
               </div>
               <hr />
-              <button onClick={() => this.collapse()} className="collapsible">View Details</button>
+              <p onClick={() => this.collapse()} className="hover-underline-animation collapsible">View Details</p>
               <pre className="content">
                 {event.description}
               </pre>
@@ -94,9 +94,9 @@ class EventShow extends React.Component {
             </div>
           </div>
           <CommentIndexContainer eventId={event._id}/>
-        </div>
+        </div>{/*
         <button className="test-button" onClick={() => this.props.openModal('eventForm', 1)}>Create</button>
-        <button className="test-button" onClick={() => this.props.openModal('eventUpdateForm', this.props.match.params.eventId)}>Update</button>
+        <button className="test-button" onClick={() => this.props.openModal('eventUpdateForm', this.props.match.params.eventId)}>Update</button>*/}
         <div className="events-index">
           <h1>Events</h1>
           {this.props.events.map((event) => (

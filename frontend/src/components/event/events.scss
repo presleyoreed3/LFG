@@ -41,6 +41,10 @@
   color: $Dark-Green-hex;
 }
 
+.collapsible{
+	cursor: pointer;
+}
+
 #details{
 	width: 75%;
 	margin: 10px;
@@ -141,7 +145,7 @@ button:hover:active{
 	border-radius: 5px;
   display: none;
   overflow: hidden;
-  background-color: #F0F0F1;
+  
 }
 
 .test-button {
