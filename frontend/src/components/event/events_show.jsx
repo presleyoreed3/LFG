@@ -28,10 +28,7 @@ class EventShow extends React.Component {
 
   render() {
 
-    // if (!this.props.event) return null;
     if (this.props.events.length === 0) return null;
-    // {console.log(this.props.events)}
-    // {console.log(this.props.match.params.eventId)}
     const event = this.findEvent()[0]
     const eventStartDate = new Date(event.eventStart).toDateString();
     const eventEndDate = new Date(event.eventEnd).toDateString();
@@ -41,24 +38,32 @@ class EventShow extends React.Component {
     return (
       <div className="home-page-container">
         <div id="event" className="event-show-container">
-          
-          <div className="event-title">
-            <p>Title: {event.title}</p>
+          <div id="details">
+            <div className="event-title">
+              <h3>{event.title}</h3>
+            </div>
+            <div className="event-gen-info">
+              <p>
+                Date: {eventStartDate} {eventStartDate === eventEndDate ? "" : "to " + eventEndDate}
+              </p>
+              <p>From: {eventStartTime} to {eventEndTime}</p>
+              <p className="event-show-location">Location:    
+                 {event.eventType === 'Online' ? ' Online' : <a href={`http://maps.google.com/?q=${event.location}`} target='_blank'> {event.location}</a>}
+              </p>
+            </div>
+            <div className="event-desc">
+              {event.description}
+            </div>
           </div>
-          <div className="event-gen-info">
-            <p>
-              Date: {eventStartDate} {eventStartDate === eventEndDate ? "" : "to " + eventEndDate}
-            </p>
-            <p>From: {eventStartTime} to {eventEndTime}</p>
-            <p className="event-show-location">Location:    
-               {event.eventType === 'Online' ? ' Online' : <a href={`http://maps.google.com/?q=${event.location}`} target='_blank'> {event.location}</a>}
-            </p>
-
-            
-
-          </div>
-          <div className="event-desc">
-            {event.description}
+          <div id="counter">
+            <div id="limit">
+              <h4>Open Spots:</h4>
+              <p>{event.limit - event.attendees.length}</p>
+            </div>
+            <div id="goal">
+              <h4>Goal:</h4>
+              <p>{event.limit}</p>
+            </div>
           </div>
         </div>
         <div className="events-index">

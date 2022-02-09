@@ -30,6 +30,8 @@
 }
 
 .event-show-container {
+	display: flex;
+	justify-content: space-between;
 	width: 75%;
   margin-left: 50px;
 	font-size: 24px;
@@ -47,4 +49,19 @@
 
 .event-show-location a:hover{
   color: $Dark-Green-hex;
+}
+
+#details{
+	width: 75%;
+}
+
+#counter{
+	display: flex;
+	margin: 10px;
+	width: 25%;
+	justify-content: space-between;
+}
+
+#limit p {
+	text-align: center;
 }

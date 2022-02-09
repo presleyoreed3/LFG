@@ -8,13 +8,13 @@ class IndexItem extends React.Component{
 		return(
 			<div className="event-item" onClick={()=> this.props.history.push(`/events/${this.props.event._id}`)}>
 				<div id='details'>
-					<h3>{this.props.title}</h3>
-					<p>Event Type: {this.props.eventType}</p>
-					<p>Category: {this.props.category}</p>
+					<h3>{this.props.event.title}</h3>
+					<p>Event Type: {this.props.event.eventType}</p>
+					<p>Category: {this.props.event.category}</p>
 				</div>
 				<div id='limit'>
 					<h4>Spots:</h4>
-					<p>{this.props.limit}</p>
+					<p>{this.props.event.limit - this.props.event.attendees.length}</p>
 				</div>
 			</div>
 		)

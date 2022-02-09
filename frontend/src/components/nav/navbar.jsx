@@ -12,7 +12,7 @@ class NavBar extends React.Component {
   checkCreate(){
     if (this.props.loggedIn){
       return (
-        <Link >Create</Link>
+        <Link className="hover-underline-animation">Create</Link>
       )
     }
   }
