@@ -50,7 +50,7 @@ table {
 }
 
 body {
-  margin: 0;
+  margin: 0px;
   padding: 0;
   height: 100%;
   font-family: 'Inter', sans-serif;
@@ -61,4 +61,9 @@ main{
   position: relative;
   min-height: 100vh;
 }
+
+// header{
+//   position: fixed;
+//   top: 0;
+// }
 
