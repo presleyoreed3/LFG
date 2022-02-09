@@ -1,5 +1,11 @@
 @import '../../_colors.scss';
 
+.session-form-background {
+  background: url('https://i.imgur.com/fjrEiZL.jpg') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+}
+
 .session-form-container {
   display: flex;
   align-items: center;
