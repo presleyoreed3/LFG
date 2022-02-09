@@ -13,7 +13,8 @@ export const createEvent = (event) => {
 };
 
 export const updateEvent = (event) => {
-  return axios.patch(`/api/events/${event.id}`, event)
+  debugger
+  return axios.patch(`/api/events/${event._id}`, event)
 };
 
 export const deleteEvent = (eventId) => {

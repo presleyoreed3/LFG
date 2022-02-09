@@ -8,12 +8,17 @@ import Count from '../attendees/count'
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      render: ''
+    }
     this.findEvent = this.findEvent.bind(this)
   }
 
   componentDidMount() {
     this.props.fetchEvents();
   }
+
+
 
   // componentDidUpdate(prevProps) {
   //   if (this.props.match.params.eventId !== prevProps.match.params.eventId) {
@@ -87,6 +92,8 @@ class EventShow extends React.Component {
           </div>
           <CommentIndexContainer eventId={event._id}/>
         </div>
+        <button className="test-button" onClick={() => this.props.openModal('eventForm', 1)}>Create</button>
+        <button className="test-button" onClick={() => this.props.openModal('eventUpdateForm', this.props.match.params.eventId)}>Update</button>
         <div className="events-index">
           <h1>Events</h1>
           {this.props.events.map((event) => (

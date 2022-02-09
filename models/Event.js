@@ -47,6 +47,10 @@ const EventSchema = new Schema({
     ref: 'users',
     required: true,
     default: []
+  },
+  index: {
+    type: Number,
+    required: false
   }
   // comments: {
   //   type: [Schema.Types.ObjectId],

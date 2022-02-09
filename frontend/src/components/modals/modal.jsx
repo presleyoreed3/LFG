@@ -2,15 +2,20 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import EventFormContainer from './event_form_container';
+import EventUpdateFormContainer from './event_update_form_container';
+import './modal.scss';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (modal[0]) {
     case 'eventForm':
       component = <EventFormContainer />;
+      break;
+    case 'eventUpdateForm':
+      component = <EventUpdateFormContainer eventId={modal[1]}/>;
       break;
     default:
       return null;

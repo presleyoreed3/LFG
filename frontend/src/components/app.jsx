@@ -14,8 +14,8 @@ import '../app.scss'
 
 const App = () => (
   <main>
+    <NavBarContainer />
     <Modal />
-    <NavBarContainer /> 
     <Switch>
       <Route exact path="/home" component={HomeContainer} />
       <Route exact path='/events/:eventId' component={EventShowContainer}/>
