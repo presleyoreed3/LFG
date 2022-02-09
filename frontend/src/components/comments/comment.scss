@@ -1,17 +1,36 @@
 @import '../../_colors.scss';
 
+.comment-index-container {
+  margin-top: 15px;
+  margin-right: auto;
+  background-color: white;
+  border: 1px solid #053868;
+  padding: 59px;
+  border-radius: 5px;
+  box-shadow: 3px 3px rgb(0 0 0 / 25%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 813px;
+  margin-left: 50px;
+  font-size: 24px;
+  color: #053868;
+}
+
 .comment-index-item-username{
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .comment-index-item-text{
   font-size: 16px;
+  padding-left: 15px;
+  padding-top: 10px
 }
 
 .comment-index-item-container{
   display: flex;
   flex-direction: column;
-  margin: 20px 0px;
+  margin-bottom: 26px;
 }
 
 #comment-form-real{
@@ -26,7 +45,7 @@
   width: 98%;
   padding: 15px 10px;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 .comment-form-textarea{
@@ -48,20 +67,21 @@
 
 .comment-form{
   flex-direction: column;
-  background-color: $Tan-hex;
+  background-color: white;
   display: flex;
+  align-self: center;
   width: 90%;
 }
 
 .comment-form-username{
+  padding-left: 35px;
   line-height: normal;
 }
 
 
 .comment-form-buttons{
   display: flex;
-  align-items: center;
-  vertical-align: middle;
+  align-self: self-end;
   // justify-content: flex-end;
   // visibility: hidden;
 }
