@@ -90,6 +90,8 @@ class EventShow extends React.Component {
             </div>
           </div>
         </div>
+        <button className="test-button" onClick={() => this.props.openModal('eventForm', 1)}>Create</button>
+        <button className="test-button" onClick={() => this.props.openModal('eventUpdateForm', this.props.match.params.eventId)}>Update</button>
         <div className="events-index">
           <h1>Events</h1>
           {this.props.events.map((event) => (
