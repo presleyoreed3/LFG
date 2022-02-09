@@ -19,9 +19,10 @@ export const receiveNewComment = comment => {
   }
 }
 
-export const removeComment = () => {
+export const removeComment = (commentId) => {
   return {
-    type: REMOVE_COMMENT
+    type: REMOVE_COMMENT,
+    commentId
   }
 }
 
