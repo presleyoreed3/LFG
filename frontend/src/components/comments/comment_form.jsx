@@ -6,8 +6,8 @@ class CommentForm extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      ownerId: '',
-      eventId: '',
+      ownerId: this.props.user.id,
+      eventId: this.props.eventId,
       text: '',
       errors: []
     }
@@ -17,20 +17,20 @@ class CommentForm extends React.Component{
     this.handleCancel = this.handleCancel.bind(this);
   }
 
-  componentDidMount(){
-    // only signed in users can post comment
-    if (!this.props.user) return null;
-    this.setState({ownerId: this.props.user.id, 
-                  eventId: this.props.eventId,
-                  errors: []
-                  })
-  }
+  // componentDidMount(){
+  //   // only signed in users can post comment
+  //   if (!this.props.user) return null;
+  //   this.setState({ownerId: this.props.user.id, 
+  //                 eventId: this.props.eventId,
+  //                 errors: []
+  //                 })
+  // }
 
-  componentDidUpdate(prevProps){
-    if (this.props.eventId !== prevProps.eventId){
-      this.componentDidMount()
-    }
-  }
+  // componentDidUpdate(prevProps){
+  //   if (this.props.eventId !== prevProps.eventId){
+  //     this.componentDidMount()
+  //   }
+  // }
 
   handleErrors(e){
     if (e.currentTarget.value.length > 0) {
@@ -47,6 +47,7 @@ class CommentForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     const comment = Object.assign({}, this.state);
+    debugger
     this.props.createComment(comment)
       .then(() => this.setState({ text: ''}))
       // .fail(() => this.setState({ errors: this.props.errors }));

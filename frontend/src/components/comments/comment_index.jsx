@@ -13,11 +13,11 @@ class CommentIndex extends React.Component {
     this.props.fetchUsers()
   }
 
-  componentDidUpdate(prevProps){
-    if (this.props.eventId !== prevProps.eventId) {
-      this.componentDidMount()
-    }
-  }
+  // componentDidUpdate(prevProps){
+  //   if (this.props.eventId !== prevProps.eventId) {
+  //     this.componentDidMount()
+  //   }
+  // }
 
   commentEventCheck(){
     let commentEvents = []

@@ -45,7 +45,6 @@ router.post('/',
         ownerId: req.user.id,
         text: req.body.text,
         eventId: req.body.eventId,
-        index: null
       });
   
       newComment.save().then(comment => res.json(comment));
