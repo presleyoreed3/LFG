@@ -7,14 +7,12 @@ const mSTP = (state,ownProps) => {
   return {
     events: state.entities.events,
     loggedIn: state.session.isAuthenticated,
-    // event: state.entities.events[ownProps.match.params.eventId]
   }
 }
 
 const mDTP = (dispatch) => {
   return {
     fetchEvents: () => dispatch(fetchEvents()),
-    // fetchEvent: (eventId) => dispatch(fetchEvent(eventId)),
     openModal: (modal, eventId) => dispatch(openModal(modal, eventId))
   }
 }
