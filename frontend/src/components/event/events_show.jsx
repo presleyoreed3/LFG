@@ -32,10 +32,8 @@ class EventShow extends React.Component {
   }
 
   getOwnerName(userId){
-    console.log(userId)
     const event = this.findEvent()[0];
     for(let i = 0; i < this.props.users.length; i++){
-      console.log(this.props.users[i])
       if (userId === this.props.users[i]._id){
         return (<p>Created By: {this.props.users[i].username}</p>)
       }

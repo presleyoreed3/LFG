@@ -27,7 +27,7 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className="navbar-logout">
-          <Link className="hover-underline-animation" onClick={this.logoutUser}>Logout</Link>
+          <a className="hover-underline-animation" onClick={this.logoutUser}>Logout</a>
         </div>
       );
     } else {
