@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { updateComment } from "../../actions/comment_actions";
+import { updateComment, fetchEventComments } from "../../actions/comment_actions";
 import CommentEdit from "./comment_edit";
 
 
@@ -9,14 +9,17 @@ const mSTP = (state,ownProps) => {
   // remember in comment index item to add currentUser to props
   return {
     comment: ownProps.comment,
-    currentUser: ownProps.user
+    currentUser: ownProps.currentUser,
+    // comments: state.entities.comments,
+    eventId: ownProps.eventId
     // errors: state.errors.commentErrors
   }
 }
 
 const mDTP = (dispatch) => {
   return {
-    updateComment: (comment) => dispatch(updateComment(comment))
+    updateComment: (comment) => dispatch(updateComment(comment)),
+    // fetchEventComments: (eventId) => dispatch(fetchEventComments(eventId))
   }
 }
 

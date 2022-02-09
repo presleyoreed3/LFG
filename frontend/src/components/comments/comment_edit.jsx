@@ -1,5 +1,5 @@
 import React from "react";
-import './comment/scss';
+import './comment.scss';
 
 
 class CommentEdit extends React.Component {
@@ -7,16 +7,30 @@ class CommentEdit extends React.Component {
     super(props)
     this.state = Object.assign({errors: []} , this.props.comment)
     this.handleErrors = this.handleErrors.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
+    // this.findIndex = this.findIndex.bind(this);
   }
 
+
+  // componentDidMount(){
+  //   this.props.fetchEventComments(this.props.eventId)
+  // }
+
+  componentWillUnmount() {
+    // fix Warning: Can't perform a React state update on an unmounted component
+    this.setState = (state,callback)=>{
+        return;
+    };
+}
 
   handleSubmit(e){
     e.preventDefault();
     const comment = Object.assign({}, this.state);
+    // this.findIndex(this.props.comment)
     this.props.updateComment(comment)
     // testEdit is to close the form
-    // .then(() => this.props.testEdit())
+    .then(() => this.props.editComment())
       // .fail(() => this.setState({ errors: this.props.errors }));
       return null
   }
@@ -27,9 +41,21 @@ class CommentEdit extends React.Component {
     }
   }
 
+  handleCancel(e){
+    //reset body to empty
+    e.preventDefault();
+    this.props.editComment();
+  }
+
   update(field){
     return e => this.setState({ [field]: e.currentTarget.value });
   }
+
+  // findIndex(comment){
+  //   let commentIndex = this.props.comments.indexOf((comment));
+  //   let newState = Object.assign({}, this.props.comment, {index: commentIndex})
+  //   this.setState(newState)
+  // }
 
   render(){
     // no current user
@@ -39,7 +65,7 @@ class CommentEdit extends React.Component {
         <form onSubmit={this.handleSubmit} className="edit-comment">
           <textarea onKeyUp={this.handleErrors} className="edit-comment-textarea" value={this.state.text} onChange={this.update('text')}/>
             <div className="edit-comment-buttons">
-              <button className='edit-comment-button'>Cancel</button>
+              <button className='edit-comment-button' onClick={this.handleCancel}>Cancel</button>
               <input className='edit-comment-input'type='submit' placeholder="Comment"/>
             </div>
         </form>

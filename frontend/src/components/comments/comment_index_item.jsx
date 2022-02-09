@@ -1,5 +1,6 @@
 import React from "react";
 import './comment.scss';
+import CommentEditContainer from './comment_edit_container';
 
 class CommentIndexItem extends React.Component{
   constructor(props){
@@ -8,7 +9,8 @@ class CommentIndexItem extends React.Component{
       edit: false
     }
 
-    this.editComment = this.editComment.bind(this)
+    this.editComment = this.editComment.bind(this);
+    this.setActive = this.setActive.bind(this);
   }
 
   commentUserCheck(){
@@ -21,17 +23,18 @@ class CommentIndexItem extends React.Component{
 
   editComment(){
     (this.state.edit) ? this.setState({edit: false}) : this.setState({edit: true})
-    if (this.state.edit) {
-      this.setActive()
-    }
+    // if (this.state.edit) {
+    //   this.setActive()
+    // }
   }
 
-  setActive(e){
-    e.preventDefault();
-    e.stopPropagation();
-    let dropdown = document.querySelector('.comment-dropdown-content')
-    console.log(dropdown)
-    dropdown.classList.toggle('active')
+  setActive(){
+    let dropdown = document.querySelectorAll(`.comment-dropdown-content`);
+    dropdown.forEach((option) => {
+      if (option.classList.contains(this.props.index)) {
+        option.classList.toggle('active')
+      }
+    })
   }
 
   render(){
@@ -50,17 +53,15 @@ class CommentIndexItem extends React.Component{
       <div className="comment-index-item-container">
         <div className="comment-index-username-dropdown">
             <h2 className="comment-index-item-username">{user.username}</h2>
-            <div className="comment-index-dropdown" onClick={this.setActive}>
-                <p className="comment-index-option" >{commentOptions}</p>
-                <div className="comment-dropdown-content"> 
-                  <p className="comment-dropdown-options" >Edit</p>
-                  <p className="comment-dropdown-options" >Delete</p>
+            <div className="comment-index-dropdown" >
+                <p className="comment-index-option" onClick={this.setActive}>{commentOptions}</p>
+                <div className={`comment-dropdown-content ${this.props.index}`}> 
+                  <p className="comment-dropdown-options" onClick={this.editComment}>Edit</p>
+                  <p className="comment-dropdown-options" onClick={() => this.props.openModal('deleteComment', this.props.comment._id)}>Delete</p>
                 </div>
             </div>
         </div>
-          
-        <p className="comment-index-item-text">{this.props.comment.text}</p>
-        
+        {this.state.edit ? <CommentEditContainer eventId={this.props.comment.eventId} comment={this.props.comment} currentUser={this.props.currentUser} editComment={this.editComment}/>  : <p className="comment-index-item-text">{this.props.comment.text}</p>}        
       </div>
     )
   }

@@ -52,10 +52,27 @@ router.post('/',
     }
   );
 
-router.patch('/:id', (req, res) => {
-  Comment.updateOne({_id: req.params.id})
-    .then(() => res.json({updated: "Comment has been successfully updated"}, req.body))
-    .catch( error => res.status(404).json({noCommentFound: "No Comment was found with that ID"}))
+// router.patch('/:id', (req, res) => {
+//   Comment.updateOne({_id: req.params.id})
+//     .then(() => res.json({updated: "Comment has been successfully updated"}, req.body))
+//     .catch( error => res.status(404).json({noCommentFound: "No Comment was found with that ID"}))
+// })
+
+
+router.patch('/:id', async (req, res) => {
+  const id = req.body._id;
+  const index = req.body.index
+  try {
+    await Comment.findById(id, (error, commentToUpdate) => {
+      commentToUpdate.text= req.body.text,
+      commentToUpdate.index = index,
+      commentToUpdate.save();
+      res.send(commentToUpdate)
+    })
+  } catch (error) {
+    console.log(error);
+  }
+
 })
 
 router.delete('/:id', (req, res) => {

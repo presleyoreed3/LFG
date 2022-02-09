@@ -6,6 +6,9 @@ const CommentsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_EVENT_COMMENTS:
       return action.comments.data;
+    case RECEIVE_COMMENT:
+      // nextState[action.comment.data.index] = action.comment.data
+      return action.comment.data
     default:
       return state;
   }
