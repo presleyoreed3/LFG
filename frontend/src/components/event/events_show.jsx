@@ -55,9 +55,7 @@ class EventShow extends React.Component {
               {event.description}
             </div>
           </div>
-          <Count 
-            event={event}
-          />
+            <Count event={event}/>
         </div>
         <div className="events-index">
           <h1>Events</h1>
