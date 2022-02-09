@@ -63,6 +63,7 @@ form button:hover:active{
  
 input{
   border: none;
+  overflow: auto;
   background-color: $Deep-Blue-hex;
   box-sizing: border-box;
   border-bottom: 1px solid $Green-hex;

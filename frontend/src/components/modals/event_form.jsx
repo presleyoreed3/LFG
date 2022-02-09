@@ -66,13 +66,10 @@ class EventForm extends React.Component {
   render() {
     return (
       <div>
-       
-        
         <form onSubmit={this.handleSubmit}>
           <div id="modal-top">
           <h2>Create an LFG</h2>
             <div onClick={this.props.closeModal} class="close">&times;</div>
-            
           </div>
           <input
             placeholder="Event Title"
