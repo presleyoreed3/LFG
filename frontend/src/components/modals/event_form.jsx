@@ -67,9 +67,13 @@ class EventForm extends React.Component {
     return (
       <div>
        
-        <div onClick={this.props.closeModal}>CLOSE MODAL</div>
+        
         <form onSubmit={this.handleSubmit}>
+          <div id="modal-top">
           <h2>Create an LFG</h2>
+            <div onClick={this.props.closeModal} class="close">&times;</div>
+            
+          </div>
           <input
             placeholder="Event Title"
             type="text"
@@ -86,6 +90,7 @@ class EventForm extends React.Component {
             <div id="date">
               <label>Start</label>
               <input
+                id="date-input"
                 type="datetime-local"
                 value={this.state.eventStart}
                 onChange={this.update("eventStart")}
@@ -94,6 +99,7 @@ class EventForm extends React.Component {
             <div id='date'>
               <label>End</label>
               <input
+                id="date-input"
                 type="datetime-local"
                 value={this.state.eventEnd}
                 onChange={this.update("eventEnd")}

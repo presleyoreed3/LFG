@@ -105,9 +105,27 @@ select{
   -webkit-appearance: none;
 }
 
-label{
+#modal-top{
+  margin-top: 15px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.close{
+  color: $Tan-hex;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover{
+  cursor: pointer;
+}
+
+#date label{
   text-align: center;
-  font-size: 30px;
+  font-size: 24px;
   color: $Tan-hex;
 
 }
@@ -118,6 +136,10 @@ label{
   width: 100%;
 }
 
+#date-input{
+  width: 100%;
+}
+
 #selectors{
   display: flex;
   justify-content: space-between;
@@ -125,6 +147,7 @@ label{
 }
 
 #date-selectors{
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   width: 80%;
