@@ -7,13 +7,14 @@
 }
 
 #footer-content{
-	height: 25px;
+	height: 45px;
 	padding: 20px;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	border: 1px solid $Deep-Blue-hex;
+	// border: 1px solid $Deep-Blue-hex;
 	background-color: $Deep-Blue-hex;
+	// background-color: transparent;
 	color: $Green-hex;
 }
 
@@ -45,7 +46,7 @@
 #nav-links a{
 	margin-top: 10px;
 	margin-bottom: 10px;
-	color: $Green-hex;
+	color: $Tan-hex;
 	text-decoration: none;
 }
 
@@ -60,6 +61,7 @@
 	margin-left: 25px;
 	margin-right: 25px;
 	text-align: center;
+	color:$Tan-hex;
 }
 
 #dev-links h3{
@@ -70,7 +72,7 @@
 #dev-links a{
 	margin-top: 5px;
 	margin-bottom: 5px;
-	color: $Green-hex;
+	color: $Tan-hex;
 	text-decoration: none;
 }
 
