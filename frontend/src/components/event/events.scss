@@ -32,7 +32,6 @@
 	color: $Deep-Blue-hex;
 }
 
-
 .event-show-location a{
   text-decoration: none;
 }
@@ -149,8 +148,38 @@ button:hover:active{
   overflow: hidden;
   
 }
+.user-content {
+	overflow-x: auto;
+	white-space: break-spaces;
+	word-wrap: break-word; 
+	padding: 20px;
+	border-radius: 5px;
+  display: none;
+  overflow: hidden; 
+}
+
+.collapsible-user:hover{
+	color: $Dark-Green-hex;
+	cursor: pointer;
+}
+
+.collapsible-description:hover{
+	color: $Dark-Green-hex;
+	cursor: pointer;
+}
 
 .test-button {
 	width: 100px;
 	height: 30px;
+}
+
+#reveal-buttons{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.details-menu{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
 }

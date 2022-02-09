@@ -14,6 +14,7 @@ class EventShow extends React.Component {
     }
     this.findEvent = this.findEvent.bind(this)
     this.checkAttendance = this.checkAttendance.bind(this)
+    this.getOwnerName = this.getOwnerName.bind(this)
   }
 
   componentDidMount() {
@@ -30,6 +31,17 @@ class EventShow extends React.Component {
       }
   }
 
+  getOwnerName(userId){
+    console.log(userId)
+    const event = this.findEvent()[0];
+    for(let i = 0; i < this.props.users.length; i++){
+      console.log(this.props.users[i])
+      if (userId === this.props.users[i]._id){
+        return (<p>Created By: {this.props.users[i].username}</p>)
+      }
+    }
+  }
+
   checkLogin(){
     if (this.props.loggedIn){
       return(
@@ -38,14 +50,25 @@ class EventShow extends React.Component {
     }
   }
 
-  collapse(){
-    let col = document.getElementsByClassName("collapsible")
+  collapseDescription(){
+    let col = document.getElementsByClassName("collapsible-description")
     col[0].classList.toggle("active");
-    var content = col[0].nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
+    var content = document.getElementsByClassName("content");
+    if (content[0].style.display === "block") {
+      content[0].style.display = "none";
     } else {
-      content.style.display = "block";
+      content[0].style.display = "block";
+    }
+  }
+
+  collapseUser(){
+    let col = document.getElementsByClassName("collapsible-user")
+    col[0].classList.toggle("active");
+    var content = document.getElementsByClassName("user-content");
+    if (content[0].style.display === "block") {
+      content[0].style.display = "none";
+    } else {
+      content[0].style.display = "block";
     }
   }
 
@@ -84,10 +107,20 @@ class EventShow extends React.Component {
                 </p>
               </div>
               <hr />
-              <p onClick={() => this.collapse()} className="hover-underline-animation collapsible">Description</p>
-              <pre className="content">
-                {event.description}
-              </pre>
+              <div className="details-menu">
+                <div id="reveal-buttons"> 
+                  <p onClick={() => this.collapseUser()} className="hover-underline-animation collapsible-user">Creator</p>
+                  <p onClick={() => this.collapseDescription()} className="hover-underline-animation collapsible-description">Description</p>
+                </div>
+                <div>
+                  <pre className="user-content">
+                    {this.getOwnerName(event.owner)}
+                  </pre>
+                  <pre className="content">
+                    {event.description}
+                  </pre>
+                </div>
+              </div>
             </div>
             <div id="attendence">
               <Count event={event}/>
