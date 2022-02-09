@@ -15,7 +15,7 @@ class HomeCalendar extends React.Component {
         title: event.title,
         start: event.eventStart,
         end: event.eventEnd,
-        url: `/#/events/${event._id}`
+        url: `/#/events/${event._id}`,
       }
       newEvents.push(eventObj)
     })
