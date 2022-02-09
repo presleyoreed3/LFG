@@ -51,6 +51,7 @@ class EventUpdateForm extends React.Component {
       category: '',
       attendees: [this.props.user.id]
     })
+    this.props.closeModal();
   }
 
   handleCategory(e) {

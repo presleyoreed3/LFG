@@ -15,6 +15,7 @@ class HomeCalendar extends React.Component {
         title: event.title,
         start: event.eventStart,
         end: event.eventEnd,
+        url: `/#/events/${event._id}`,
       }
       newEvents.push(eventObj)
     })
@@ -30,11 +31,11 @@ class HomeCalendar extends React.Component {
           plugins={[dayGridPlugin, interactionPlugin]}
           dateClick={this.handleDateClick}
           events={events}
+          eventTimeFormat={{hour: 'numeric',
+            minute: '2-digit',
+            meridiem: 'short'}}
         />
-
       </div>
-     
-   
     );
   }
 

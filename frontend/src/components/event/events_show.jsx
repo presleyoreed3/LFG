@@ -54,7 +54,8 @@ class EventShow extends React.Component {
   render() {
 
     if (this.props.events.length === 0) return null;
-    const event = this.findEvent()[0]
+    const event = this.findEvent()[0];
+    
     const eventStartDate = new Date(event.eventStart).toDateString();
     const eventEndDate = new Date(event.eventEnd).toDateString();
     const eventStartTime = new Date(event.eventStart).toLocaleTimeString()
@@ -62,32 +63,34 @@ class EventShow extends React.Component {
 
     return (
       <div className="home-page-container">
-        <div id="event" className="event-show-container">
-          <div id="details">
-            <div className="event-title">
-              <h3>{event.title}</h3>
+        <div className="event-show-left-container">
+          <div id="event" className="event-show-container">
+            <div id="details">
+              <div className="event-title">
+                <h3>{event.title}</h3>
+              </div>
+              <hr />
+              <div className="event-gen-info">
+                <p>
+                  Date: {eventStartDate} {eventStartDate === eventEndDate ? "" : "to " + eventEndDate}
+                </p>
+                <p>From: {eventStartTime} to {eventEndTime}</p>
+                <p className="event-show-location">Location:    
+                  {event.eventType === 'Online' ? ' Online' : <a className="hover-underline-animation" href={`http://maps.google.com/?q=${event.location}`} target='_blank'> {event.location}</a>}
+                </p>
+              </div>
+              <hr />
+              <button onClick={() => this.collapse()} className="collapsible">View Details</button>
+              <div className="content">
+                {event.description}
+              </div>
             </div>
-            <hr />
-            <div className="event-gen-info">
-              <p>
-                Date: {eventStartDate} {eventStartDate === eventEndDate ? "" : "to " + eventEndDate}
-              </p>
-              <p>From: {eventStartTime} to {eventEndTime}</p>
-              <p className="event-show-location">Location:    
-                 {event.eventType === 'Online' ? ' Online' : <a className="hover-underline-animation" href={`http://maps.google.com/?q=${event.location}`} target='_blank'> {event.location}</a>}
-              </p>
-            </div>
-            <hr />
-            <button onClick={() => this.collapse()} className="collapsible">View Details</button>
-            <div className="content">
-              {event.description}
-            </div>
-          </div>
-          <div id="attendence">
-            <Count event={event}/>
-            {this.checkLogin()}
-            <div>
-              Attendees Go here
+            <div id="attendence">
+              <Count event={event}/>
+              {this.checkLogin()}
+              <div>
+                Attendees Go here
+              </div>
             </div>
           </div>
           <CommentIndexContainer eventId={event._id}/>

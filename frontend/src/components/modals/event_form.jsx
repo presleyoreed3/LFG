@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 class EventForm extends React.Component {
   constructor(props) {
@@ -28,8 +29,10 @@ class EventForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
-    this.props.createEvent(this.state);
+    this.props.createEvent(this.state)
+      .then((event) => {
+        this.props.history.push(`/events/${event.event.data._id}`)
+      });
     this.setState({
       title: '',
       description: '',
@@ -43,31 +46,28 @@ class EventForm extends React.Component {
       category: '',
       attendees: [this.props.user.id]
     })
+    this.props.closeModal();
   }
 
   handleCategory(e) {
     let selected = Array.from(document.getElementsByClassName('category-selector'))
-    console.log("CATEGORY", selected)
     selected.forEach((input) => {
       if (input.selected) this.setState({category: e.currentTarget.value})
     })
-    console.log("state", this.state)
   }
 
   handleEventType(e) {
     let selected = Array.from(document.getElementsByClassName('eventType-selector'))
-    console.log(selected)
     selected.forEach((input) => {
       if (input.selected) this.setState({eventType: e.currentTarget.value})
     })
-    console.log(this.state)
   }
 
   render() {
     return (
       <div>
         <h2>Create an Event</h2>
-        <div onClick={this.props.closeModal}>CKLOSE MOKDAL</div>
+        <div onClick={this.props.closeModal}>CLOSE MODAL</div>
         <form onSubmit={this.handleSubmit}>
           <label>Title
             <input type="text" onChange={this.update('title')} value={this.state.title}/>
@@ -112,4 +112,4 @@ class EventForm extends React.Component {
   }
 }
 
-export default EventForm
+export default withRouter(EventForm)
