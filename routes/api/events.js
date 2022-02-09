@@ -9,6 +9,8 @@ const Event = require('../../models/Event');
 const validateEventInput = require('../../validation/events');
 const { route } = require('./users');
 
+debugger
+
 router.get('/', (req, res) => {
   Event.find()
       .sort({ date: -1 })
@@ -52,14 +54,16 @@ router.post('/',
         limit: req.body.limit,
         eventType: req.body.eventType,
         category: req.body.category,
-        attendees: req.body.attendees
+        attendees: req.body.attendees,
+        website: req.body.website
       });
   
       newEvent.save().then(event => res.json(event));
     }
   );
 
-router.patch('/:id', (req, res) => {
+router.post('/:id', (req, res) => {
+  debugger
   Event.updateOne({_id: req.params.id})
     .then(() => res.json({updated: "Event has been successfully updated"}, req.body))
     .catch( error => res.status(404).json({noEventFound: "No Event was found with that ID"}))
