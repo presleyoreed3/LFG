@@ -6,40 +6,40 @@ class CommentEdit extends React.Component {
   constructor(props){
     super(props)
     this.state = Object.assign({errors: []} , this.props.comment)
-    this.handleErrors = this.handleErrors.bind(this);
+    // this.handleErrors = this.handleErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
-    // this.findIndex = this.findIndex.bind(this);
+    this.findIndex = this.findIndex.bind(this);
   }
 
 
-  // componentDidMount(){
-  //   this.props.fetchEventComments(this.props.eventId)
-  // }
+  componentDidMount(){
+    this.props.fetchEventComments(this.props.eventId)
+  }
 
-  componentWillUnmount() {
-    // fix Warning: Can't perform a React state update on an unmounted component
-    this.setState = (state,callback)=>{
-        return;
-    };
-}
+//   componentWillUnmount() {
+//     // fix Warning: Can't perform a React state update on an unmounted component
+//     this.setState = (state,callback)=>{
+//         return;
+//     };
+// }
 
   handleSubmit(e){
     e.preventDefault();
-    const comment = Object.assign({}, this.state);
-    // this.findIndex(this.props.comment)
-    this.props.updateComment(comment)
+    // const comment = Object.assign({}, this.state);
+    this.findIndex(this.props.comment)
+    this.props.updateComment(this.state)
     // testEdit is to close the form
     .then(() => this.props.editComment())
       // .fail(() => this.setState({ errors: this.props.errors }));
       return null
   }
 
-  handleErrors(e){
-    if (e.currentTarget.value.length > 0) {
-      this.setState({errors: []})
-    }
-  }
+  // handleErrors(e){
+  //   if (e.currentTarget.value.length > 0) {
+  //     this.setState({errors: []})
+  //   }
+  // }
 
   handleCancel(e){
     //reset body to empty
@@ -51,17 +51,18 @@ class CommentEdit extends React.Component {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
-  // findIndex(comment){
-  //   let commentIndex = this.props.comments.indexOf((comment));
-  //   let newState = Object.assign({}, this.props.comment, {index: commentIndex})
-  //   this.setState(newState)
-  // }
+  findIndex(comment){
+    let commentIndex = this.props.comments.indexOf((comment));
+    let newState = Object.assign({}, this.props.comment, {index: commentIndex})
+    debugger
+    this.setState(newState)
+  }
 
   render(){
     // no current user
     if (!this.props.currentUser) return null;
     return (
-      <div  id="edit-comment-container">
+      <div className={`comment-edit-hide ${this.props.index}`} id="edit-comment-container">
         <form onSubmit={this.handleSubmit} className="edit-comment">
           <textarea onKeyUp={this.handleErrors} className="edit-comment-textarea" value={this.state.text} onChange={this.update('text')}/>
             <div className="edit-comment-buttons">

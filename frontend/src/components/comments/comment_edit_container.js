@@ -10,7 +10,7 @@ const mSTP = (state,ownProps) => {
   return {
     comment: ownProps.comment,
     currentUser: ownProps.currentUser,
-    // comments: state.entities.comments,
+    comments: state.entities.comments,
     eventId: ownProps.eventId
     // errors: state.errors.commentErrors
   }
@@ -19,7 +19,7 @@ const mSTP = (state,ownProps) => {
 const mDTP = (dispatch) => {
   return {
     updateComment: (comment) => dispatch(updateComment(comment)),
-    // fetchEventComments: (eventId) => dispatch(fetchEventComments(eventId))
+    fetchEventComments: (eventId) => dispatch(fetchEventComments(eventId))
   }
 }
 

@@ -5,12 +5,10 @@ import CommentEditContainer from './comment_edit_container';
 class CommentIndexItem extends React.Component{
   constructor(props){
     super(props)
-    this.state = {
-      edit: false
-    }
 
-    this.editComment = this.editComment.bind(this);
+    // this.editComment = this.editComment.bind(this);
     this.setActive = this.setActive.bind(this);
+    this.editComment = this.editComment.bind(this);
   }
 
   commentUserCheck(){
@@ -22,10 +20,20 @@ class CommentIndexItem extends React.Component{
   }
 
   editComment(){
-    (this.state.edit) ? this.setState({edit: false}) : this.setState({edit: true})
-    // if (this.state.edit) {
-    //   this.setActive()
-    // }
+    let comment = document.querySelectorAll(`.comment-index-item-text`);
+    comment.forEach((option) => {
+      if (option.classList.contains(this.props.index)) {
+        option.classList.toggle("hide");
+      }
+    });
+
+    
+    let editComment = document.querySelectorAll(`.comment-edit-hide`);
+    editComment.forEach((option) => {
+      if (option.classList.contains(this.props.index)) {
+        option.classList.toggle("active-flex");
+      }
+    });
   }
 
   setActive(){
@@ -61,7 +69,8 @@ class CommentIndexItem extends React.Component{
                 </div>
             </div>
         </div>
-        {this.state.edit ? <CommentEditContainer eventId={this.props.comment.eventId} comment={this.props.comment} currentUser={this.props.currentUser} editComment={this.editComment}/>  : <p className="comment-index-item-text">{this.props.comment.text}</p>}        
+        <p className={`comment-index-item-text ${this.props.index}`}>{this.props.comment.text}</p>
+        <CommentEditContainer index={this.props.index} eventId={this.props.comment.eventId} comment={this.props.comment} currentUser={this.props.currentUser} editComment={this.editComment}/>        
       </div>
     )
   }

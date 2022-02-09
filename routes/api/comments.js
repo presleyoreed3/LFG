@@ -36,7 +36,6 @@ router.get('/:id', (req, res) => {
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-      // debugger
       const { errors, isValid } = validateCommentInput(req.body);
       if (!isValid) {
         return res.status(400).json(errors);
@@ -45,7 +44,8 @@ router.post('/',
       const newComment = new Comment({
         ownerId: req.user.id,
         text: req.body.text,
-        eventId: req.body.eventId
+        eventId: req.body.eventId,
+        index: null
       });
   
       newComment.save().then(comment => res.json(comment));

@@ -152,6 +152,10 @@
   display: block;
 }
 
+#edit-comment-container.active-flex {
+  display: flex;
+}
+
 .comment-dropdown-content p{
   padding: 6px;
   margin: 5px 0px;
@@ -167,7 +171,7 @@
 // EDIT COMMENT FORM CSS
 
 #edit-comment-container{
-  display: flex;
+  display: none;
   width: 100%;
   padding: 4px 0px;
   justify-content: space-between;
@@ -234,4 +238,12 @@
 .edit-comment-buttons .edit-comment-button{
   color: #AAAAAA;
   background-color: #181818;
+}
+
+.comment-edit-hide {
+  display: none;
+}
+
+.hide {
+  display: none;
 }
