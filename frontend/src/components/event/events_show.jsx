@@ -25,6 +25,25 @@ class EventShow extends React.Component {
   //   }
   // }
 
+  checkLogin(){
+    if (this.props.loggedIn){
+      return(
+        <button>Join the Fun</button>
+      )
+    }
+  }
+
+  collapse(){
+    let col = document.getElementsByClassName("collapsible")
+    col[0].classList.toggle("active");
+    var content = col[0].nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  }
+
   findEvent() {
     return this.props.events.filter((event) => {
       return event._id === this.props.match.params.eventId
@@ -47,20 +66,29 @@ class EventShow extends React.Component {
             <div className="event-title">
               <h3>{event.title}</h3>
             </div>
+            <hr />
             <div className="event-gen-info">
               <p>
                 Date: {eventStartDate} {eventStartDate === eventEndDate ? "" : "to " + eventEndDate}
               </p>
               <p>From: {eventStartTime} to {eventEndTime}</p>
               <p className="event-show-location">Location:    
-                 {event.eventType === 'Online' ? ' Online' : <a href={`http://maps.google.com/?q=${event.location}`} target='_blank'> {event.location}</a>}
+                 {event.eventType === 'Online' ? ' Online' : <a className="hover-underline-animation" href={`http://maps.google.com/?q=${event.location}`} target='_blank'> {event.location}</a>}
               </p>
             </div>
-            <div className="event-desc">
+            <hr />
+            <button onClick={() => this.collapse()} className="collapsible">View Details</button>
+            <div className="content">
               {event.description}
             </div>
           </div>
+          <div id="attendence">
             <Count event={event}/>
+            {this.checkLogin()}
+            <div>
+              Attendees Go here
+            </div>
+          </div>
         </div>
         <div className="events-index">
           <h1>Events</h1>

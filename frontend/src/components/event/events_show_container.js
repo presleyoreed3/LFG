@@ -6,6 +6,8 @@ import {openModal} from '../../actions/modal_actions';
 const mSTP = (state,ownProps) => {
   return {
     events: state.entities.events,
+    loggedIn: state.session.isAuthenticated,
+    // event: state.entities.events[ownProps.match.params.eventId]
   }
 }
 
