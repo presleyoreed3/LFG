@@ -38,10 +38,6 @@
 	color: $Deep-Blue-hex;
 }
 
-.event-desc {
-	margin-top: 70px;
-	font-size: 22px
-}
 
 .event-show-location a{
   text-decoration: none;
@@ -54,6 +50,22 @@
 #details{
 	width: 75%;
 	margin: 10px;
+}
+
+#details h3{
+	font-size: 50px;
+	font-weight: 300;
+	color: $Deep-Blue-hex;
+	margin-bottom: 5px;
+}
+
+#details a{
+	margin-left: 5px;
+}
+
+.event-gen-info p{
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 #attendence{
@@ -107,7 +119,7 @@ button{
   width: 100%;
   justify-content: center;
   margin-top: 10px;
-  margin-bottom:  10px;
+  margin-bottom: 10px;
   background-color: $Deep-Blue-hex;
   color: $Tan-hex;
   border: 1px solid $Green-hex;
@@ -120,10 +132,21 @@ button{
 button:hover{
   background-color: $Green-hex;
   color: $Deep-Blue-hex;
+  cursor: pointer;
 }
 
 button:hover:active{
   background-color: $Dark-Green-hex;
 }
 
+.active, .collapsible:hover {
+}
+
+.content {
+	padding: 20px;
+	border-radius: 5px;
+  display: none;
+  overflow: hidden;
+  background-color: #F0F0F1;
+}
 
