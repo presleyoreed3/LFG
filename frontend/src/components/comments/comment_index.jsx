@@ -34,14 +34,6 @@ class CommentIndex extends React.Component {
     if (!this.props.comments) return null 
     if (!this.props.users) return null
     EventsComments = this.commentEventCheck()
-    if (EventsComments.length === 0) {
-      return (
-        <div id='comment-index-container'>
-        <h2>No Comments</h2>
-          <CommentForm eventId={this.props.eventId} user={this.props.currentUser} createComment={this.props.createComment}/>
-        </div>
-      )
-    } else {
       return (
         <div className="comment-index-container">
             <h2>{EventsComments.length} Comments</h2>
@@ -53,7 +45,7 @@ class CommentIndex extends React.Component {
             }
         </div>
       )
-    }
+    
 
   }
 }
