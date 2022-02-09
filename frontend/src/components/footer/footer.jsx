@@ -8,9 +8,9 @@ class Footer extends React.Component{
       <footer className="footer">
         <div id="footer-content">
 				<div id="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Create Activity</a>
-            <a href="#">Calendar</a>
+            <a className="hover-underline-animation" href="#">Home</a>
+            <a className="hover-underline-animation" href="#">Calendar</a>
+            <a className="hover-underline-animation" href="#">Profile</a>
           </div>
           <div id="devs">
             <div id="dev-list">
