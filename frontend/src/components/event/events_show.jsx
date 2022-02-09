@@ -20,6 +20,14 @@ class EventShow extends React.Component {
   //   }
   // }
 
+  checkLogin(){
+    if (this.props.loggedIn){
+      return(
+        <button>Join the Fun</button>
+      )
+    }
+  }
+
   findEvent() {
     return this.props.events.filter((event) => {
       return event._id === this.props.match.params.eventId
@@ -55,7 +63,13 @@ class EventShow extends React.Component {
               {event.description}
             </div>
           </div>
+          <div id="attendence">
             <Count event={event}/>
+            {this.checkLogin()}
+            <div>
+              Attendees Go here
+            </div>
+          </div>
         </div>
         <div className="events-index">
           <h1>Events</h1>
