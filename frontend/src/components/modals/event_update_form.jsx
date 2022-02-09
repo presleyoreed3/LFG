@@ -83,7 +83,7 @@ class EventUpdateForm extends React.Component {
             <input type="text" onChange={this.update('title')} value={this.state.title}/>
           </label>
           <label>Description
-            <input type="text" onChange={this.update('description')} value={this.state.description}/>
+            <textarea onChange={this.update('description')} >{this.state.description}</textarea>
           </label>
           <label>Event Start
             <input type="datetime-local" value={this.state.eventStart} onChange={this.update('eventStart')}/>
