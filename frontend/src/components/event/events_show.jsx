@@ -80,7 +80,7 @@ class EventShow extends React.Component {
                 </p>
               </div>
               <hr />
-              <p onClick={() => this.collapse()} className="hover-underline-animation collapsible">View Details</p>
+              <p onClick={() => this.collapse()} className="hover-underline-animation collapsible">Description</p>
               <pre className="content">
                 {event.description}
               </pre>
