@@ -93,6 +93,7 @@ class EventShow extends React.Component {
               <Count event={event}/>
               {this.checkLogin()}
               <div className="attendence-list">
+                <h3>Members</h3>
                 {this.props.users.map(user => (
                   this.checkAttendance(user)
                 ))}
