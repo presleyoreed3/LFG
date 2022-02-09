@@ -1,7 +1,7 @@
 import React from "react";
 import IndexItem from "../index/index_item";
 import "./events.scss"
-
+import Count from '../attendees/count'
 
 
 class EventShow extends React.Component {
@@ -55,16 +55,9 @@ class EventShow extends React.Component {
               {event.description}
             </div>
           </div>
-          <div id="counter">
-            <div id="limit">
-              <p>{event.limit - event.attendees.length}</p>
-              <h4>Spots:</h4>
-            </div>
-            <div id="goal">
-              <p>{event.limit}</p>
-              <h4>Goal:</h4>
-            </div>
-          </div>
+          <Count 
+            event={event}
+          />
         </div>
         <div className="events-index">
           <h1>Events</h1>
