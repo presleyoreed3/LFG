@@ -40,7 +40,7 @@ class EventShow extends React.Component {
 
     return (
       <div className="home-page-container">
-        <div className="event-show-container">
+        <div id="event" className="event-show-container">
           
           <div className="event-title">
             <p>Title: {event.title}</p>
