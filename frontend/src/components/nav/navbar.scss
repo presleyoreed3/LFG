@@ -3,10 +3,11 @@
 #header {
   display: flex;
   width: 100%;
+  position: absolute;
+  height: 40px;
   justify-content: space-between;
   align-items: center;
   background-color: $Deep-Blue-hex;
-  padding: 20px 0px 20px;
 }
 
 #header a{
@@ -77,6 +78,7 @@
 .main-logo{
   font-weight: 600;
   font-size: 24px;
+  align-self: center;
 }
 
 .navbar-signup-login{

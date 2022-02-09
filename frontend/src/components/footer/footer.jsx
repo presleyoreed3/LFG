@@ -7,7 +7,7 @@ class Footer extends React.Component{
 		return (
       <footer className="footer">
         <div id="footer-content">
-          <div id="nav-links">
+				<div id="nav-links">
             <a href="#">Home</a>
             <a href="#">Create Activity</a>
             <a href="#">Calendar</a>
