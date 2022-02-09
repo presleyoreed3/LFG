@@ -7,12 +7,17 @@ import Count from '../attendees/count'
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      render: ''
+    }
     this.findEvent = this.findEvent.bind(this)
   }
 
   componentDidMount() {
     this.props.fetchEvents();
   }
+
+
 
   // componentDidUpdate(prevProps) {
   //   if (this.props.match.params.eventId !== prevProps.match.params.eventId) {

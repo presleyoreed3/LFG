@@ -6,7 +6,6 @@ import {openModal} from '../../actions/modal_actions';
 const mSTP = (state,ownProps) => {
   return {
     events: state.entities.events,
-    // event: state.entities.events[ownProps.match.params.eventId]
   }
 }
 
