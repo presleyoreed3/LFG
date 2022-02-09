@@ -41,7 +41,7 @@ export const fetchEventComments = (eventId) => dispatch => (
 
 export const createComment = (comment) => dispatch => (
   CommentAPIUtil.createComment(comment)
-    .then(comment => dispatch(receiveComment(comment)))
+    .then(comment => dispatch(receiveNewComment(comment)))
     .catch(err => console.log(err))
 )
 

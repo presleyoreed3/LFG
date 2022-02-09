@@ -10,6 +10,9 @@ const CommentsReducer = (state = [], action) => {
       debugger
       nextState[action.comment.data.index] = action.comment.data
       return nextState
+    case RECEIVE_NEW_COMMENT:
+      nextState.push(action.comment.data)
+      return nextState
     default:
       return state;
   }
