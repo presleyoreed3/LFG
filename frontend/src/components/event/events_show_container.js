@@ -7,6 +7,7 @@ const mSTP = (state,ownProps) => {
   return {
     events: state.entities.events,
     loggedIn: state.session.isAuthenticated,
+    users: state.entities.users
   }
 }
 

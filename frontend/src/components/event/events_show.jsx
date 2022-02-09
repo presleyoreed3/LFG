@@ -3,6 +3,7 @@ import IndexItem from "../index/index_item";
 import CommentIndexContainer from "../comments/comment_index_container";
 import "./events.scss"
 import Count from '../attendees/count'
+import AttendanceIndexItem from '../attendees/attendance'
 
 
 class EventShow extends React.Component {
@@ -12,19 +13,22 @@ class EventShow extends React.Component {
       render: ''
     }
     this.findEvent = this.findEvent.bind(this)
+    this.checkAttendance = this.checkAttendance.bind(this)
   }
 
   componentDidMount() {
     this.props.fetchEvents();
   }
 
-
-
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.match.params.eventId !== prevProps.match.params.eventId) {
-  //     this.componentDidMount();
-  //   }
-  // }
+  checkAttendance(user){
+    const event = this.findEvent()[0];
+     if (event.attendees.includes(user._id)){
+        return(<AttendanceIndexItem
+          key={user._id}
+          user={user}
+        />)
+      }
+  }
 
   checkLogin(){
     if (this.props.loggedIn){
@@ -88,8 +92,10 @@ class EventShow extends React.Component {
             <div id="attendence">
               <Count event={event}/>
               {this.checkLogin()}
-              <div>
-                Attendees Go here
+              <div className="attendence-list">
+                {this.props.users.map(user => (
+                  this.checkAttendance(user)
+                ))}
               </div>
             </div>
           </div>
