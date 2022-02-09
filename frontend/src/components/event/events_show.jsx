@@ -54,7 +54,8 @@ class EventShow extends React.Component {
   render() {
 
     if (this.props.events.length === 0) return null;
-    const event = this.findEvent()[0]
+    const event = this.findEvent()[0];
+    
     const eventStartDate = new Date(event.eventStart).toDateString();
     const eventEndDate = new Date(event.eventEnd).toDateString();
     const eventStartTime = new Date(event.eventStart).toLocaleTimeString()

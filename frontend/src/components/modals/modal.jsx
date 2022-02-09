@@ -5,14 +5,14 @@ import EventFormContainer from './event_form_container';
 import EventUpdateFormContainer from './event_update_form_container';
 import './modal.scss';
 
-function Modal({ modal, closeModal }) {
+function Modal({ modal, closeModal}) {
   if (!modal) {
     return null;
   }
   let component;
   switch (modal[0]) {
     case 'eventForm':
-      component = <EventFormContainer />;
+      component = <EventFormContainer/>;
       break;
     case 'eventUpdateForm':
       component = <EventUpdateFormContainer eventId={modal[1]}/>;
