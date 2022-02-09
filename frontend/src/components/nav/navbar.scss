@@ -13,7 +13,7 @@
 
 #header a{
   text-decoration: none;
-  margin: 10px 15px 10px 15px;
+  margin: 15px 15px 10px 15px;
   margin-left: 15px;
   margin-right: 15px;
   font-size: 24px;
@@ -34,11 +34,11 @@
 }
 
 #seperator{
-  height:100%;
+  height: 60%;
   width: 0px;
   border: 1px solid $Green-hex;
   margin-left: 15px;
-  margin-top: 0px;
+  margin-top: 7px;
 }
 
 .hover-underline-animation {
@@ -76,59 +76,20 @@
   line-height: 100%;
 }
 
-.main-logo{
+.main-logo img{
+  height: 38px;
+  width: 38px;
   font-weight: 600;
   font-size: 24px;
   align-self: center;
+  margin-top: 5px;
+
 }
 
 .navbar-signup-login{
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
-// .navbar-signup-login a{
-//   font-size: 14px;
-//   width: 100%;
-//   justify-content: center;
-//   margin-bottom: 10px;
-//   border: 1px solid $Green-hex;
-//   height: 40px;
-//   padding: 10px;
-//   text-decoration: none;
-//   border-radius: 10px;
-// }
-
-// .navbar-signup-login a:hover{
-//   background-color: $Green-hex;
-//   color: black;
-// }
-
-// .navbar-signup-login a:hover:active{
-//   background-color: $Dark-Green-hex;
-// }
-
-// .navbar-logout{
-//   margin-right: 20px;
-// }
-
-// .navbar-logout button{
-//   font-size: 16px;
-//   width: 100%;
-//   justify-content: center;
-//   background-color: $Green-hex;
-//   color: $Deep-Blue-hex;
-//   border: 1px solid $Deep-Blue-hex;
-//   height: 40px;
-//   padding: 10px;
-//   text-decoration: none;
-//   border-radius: 10px;
-// }
-
-// .navbar-logout button:hover{
-//   background-color: $Dark-Green-hex;
-//   color: $Tan-hex;
-// }
-
-// .navbar-logout button:hover:active{
-//   background-color: $Dark-Green-hex;
-// }
+.navbar-logout{
+  margin-right: 10px;
+}

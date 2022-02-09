@@ -26,8 +26,8 @@ class NavBar extends React.Component {
   getLinks() {
     if (this.props.loggedIn) {
       return (
-        <div className="navbar-logout">
-          <Link className="hover-underline-animation" onClick={this.logoutUser}>Logout</Link>
+        <div className="navbar-signup-login">
+          <a className="hover-underline-animation" onClick={this.logoutUser}>Logout</a>
         </div>
       );
     } else {
@@ -44,7 +44,7 @@ class NavBar extends React.Component {
     return (
       <header id="header">
         <div id="header-links">
-          <h1 className="main-logo">LFG</h1> 
+          <h1 className="main-logo"><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg-logo-green.png"/></h1> 
           <span><hr id="seperator"/></span>
           <Link to={"/"} className="hover-underline-animation">Home</Link>
           <Link to={"/home"} className="hover-underline-animation">Calendar</Link>
