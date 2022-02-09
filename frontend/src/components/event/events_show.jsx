@@ -66,6 +66,7 @@ class EventShow extends React.Component {
           {this.props.events.map((event) => (
             <IndexItem
               key={event._id}
+              event={event}
               title={event.title}
               category={event.category}
               eventType={event.eventType}

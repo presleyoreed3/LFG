@@ -1,11 +1,12 @@
 import React from "react";
 import './event_item.scss'
+import {withRouter} from 'react-router-dom'
 
 class IndexItem extends React.Component{
 
 	render(){
 		return(
-			<div className="event-item">
+			<div className="event-item" onClick={()=> this.props.history.push(`/events/${this.props.event._id}`)}>
 				<div id='details'>
 					<h3>{this.props.title}</h3>
 					<p>Event Type: {this.props.eventType}</p>
@@ -21,4 +22,4 @@ class IndexItem extends React.Component{
 
 }
 
-export default IndexItem;
+export default withRouter(IndexItem);
