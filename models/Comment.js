@@ -14,6 +14,10 @@ const CommentSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'events'
   },
+  index: {
+    type: Number,
+    required: false
+  },
 }, {
   date: {
     type: Date,

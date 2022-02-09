@@ -8,6 +8,9 @@ const mSTP = (state,ownProps) => {
     events: state.entities.events,
     loggedIn: state.session.isAuthenticated,
     users: state.entities.users
+    currentUser: state.session.user
+    // event: state.entities.events[ownProps.match.params.eventId]
+
   }
 }
 

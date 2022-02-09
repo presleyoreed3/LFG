@@ -168,10 +168,12 @@ button:hover:active{
 	cursor: pointer;
 }
 
+// Test CSS for create button
 .test-button {
 	width: 100px;
 	height: 30px;
 }
+
 
 #reveal-buttons{
 	display: flex;
@@ -183,3 +185,54 @@ button:hover:active{
 	flex-direction: column;
 	justify-content: space-evenly;
 }
+
+// -----DROPDOWN CSS------
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: $Deep-Blue-hex;
+  color: white;
+  padding: 10px;
+  font-size: 10px;
+  border: none;
+  cursor: pointer;
+	border-radius: 7px;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: $Deep-Blue-hex;
+	cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: absolute;
+  display: inline-block;
+	margin-left: 878px;
+	margin-top: -11px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: $Green-hex;
+  min-width: 40px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+	color: $Deep-Blue-hex;
+}
+
+.dropdown-content div {
+	padding: 5px;
+}
+
+.dropdown-content div:hover {
+	background-color: $Dark-Green-hex;
+	cursor: pointer;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+

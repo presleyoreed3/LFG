@@ -17,14 +17,35 @@
   color: #053868;
 }
 
+.comment-index-username-dropdown{
+  display: flex;
+  justify-content: space-between;
+  line-height: normal;
+}
+
+.comment-index-option{
+  margin-right: 30px;
+}
+
+.fas.fa-ellipsis-v{
+  color: #053868;
+}
+
 .comment-index-item-username{
   font-size: 25px;
 }
 
 .comment-index-item-text{
   font-size: 16px;
-  padding-left: 15px;
-  padding-top: 10px
+  padding-top: 10px;
+  margin: 10px 0px;
+  height: 20px;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  margin: 10px 0px;
+  resize: none;
+  outline: none;
 }
 
 .comment-index-item-container{
@@ -58,7 +79,6 @@
   resize: none;
   outline: none;
   transition: border 500ms;
-  font-family: Roboto, Arial, sans-serif;
 }
 
 .comment-form-textarea:focus{
@@ -109,7 +129,121 @@
 //   // background-color: #3ea6ff;
 // }
 
+.comment-index-dropdown{
+  position: relative;
+  display: inline-block;
+}
+
 .comment-form-buttons .comment-form-button{
   color: #AAAAAA;
   background-color: #181818;
+}
+
+.comment-dropdown-content {
+  display: none;
+  position: absolute;
+  color: #AAAAAA;
+  // background-color: #181818;
+  z-index: 1;
+}
+
+
+.active{
+  display: block;
+}
+
+#edit-comment-container.active-flex {
+  display: flex;
+}
+
+.comment-dropdown-content p{
+  padding: 6px;
+  margin: 5px 0px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.comment-dropdown-content p:hover{
+  background-color: rgba(170, 170, 170,0.3);
+}
+
+
+// EDIT COMMENT FORM CSS
+
+#edit-comment-container{
+  display: none;
+  width: 100%;
+  padding: 4px 0px;
+  justify-content: space-between;
+  /* margin-top: 10px; */
+  margin-left: -2px;
+  background-color: #FFFFFF;
+}
+
+.edit-comment-textarea:focus{
+  border-bottom: 2px solid white;
+}
+
+.edit-comment-textarea{
+  padding-top: 5px;
+  height: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #AAAAAA;
+  background-color: transparent;
+  margin: 10px 0px;
+  resize: none;
+  outline: none;
+  transition: border 500ms;
+  font-size: 16px;
+}
+
+.edit-comment{
+  flex-direction: column;
+  display: flex;
+  width: 90%;
+  font-size: 15px;
+  background-color: #FFFFFF;
+}
+
+
+.edit-comment-buttons{
+  display: flex;
+  justify-content: flex-end;
+  /* visibility: hidden; */
+}
+/* 
+.edit-form-buttons.toggle-buttons{
+  visibility: visible;
+} */
+
+.edit-comment-input, .edit-comment-button {
+  font-size: 16px;
+  margin: 0px;
+  height: 25px;
+  width: 80px;
+  margin: none;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.edit-comment-input {
+  background-color: #3ea6ff;
+}
+
+.edit-comment-buttons .edit-comment-button{
+  color: #AAAAAA;
+  background-color: #181818;
+}
+
+.comment-edit-hide {
+  display: none;
+}
+
+.hide {
+  display: none;
 }
