@@ -76,10 +76,14 @@
   line-height: 100%;
 }
 
-.main-logo{
+.main-logo img{
+  height: 38px;
+  width: 38px;
   font-weight: 600;
   font-size: 24px;
   align-self: center;
+  margin-top: 5px;
+
 }
 
 .navbar-signup-login{
