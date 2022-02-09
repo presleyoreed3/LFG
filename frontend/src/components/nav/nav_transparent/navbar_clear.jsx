@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './navbar.scss'
+import './navbar_clear.scss'
 
-class NavBar extends React.Component {
+class NavBarClear extends React.Component {
   constructor(props) {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
@@ -12,7 +12,7 @@ class NavBar extends React.Component {
   checkCreate(){
     if (this.props.loggedIn){
       return (
-        <a className="test-button" onClick={() => this.props.openModal('eventForm', 1)}>Create</a>
+        <Link className="hover-underline-animation">Create</Link>
       )
     }
   }
@@ -26,8 +26,8 @@ class NavBar extends React.Component {
   getLinks() {
     if (this.props.loggedIn) {
       return (
-        <div className="navbar-signup-login">
-          <a className="hover-underline-animation" onClick={this.logoutUser}>Logout</a>
+        <div className="navbar-logout">
+          <Link className="hover-underline-animation" onClick={this.logoutUser}>Logout</Link>
         </div>
       );
     } else {
@@ -42,7 +42,7 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <header id="header">
+      <header id="header-clear">
         <div id="header-links">
           <h1 className="main-logo"><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg-logo-green.png"/></h1> 
           <span><hr id="seperator"/></span>
@@ -56,4 +56,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default NavBarClear;

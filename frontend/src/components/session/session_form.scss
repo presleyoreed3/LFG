@@ -1,5 +1,11 @@
 @import '../../_colors.scss';
 
+.session-form-background {
+  background: url('https://i.imgur.com/fjrEiZL.jpg') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+}
+
 .session-form-container {
   display: flex;
   align-items: center;
@@ -60,8 +66,24 @@ form button:hover{
 form button:hover:active{
   background-color: $Dark-Green-hex;
 }
+ 
+input{
+  border: none;
+  overflow: auto;
+  background-color: $Deep-Blue-hex;
+  box-sizing: border-box;
+  border-bottom: 1px solid $Green-hex;
+  color: $Tan-hex;
+  height: 42px;
+  width: 80%;
+  font-size:  20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  -webkit-transition: background-color 500ms linear;
+}
 
-.session-form input{
+textarea{
   border: none;
   background-color: $Deep-Blue-hex;
   box-sizing: border-box;
@@ -74,6 +96,68 @@ form button:hover:active{
   margin-bottom: 10px;
   padding-left: 10px;
   -webkit-transition: background-color 500ms linear;
+}
+
+select{
+  border: none;
+  box-sizing: border-box;
+  background-color: $Deep-Blue-hex;
+  border-bottom: 2px solid #09CE78;
+  height: 42px;
+  width: 45%;
+  color: $Tan-hex;
+  opacity: 75%;
+  font-size:  20px;
+  margin-top: 10px;
+  -webkit-appearance: none;
+}
+
+#modal-top{
+  margin-top: 15px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.close{
+  color: $Tan-hex;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover{
+  cursor: pointer;
+}
+
+#date label{
+  text-align: center;
+  font-size: 24px;
+  color: $Tan-hex;
+
+}
+
+#date{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#date-input{
+  width: 100%;
+}
+
+#selectors{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+#date-selectors{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
 }
 
 ::placeholder{

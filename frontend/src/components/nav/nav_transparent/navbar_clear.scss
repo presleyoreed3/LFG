@@ -1,0 +1,134 @@
+@import '../../../_colors.scss';
+
+#header-clear {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  // background-color: $Deep-Blue-hex;
+  background-color: transparent;
+}
+
+#header-clear a{
+  text-decoration: none;
+  margin: 10px 15px 10px 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 24px;
+  font-weight: 300;
+  color: $Tan-hex;
+}
+
+#header-clear a:hover{
+  font-size: 24px;
+  font-weight: 300;
+  color: $Green-hex;
+  cursor: pointer;
+}
+
+#header-links{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#seperator{
+  height:100%;
+  width: 0px;
+  border: 1px solid $Green-hex;
+  margin-left: 15px;
+  margin-top: 0px;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: $Green-hex;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: $Green-hex;
+  transform-origin: bottom right;
+  transition: transform 0.4s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+#logo{
+  background-color: $Green-hex;
+
+}
+
+.main-logo {
+  color: $Green-hex;
+  padding-left: 25px;
+  line-height: 100%;
+}
+
+.main-logo{
+  font-weight: 600;
+  font-size: 24px;
+  align-self: center;
+}
+
+.navbar-signup-login{
+  margin-right: 20px;
+}
+
+// .navbar-signup-login a{
+//   font-size: 14px;
+//   width: 100%;
+//   justify-content: center;
+//   margin-bottom: 10px;
+//   border: 1px solid $Green-hex;
+//   height: 40px;
+//   padding: 10px;
+//   text-decoration: none;
+//   border-radius: 10px;
+// }
+
+// .navbar-signup-login a:hover{
+//   background-color: $Green-hex;
+//   color: black;
+// }
+
+// .navbar-signup-login a:hover:active{
+//   background-color: $Dark-Green-hex;
+// }
+
+// .navbar-logout{
+//   margin-right: 20px;
+// }
+
+// .navbar-logout button{
+//   font-size: 16px;
+//   width: 100%;
+//   justify-content: center;
+//   background-color: $Green-hex;
+//   color: $Deep-Blue-hex;
+//   border: 1px solid $Deep-Blue-hex;
+//   height: 40px;
+//   padding: 10px;
+//   text-decoration: none;
+//   border-radius: 10px;
+// }
+
+// .navbar-logout button:hover{
+//   background-color: $Dark-Green-hex;
+//   color: $Tan-hex;
+// }
+
+// .navbar-logout button:hover:active{
+//   background-color: $Dark-Green-hex;
+// }

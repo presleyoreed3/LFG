@@ -32,7 +32,6 @@
 	color: $Deep-Blue-hex;
 }
 
-
 .event-show-location a{
   text-decoration: none;
 }
@@ -41,9 +40,14 @@
   color: $Dark-Green-hex;
 }
 
+.collapsible{
+	cursor: pointer;
+}
+
 #details{
 	width: 75%;
 	margin: 10px;
+	line-height: 1.15;
 }
 
 #details h3{
@@ -51,6 +55,7 @@
 	font-weight: 300;
 	color: $Deep-Blue-hex;
 	margin-bottom: 5px;
+	line-height: 1.15;
 }
 
 #details a{
@@ -115,8 +120,8 @@ button{
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: $Deep-Blue-hex;
+  border: none;
   color: $Tan-hex;
-  border: 1px solid $Green-hex;
   height: 40px;
   margin-bottom: 30px;
   border-radius: 10px;
@@ -134,14 +139,100 @@ button:hover:active{
 }
 
 .content {
+	overflow-x: auto;
+	white-space: break-spaces;
+	word-wrap: break-word; 
 	padding: 20px;
 	border-radius: 5px;
   display: none;
   overflow: hidden;
-  background-color: #F0F0F1;
+  
+}
+.user-content {
+	overflow-x: auto;
+	white-space: break-spaces;
+	word-wrap: break-word; 
+	padding: 20px;
+	border-radius: 5px;
+  display: none;
+  overflow: hidden; 
 }
 
+.collapsible-user:hover{
+	color: $Dark-Green-hex;
+	cursor: pointer;
+}
+
+.collapsible-description:hover{
+	color: $Dark-Green-hex;
+	cursor: pointer;
+}
+
+// Test CSS for create button
 .test-button {
 	width: 100px;
 	height: 30px;
 }
+
+
+#reveal-buttons{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.details-menu{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+// -----DROPDOWN CSS------
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: $Deep-Blue-hex;
+  color: white;
+  padding: 10px;
+  font-size: 10px;
+  border: none;
+  cursor: pointer;
+	border-radius: 7px;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: $Deep-Blue-hex;
+	cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: absolute;
+  display: inline-block;
+	margin-left: 878px;
+	margin-top: -11px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: $Green-hex;
+  min-width: 40px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+	color: $Deep-Blue-hex;
+}
+
+.dropdown-content div {
+	padding: 5px;
+}
+
+.dropdown-content div:hover {
+	background-color: $Dark-Green-hex;
+	cursor: pointer;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+

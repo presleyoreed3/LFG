@@ -5,6 +5,7 @@
 	justify-content: space-evenly;
 	padding-top: 100px;
 	padding-bottom: 200px;
+
 }
 
 .calendar{
@@ -14,10 +15,11 @@
 
 .events-index{
 	width: 25%;
-	height: 100%;
+	height: 720px;
+	overflow: auto;
 	background-color: $Deep-Blue-hex;
 	border: 1px solid $Deep-Blue-hex;
-	padding: 10px;
+	padding: 20px;
 	border-radius: 5px;
 	margin-right: 50px;
 	box-shadow: 3px 3px rgba(0,0,0,.25);

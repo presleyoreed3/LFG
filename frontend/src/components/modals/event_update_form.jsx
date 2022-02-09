@@ -76,45 +76,39 @@ class EventUpdateForm extends React.Component {
 
     return (
       <div>
-        <h2>Update an Event</h2>
-        <div onClick={this.props.closeModal}>CLOSE MODAL</div>
         <form onSubmit={this.handleSubmit}>
-          <label>Title
+          <div id="modal-top">
+            <h2>Update your LFG</h2>
+            <div onClick={this.props.closeModal} class="close">&times;</div>
+          </div>
             <input type="text" onChange={this.update('title')} value={this.state.title}/>
-          </label>
-          <label>Description
-            <textarea onChange={this.update('description')} >{this.state.description}</textarea>
-          </label>
-          <label>Event Start
-            <input type="datetime-local" value={this.state.eventStart} onChange={this.update('eventStart')}/>
-          </label>
-          <label>Event End
-            <input type="datetime-local" value={this.state.eventEnd} onChange={this.update('eventEnd')}/>
-          </label>
-          <label>Event Type
-            <select onChange={this.handleEventType} defaultValue="default">
-              <option className="eventType-selector" value="default" disabled={true}>Select an event type</option>
-              <option selected={eventType === "Online" ? true : false} className="eventType-selector" value="Online">Online</option>
-              <option selected={eventType === "In-Person" ? true : false} className="eventType-selector" value="In-Person">In-Person</option>
-            </select>
-          </label>
-          <label>Category
-            <select onChange={this.handleCategory} defaultValue="default">
-              <option className="category-selector" value="default" disabled={true}>Select a category</option>
-              <option selected={category === "Sport" ? true : false} className="category-selector" value="Sport">Sport</option>
-              <option selected={category === "Gaming" ? true : false} className="category-selector" value="Gaming">Gaming</option>
-              <option selected={category === "Board-Game" ? true : false} className="category-selector" value="Board-Game">Board-Game</option>
-            </select>
-          </label>
-          <label>Location
+            <textarea placeholder="Description of your event" value={this.state.description} onChange={this.update('description')} >{this.state.description}</textarea>
+            <div id="date-selectors">
+              <div id="date">
+                <label>Start</label>
+                <input id="date-input" type="datetime-local" value={this.state.eventStart} onChange={this.update('eventStart')}/>
+              </div>
+              <div id="date">
+                <label>End</label>
+                <input id="date-input" type="datetime-local" value={this.state.eventEnd} onChange={this.update('eventEnd')}/>
+              </div>
+            </div>
+            <div id="selectors">
+              <select onChange={this.handleEventType} defaultValue="default">
+                <option className="eventType-selector" value="default" disabled={true}>Select an event type</option>
+                <option selected={eventType === "Online" ? true : false} className="eventType-selector" value="Online">Online</option>
+                <option selected={eventType === "In-Person" ? true : false} className="eventType-selector" value="In-Person">In-Person</option>
+              </select>
+              <select onChange={this.handleCategory} defaultValue="default">
+                <option className="category-selector" value="default" disabled={true}>Select a category</option>
+                <option selected={category === "Sport" ? true : false} className="category-selector" value="Sport">Sport</option>
+                <option selected={category === "Gaming" ? true : false} className="category-selector" value="Gaming">Gaming</option>
+                <option selected={category === "Board-Game" ? true : false} className="category-selector" value="Board-Game">Board-Game</option>
+              </select>
+            </div>
             <input type="text" onChange={this.update('location')} value={this.state.location}/>
-          </label>
-          <label>Website
-            <input type="text" onChange={this.update('website')} value={this.state.website}/>
-          </label>
-          <label>Limit
+            <input placeholder="Website" type="text" onChange={this.update('website')} value={this.state.website}/>
             <input type="number" onChange={this.update('limit')} value={this.state.limit}/>
-          </label>
           <button>Update Event</button>
         </form>
       </div>
