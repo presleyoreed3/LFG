@@ -41,15 +41,21 @@ class EventShow extends React.Component {
     return (
       <div className="home-page-container">
         <div className="event-show-container">
+          
           <div className="event-title">
-            <p>{event.title}</p>
+            <p>Title: {event.title}</p>
           </div>
           <div className="event-gen-info">
             <p>
-              {eventStartDate} {eventStartDate === eventEndDate ? "" : "to " + eventEndDate}
+              Date: {eventStartDate} {eventStartDate === eventEndDate ? "" : "to " + eventEndDate}
             </p>
             <p>From: {eventStartTime} to {eventEndTime}</p>
-            <p>Location: {event.location}</p>
+            <p className="event-show-location">Location:    
+               {event.eventType === 'Online' ? ' Online' : <a href={`http://maps.google.com/?q=${event.location}`} target='_blank'> {event.location}</a>}
+            </p>
+
+            
+
           </div>
           <div className="event-desc">
             {event.description}
@@ -60,6 +66,7 @@ class EventShow extends React.Component {
           {this.props.events.map((event) => (
             <IndexItem
               key={event._id}
+              event={event}
               title={event.title}
               category={event.category}
               eventType={event.eventType}
