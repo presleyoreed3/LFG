@@ -14,7 +14,7 @@ export const createEvent = (event) => {
 
 export const updateEvent = (event) => {
   debugger
-  return axios.post(`/api/events/${event._id}`, event)
+  return axios.patch(`/api/events/${event._id}`, event)
 };
 
 export const deleteEvent = (eventId) => {
