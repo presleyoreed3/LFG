@@ -7,7 +7,7 @@ class IndexItem extends React.Component{
 	render(){
 		return(
 			<div className="event-item" onClick={()=> this.props.history.push(`/events/${this.props.event._id}`)}>
-				<div id='details'>
+				<div id='event-details'>
 					<h3>{this.props.event.title}</h3>
 					<p>Event Type: {this.props.event.eventType}</p>
 					<p>Category: {this.props.event.category}</p>

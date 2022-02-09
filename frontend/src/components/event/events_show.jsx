@@ -57,12 +57,12 @@ class EventShow extends React.Component {
           </div>
           <div id="counter">
             <div id="limit">
-              <h4>Open Spots:</h4>
               <p>{event.limit - event.attendees.length}</p>
+              <h4>Spots:</h4>
             </div>
             <div id="goal">
-              <h4>Goal:</h4>
               <p>{event.limit}</p>
+              <h4>Goal:</h4>
             </div>
           </div>
         </div>
@@ -72,12 +72,6 @@ class EventShow extends React.Component {
             <IndexItem
               key={event._id}
               event={event}
-              title={event.title}
-              category={event.category}
-              eventType={event.eventType}
-              start={event.eventStart}
-              end={event.eventEnd}
-              limit={event.limit}
             />
           ))}
         </div>
