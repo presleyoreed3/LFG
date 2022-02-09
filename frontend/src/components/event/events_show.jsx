@@ -51,11 +51,11 @@ class EventShow extends React.Component {
       return (
         <div className="dropdown">
           <div onClick={this.handleDropdown} className="dropbtn">
-            <i className="fa-solid fa-bars"></i>
+            PH
           </div>
           <div id="myDropdown" className="dropdown-content">
             <div onClick={() => this.props.openModal('eventUpdateForm', this.props.match.params.eventId)}>Update</div>
-            <div id="test" onClick={() => this.props.openModal('deleteEvent', this.props.match.params.eventId)}>Delete</div>
+            <div onClick={() => this.props.openModal('deleteEvent', this.props.match.params.eventId)}>Delete</div>
           </div>
         </div>
       )
@@ -96,7 +96,9 @@ class EventShow extends React.Component {
     return (
       <div className="home-page-container">
         <div className="event-show-left-container">
+          {/* {this.checkOwner(eventOwner)} */}
           <div id="event" className="event-show-container">
+            {this.checkOwner(eventOwner)}
             <div id="details">
               <div className="event-title">
                 <h3>{event.title}</h3>
@@ -127,7 +129,6 @@ class EventShow extends React.Component {
           </div>
           <CommentIndexContainer eventId={event._id}/>
         </div>
-        {this.checkOwner(eventOwner)}
         <button className="test-button" onClick={() => this.props.openModal('eventForm', 1)}>Create</button>
         <div className="events-index">
           <h1>Events</h1>
