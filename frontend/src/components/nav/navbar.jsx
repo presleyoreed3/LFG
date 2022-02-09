@@ -9,6 +9,14 @@ class NavBar extends React.Component {
     this.getLinks = this.getLinks.bind(this);
   }
 
+  checkCreate(){
+    if (this.props.loggedIn){
+      return (
+        <Link className="hover-underline-animation">Create</Link>
+      )
+    }
+  }
+
   logoutUser(e) {
     e.preventDefault();
     this.props.logout();
@@ -40,7 +48,7 @@ class NavBar extends React.Component {
           <span><hr id="seperator"/></span>
           <Link to={"/"} className="hover-underline-animation">Home</Link>
           <Link to={"/home"} className="hover-underline-animation">Calendar</Link>
-          <a className="hover-underline-animation">Create</a>
+          {this.checkCreate()}
         </div>
         {this.getLinks()}
       </header>

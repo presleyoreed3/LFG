@@ -3,6 +3,7 @@ import EventShow from "../event/events_show";
 import HomeCalendar from './../calendar/calendar'
 import IndexItem from '../index/index_item'
 import './home.scss';
+import {withRouter} from 'react-router-dom'
 
 class Home extends React.Component {
 
@@ -25,12 +26,7 @@ class Home extends React.Component {
         {events.map(event => (
           <IndexItem 
             key={event._id}
-            title={event.title}
-            category={event.category}
-            eventType={event.eventType}
-            start={event.eventStart}
-            end={event.eventEnd}
-            limit={event.limit}
+            event={event}
           />
         ))}
       </div>
@@ -38,4 +34,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);

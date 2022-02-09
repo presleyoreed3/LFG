@@ -5,6 +5,7 @@ import {fetchEvent, fetchEvents} from '../../actions/event_actions';
 const mSTP = (state,ownProps) => {
   return {
     events: state.entities.events,
+    loggedIn: state.session.isAuthenticated,
     // event: state.entities.events[ownProps.match.params.eventId]
   }
 }
