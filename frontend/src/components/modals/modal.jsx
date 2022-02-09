@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import EventFormContainer from './event_form_container';
 import EventUpdateFormContainer from './event_update_form_container';
+import CommentDeleteContainer from '../comments/comment_delete_container';
 import './modal.scss';
 
 function Modal({ modal, closeModal}) {
@@ -16,6 +17,9 @@ function Modal({ modal, closeModal}) {
       break;
     case 'eventUpdateForm':
       component = <EventUpdateFormContainer eventId={modal[1]}/>;
+      break;
+    case 'deleteComment':
+      component = <CommentDeleteContainer commentId={modal[1]}/>;
       break;
     default:
       return null;

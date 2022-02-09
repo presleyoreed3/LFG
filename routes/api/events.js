@@ -9,7 +9,6 @@ const Event = require('../../models/Event');
 const validateEventInput = require('../../validation/events');
 const { route } = require('./users');
 
-debugger
 
 router.get('/', (req, res) => {
   Event.find()
@@ -63,9 +62,9 @@ router.post('/',
   );
 
 router.patch('/:id', async (req, res) => {
-  debugger
   const id = req.body._id;
   const index = req.body.index
+  debugger
   try {
     await Event.findById(id, (error, eventToUpdate) => {
       eventToUpdate.title= req.body.title,
