@@ -66,43 +66,41 @@ class EventForm extends React.Component {
   render() {
     return (
       <div>
-        <h2>Create an Event</h2>
+       
         <div onClick={this.props.closeModal}>CLOSE MODAL</div>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Title
-            <input
-              type="text"
-              onChange={this.update("title")}
-              value={this.state.title}
-            />
-          </label>
-          <label>
-            Description
-            <textarea
-              onChange={this.update("description")}
-            >
-              {this.state.description}
-            </textarea>
-          </label>
-          <label>
-            Event Start
-            <input
-              type="datetime-local"
-              value={this.state.eventStart}
-              onChange={this.update("eventStart")}
-            />
-          </label>
-          <label>
-            Event End
-            <input
-              type="datetime-local"
-              value={this.state.eventEnd}
-              onChange={this.update("eventEnd")}
-            />
-          </label>
-          <label>
-            Event Type
+          <h2>Create an LFG</h2>
+          <input
+            placeholder="Event Title"
+            type="text"
+            onChange={this.update("title")}
+            value={this.state.title}
+          />
+          <textarea
+            placeholder="Description of the event"
+            onChange={this.update("description")}
+          >
+            {this.state.description}
+          </textarea>
+          <div id="date-selectors">
+            <div id="date">
+              <label>Start</label>
+              <input
+                type="datetime-local"
+                value={this.state.eventStart}
+                onChange={this.update("eventStart")}
+              />
+            </div>
+            <div id='date'>
+              <label>End</label>
+              <input
+                type="datetime-local"
+                value={this.state.eventEnd}
+                onChange={this.update("eventEnd")}
+              />
+            </div>
+          </div>
+          <div id="selectors">
             <select onChange={this.handleEventType} defaultValue="default">
               <option
                 className="eventType-selector"
@@ -118,9 +116,6 @@ class EventForm extends React.Component {
                 In-Person
               </option>
             </select>
-          </label>
-          <label>
-            Category
             <select onChange={this.handleCategory} defaultValue="default">
               <option
                 className="category-selector"
@@ -139,31 +134,25 @@ class EventForm extends React.Component {
                 Board-Game
               </option>
             </select>
-          </label>
-          <label>
-            Location
+          </div>
             <input
+              placeholder="Location"
               type="text"
               onChange={this.update("location")}
               value={this.state.location}
             />
-          </label>
-          <label>
-            Website
             <input
+              placeholder="Website"
               type="text"
               onChange={this.update("website")}
               value={this.state.website}
             />
-          </label>
-          <label>
-            Limit
             <input
+              placeholder="Number of people you need"
               type="number"
               onChange={this.update("limit")}
               value={this.state.limit}
             />
-          </label>
           <button>Create Event</button>
         </form>
       </div>
