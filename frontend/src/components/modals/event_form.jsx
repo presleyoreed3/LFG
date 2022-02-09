@@ -80,7 +80,6 @@ class EventForm extends React.Component {
           <label>
             Description
             <textarea
-              type="text"
               onChange={this.update("description")}
             >
               {this.state.description}
