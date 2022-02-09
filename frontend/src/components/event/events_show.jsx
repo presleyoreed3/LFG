@@ -1,5 +1,6 @@
 import React from "react";
 import IndexItem from "../index/index_item";
+import CommentIndexContainer from "../comments/comment_index_container";
 import "./events.scss"
 import Count from '../attendees/count'
 
@@ -84,6 +85,7 @@ class EventShow extends React.Component {
               Attendees Go here
             </div>
           </div>
+          <CommentIndexContainer eventId={event._id}/>
         </div>
         <div className="events-index">
           <h1>Events</h1>
