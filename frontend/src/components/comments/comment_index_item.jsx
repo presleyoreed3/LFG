@@ -70,7 +70,7 @@ class CommentIndexItem extends React.Component{
             </div>
         </div>
         <p className={`comment-index-item-text ${this.props.index}`}>{this.props.comment.text}</p>
-        <CommentEditContainer index={this.props.index} eventId={this.props.comment.eventId} comment={this.props.comment} currentUser={this.props.currentUser} editComment={this.editComment}/>        
+        <CommentEditContainer index={this.props.index} eventId={this.props.comment.eventId} comment={this.props.comment} currentUser={this.props.currentUser} editComment={this.editComment}/>
       </div>
     )
   }
