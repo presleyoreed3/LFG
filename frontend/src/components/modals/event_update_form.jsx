@@ -11,12 +11,10 @@ class EventUpdateForm extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(this.props.eventId)
     this.props.fetchEvents()
       .then((events) => this.findEvent(this.props.events))
     // this.findEvent(this.props.events)
     // this.setState({_id: this.props.eventId})
-    // console.log(this.state);
   }
 
   findEvent(events) {
@@ -36,7 +34,6 @@ class EventUpdateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     this.props.updateEvent(this.state);
     this.setState({
       title: '',

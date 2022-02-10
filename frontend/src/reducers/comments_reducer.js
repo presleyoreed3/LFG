@@ -7,7 +7,6 @@ const CommentsReducer = (state = [], action) => {
     case RECEIVE_EVENT_COMMENTS:
       return action.comments.data;
     case RECEIVE_COMMENT:
-      debugger
       nextState[action.comment.data.index] = action.comment.data
       return nextState
     case RECEIVE_NEW_COMMENT:

@@ -47,7 +47,6 @@ class CommentForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     const comment = Object.assign({}, this.state);
-    debugger
     this.props.createComment(comment)
       .then(() => this.setState({ text: ''}))
       // .fail(() => this.setState({ errors: this.props.errors }));
