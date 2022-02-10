@@ -63,7 +63,6 @@ class Home extends React.Component {
 
   render() {
     if (!this.props.events) return null;
-    // const {events} = this.props;
     
     return <div className="home-page-container">
       <HomeCalendar events={this.state.events} className="calendar"/>
