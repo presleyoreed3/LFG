@@ -260,3 +260,13 @@ button:hover:active{
 .clicked i {
 	color: $Deep-Blue-hex; 
 }
+
+.attend-leave-button {
+	background-color:  #cf1515;
+}
+
+.attend-leave-button:hover {
+	background-color: #e11717;
+	color: white;
+	cursor: pointer;
+}
