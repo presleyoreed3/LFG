@@ -52,6 +52,9 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 26px;
+  // border-top: 1px solid $Deep-Blue-hex;
+  padding: 10px;
+  box-shadow: 2px 2px 4px;
 }
 
 #comment-form-real{
@@ -69,20 +72,33 @@
   margin-top: 16px;
 }
 
+#comments-holder{
+  height: 600px;
+  overflow: scroll;
+  // border: 1px solid $Deep-Blue-hex;
+  padding: 5px;
+}
+
 .comment-form-textarea{
-  height: 20px;
+  height: 30px;
   width: 100%;
   border: none;
-  border-bottom: 2px solid #AAAAAA;
+  border-bottom: 1px solid $Deep-Blue-hex;
   background-color: transparent;
   margin: 10px 0px;
   resize: none;
   outline: none;
   transition: border 500ms;
+  color: $Deep-Blue-hex;
+}
+
+.comment-form-textarea::placeholder{
+  color: $Deep-Blue-hex;
+  opacity: 75%;
 }
 
 .comment-form-textarea:focus{
-  border-bottom: 2px solid #000000f1;
+  border-bottom: 2px solid $Deep-Blue-hex;
 }
 
 .comment-form{
@@ -98,22 +114,23 @@
   line-height: normal;
 }
 
+.comment-datetime{
+  font-size: 16px;
+  color: $Deep-Blue-hex;
+  opacity: 60%;
+}
 
 .comment-form-buttons{
   display: flex;
-  align-self: self-end;
-  // justify-content: flex-end;
-  // visibility: hidden;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 5px;
 }
 
-// .comment-form-buttons.toggle-buttons{
-//   visibility: visible;
-// }
 
 .comment-form-input, .comment-form-button {
-  // padding: 10px 15px;
   font-size: 16px;
-  margin: 0px;
+  margin: 5px;
   height: 25px;
   width: 80px;
   margin: none;
@@ -125,10 +142,6 @@
   cursor: pointer;
 }
 
-// .comment-form-input {
-//   // background-color: #3ea6ff;
-// }
-
 .comment-index-dropdown{
   position: relative;
   display: inline-block;
@@ -136,7 +149,12 @@
 
 .comment-form-buttons .comment-form-button{
   color: #AAAAAA;
-  background-color: #181818;
+  background-color: transparent;
+}
+
+.comment-form-buttons .comment-form-button:hover{
+  color: #282828;
+  background-color: transparent;
 }
 
 .comment-dropdown-content {

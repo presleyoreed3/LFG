@@ -21,7 +21,7 @@ class CommentIndex extends React.Component {
 
   commentEventCheck(){
     let commentEvents = []
-    for (let i = 0; i < this.props.comments.length; i++){
+    for (let i = this.props.comments.length-1; i >= 0; i--){
       if (this.props.comments[i].eventId === this.props.eventId) {
         commentEvents.push(this.props.comments[i])
       }
@@ -34,21 +34,21 @@ class CommentIndex extends React.Component {
     if (!this.props.comments) return null 
     if (!this.props.users) return null
     EventsComments = this.commentEventCheck()
-      return (
-        <div className="comment-index-container">
-            <h2>{EventsComments.length} Comments</h2>
-              <CommentForm eventId={this.props.eventId}  user={this.props.currentUser} createComment={this.props.createComment} />
-            {
-              EventsComments.map((comment) => {
-                return <CommentIndexItem key={comment._id} index={comment._id} comment={comment} users={this.props.users} 
-                currentUser={this.props.currentUser} openModal={this.props.openModal}/>
-              })
-            }
-        </div>
-      )
-    
-
+    return (
+      <div className="comment-index-container">
+          <h2>{EventsComments.length} Comments</h2>
+            <CommentForm eventId={this.props.eventId}  user={this.props.currentUser} createComment={this.props.createComment} />
+          <div id="comments-holder">
+          {EventsComments.map((comment) => {
+              return <CommentIndexItem key={comment._id} index={comment._id} comment={comment} users={this.props.users} 
+              currentUser={this.props.currentUser} openModal={this.props.openModal}/>
+            })
+          }
+          </div>
+      </div>
+    )
   }
+
 }
 
 export default CommentIndex;
