@@ -38,7 +38,8 @@ class LoginForm extends React.Component {
       email: "demo@gmail.com",
       password: "123456"
     }
-    this.props.login(user)
+    this.props.login(user);
+    this.props.history.push('/home');
   }
 
   handleSubmit(e) {
@@ -50,6 +51,7 @@ class LoginForm extends React.Component {
     };
 
     this.props.login(user);
+    this.props.history.push('/home');
   }
 
   // Render the session errors if there are any

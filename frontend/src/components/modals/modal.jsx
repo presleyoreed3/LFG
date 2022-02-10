@@ -22,13 +22,11 @@ function Modal({ modal, closeModal}) {
     case 'eventUpdateForm':
       component = <EventUpdateFormContainer eventId={modal[1]}/>;
       break;
-
     case 'deleteEvent':
       component = <EventDeleteContainer eventId={modal[1]}/>;
-
+      break;
     case 'deleteComment':
       component = <CommentDeleteContainer commentId={modal[1]}/>;
-
       break;
     default:
       return null;

@@ -21,3 +21,38 @@
    right: 5px;
    cursor: pointer;
  }
+
+ .delete-event {
+   background-color: #053868;
+   color: white;
+   border-radius: 15px;
+   padding: 10px;
+   height: 100px;
+   width: 350px;
+ }
+
+ .delete-event-buttons {
+   display: flex;
+   margin-top: 10px;
+   justify-content: space-around;
+ }
+
+ .delete-event-message {
+   font-size: 20px;
+   margin-top: 10px;
+   text-align: center;
+ }
+
+ .delete-event-buttons button {
+   font-size: 16px;
+   width: 160px;
+   color: #5CDB95;
+   border: 1px solid #5CDB95;
+ }
+
+ .delete-event-buttons button:hover {
+   background-color: #5CDB95;
+   color: #053868;
+ }
+
+ 
