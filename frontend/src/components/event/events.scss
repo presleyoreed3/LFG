@@ -89,7 +89,6 @@
 	display: flex;
 	margin: 10px;
 	width: 25%;
-	
 }
 
 #limit {
@@ -147,6 +146,12 @@ button:hover:active{
 #details-container{
 	max-height: 800px;
 	overflow: auto;
+}
+
+#details-container hr{
+	margin-top: 10px;
+	width: 50%;
+	// margin-left: 25%;
 }
 
 .content {

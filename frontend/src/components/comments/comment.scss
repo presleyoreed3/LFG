@@ -43,7 +43,6 @@
 .comment-index-item-text{
   font-size: 16px;
   padding-top: 10px;
-  margin: 10px 0px;
   height: 20px;
   width: 100%;
   border: none;
@@ -57,7 +56,6 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 26px;
-  // border-top: 1px solid $Deep-Blue-hex;
   padding: 10px;
   box-shadow: 2px 2px 4px;
 }
@@ -78,8 +76,6 @@
 }
 
 #comments-holder{
-  height: 600px;
-  overflow: scroll;
   padding: 5px;
 }
 
