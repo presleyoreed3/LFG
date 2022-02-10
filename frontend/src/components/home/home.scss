@@ -33,11 +33,11 @@
 
 .events-header {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
-	font-size: 18px;
+	font-size: 20px;
 	color: $Tan-hex;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 .events-header:hover{
@@ -45,6 +45,6 @@
 }
 
 .event-selected {
-	font-size: 22px;
-	font-weight: 500;
+	transform: scale(1.15);
+	font-weight: 600;
 }

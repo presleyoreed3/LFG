@@ -25,16 +25,6 @@ class Home extends React.Component {
       })
   }
 
-  // componentDidUpdate(){
-  //   let choices = ["all", "friends", "my"];
-  //   let elements = Array.from(document.getElementsByClassName('event-choice'));
-  //   elements.forEach((el, idx) => {
-  //     if(el.classList.contains('event-selected')) {
-  //       this.setState({events: this.filterEvents(this.props.events, choices[idx])})
-  //     }
-  //   })
-  // }
-
   handleSelect(e, type) {
     e.preventDefault();
     let elements = Array.from(document.getElementsByClassName('event-choice'));
