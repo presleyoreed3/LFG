@@ -19,6 +19,7 @@ class NavBarClear extends React.Component {
 
   logoutUser(e) {
     e.preventDefault();
+    // this.props.history.push('/')
     this.props.logout();
   }
 

@@ -80,7 +80,9 @@ router.post('/login', (req,res) => {
             const payload = {
               id: user.id,
               username: user.username,
-              email: user.email
+              email: user.email,
+              events: user.events,
+              friends: user.friends
             }
             jwt.sign(
               payload,

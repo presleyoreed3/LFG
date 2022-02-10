@@ -44,6 +44,8 @@ class EventShow extends React.Component {
         return(<AttendanceIndexItem
           key={user._id}
           user={user}
+          currentUser={this.props.currentUser}
+          updateUser={this.props.updateUser}
         />)
       }
   }
@@ -201,6 +203,26 @@ class EventShow extends React.Component {
     })
     return selectedEvent;
   }
+
+  // follow(e) {
+  //   this.props.friends.push()
+  // }
+
+  // unfollow(e) {
+
+  // }
+
+  // checkFollow() {
+  //   let event = this.findEvent();
+  //   event.attendees.forEach((attendee) => {
+  //     let friendArr = this.props.friends.filter(friend => friend._id === attendee)
+  //     if (friendArr.length > 0) {// FOLLOWED ICON
+
+  //     } else {
+  //       // NOT FOLLOWED ICON
+  //     }
+  //   })
+  // }
 
   render() {
 
