@@ -66,10 +66,10 @@ class EventForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="event-form">
           <div id="modal-top">
           <h2>Create an LFG</h2>
-            <div onClick={this.props.closeModal} class="close">&times;</div>
+            <div onClick={this.props.closeModal} className="close">&times;</div>
           </div>
           <input
             placeholder="Event Title"
@@ -80,6 +80,7 @@ class EventForm extends React.Component {
           <textarea
             placeholder="Description of the event"
             onChange={this.update("description")}
+            value={this.state.description}
           >
             {this.state.description}
           </textarea>

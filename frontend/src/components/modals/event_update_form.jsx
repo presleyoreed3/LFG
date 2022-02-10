@@ -76,7 +76,7 @@ class EventUpdateForm extends React.Component {
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className='event-form'>
           <div id="modal-top">
             <h2>Update your LFG</h2>
             <div onClick={this.props.closeModal} class="close">&times;</div>
