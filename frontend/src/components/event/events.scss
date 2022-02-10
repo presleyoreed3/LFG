@@ -38,6 +38,7 @@
 
 .event-show-location a{
   text-decoration: none;
+  color: $Dark-Green-hex;
 }
 
 .event-show-location a:hover{
@@ -46,6 +47,7 @@
 
 .collapsible{
 	cursor: pointer;
+	color: $Dark-Green-hex;
 }
 
 #details{
@@ -160,6 +162,16 @@ button:hover:active{
 	border-radius: 5px;
   display: none;
   overflow: hidden; 
+}
+
+.collapsible-user{
+	color: $Dark-Green-hex;
+	cursor: pointer;
+}
+
+.collapsible-description{
+	color: $Dark-Green-hex;
+	cursor: pointer;
 }
 
 .collapsible-user:hover{
