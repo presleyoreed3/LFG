@@ -158,10 +158,10 @@ class EventShow extends React.Component {
           </div>
           <div id="myDropdown" className="dropdown-content hidden">
             <div onClick={() => this.props.openModal('eventUpdateForm', this.props.match.params.eventId)}>
-              Update<i className="fa-solid fa-pencil"></i>
+              <i className="fa-solid fa-pencil"></i> Update
             </div>
             <div onClick={() => this.props.openModal('deleteEvent', this.props.match.params.eventId)}>
-              Delete<i className="fa-solid fa-trash-can"></i>
+              <i className="fa-solid fa-trash-can"></i> Delete
             </div>
           </div>
         </div>

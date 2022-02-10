@@ -64,6 +64,9 @@ class CommentIndexItem extends React.Component{
 
     let user;
     user = this.commentUserCheck();
+
+    const commentDate = new Date(this.props.comment.date).toDateString();
+    const commentTime = new Date(this.props.comment.date).toLocaleTimeString();
     return(
       <div className="comment-index-item-container">
         <div className="comment-index-username-dropdown">
@@ -76,7 +79,7 @@ class CommentIndexItem extends React.Component{
                 </div>
             </div>
         </div>
-        <p className="comment-datetime">Timestamp Here</p>
+        <p className="comment-datetime">{commentDate}, {commentTime}</p>
         <p className={`comment-index-item-text ${this.props.index}`}>{this.props.comment.text}</p>
         <CommentEditContainer index={this.props.index} eventId={this.props.comment.eventId} comment={this.props.comment} currentUser={this.props.currentUser} editComment={this.editComment}/>
       </div>

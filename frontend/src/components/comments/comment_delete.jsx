@@ -18,8 +18,8 @@ export default class CommentDelete extends React.Component {
     return (
       <div id='delete-modal'>
         <p className="delete-modal-text">Are you sure you want to delete this comment?</p>
-          <button className="delete-button-cancel" onClick={() => this.props.closeModal()}>CANCEL</button>
-          <button className="delete-button-confirm" onClick={this.handleClick}>DELETE</button>
+          <button id="delete-button-confirm" onClick={this.handleClick}>DELETE</button>
+          <button id="delete-button-cancel" onClick={() => this.props.closeModal()}>CANCEL</button>
       </div>
     )
   }

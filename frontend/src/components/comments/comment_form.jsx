@@ -17,21 +17,6 @@ class CommentForm extends React.Component{
     this.handleCancel = this.handleCancel.bind(this);
   }
 
-  // componentDidMount(){
-  //   // only signed in users can post comment
-  //   if (!this.props.user) return null;
-  //   this.setState({ownerId: this.props.user.id, 
-  //                 eventId: this.props.eventId,
-  //                 errors: []
-  //                 })
-  // }
-
-  // componentDidUpdate(prevProps){
-  //   if (this.props.eventId !== prevProps.eventId){
-  //     this.componentDidMount()
-  //   }
-  // }
-
   handleErrors(e){
     if (e.currentTarget.value.length > 0) {
       this.setState({errors: []})
@@ -70,7 +55,7 @@ class CommentForm extends React.Component{
             <textarea onKeyUp={this.handleErrors} className="comment-form-textarea" placeholder='Add a public comment...' value={this.state.text} onChange={this.update('text')}/>
             <div className="comment-form-buttons">
               <button className='comment-form-input' type='submit' placeholder="Comment" disabled={status}>Submit</button>
-              <button className='comment-form-button' onClick={this.handleCancel} disabled={status}>Cancel</button> 
+              <button className='comment-form-button' onClick={this.handleCancel} disabled={status}>Clear</button> 
             </div>
           </form>
         </div>
