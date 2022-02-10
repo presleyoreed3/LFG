@@ -21,7 +21,7 @@ class CommentIndex extends React.Component {
 
   commentEventCheck(){
     let commentEvents = []
-    for (let i = 0; i < this.props.comments.length; i++){
+    for (let i = this.props.comments.length-1; i >= 0; i--){
       if (this.props.comments[i].eventId === this.props.eventId) {
         commentEvents.push(this.props.comments[i])
       }
