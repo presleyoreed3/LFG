@@ -20,7 +20,7 @@ class EventShow extends React.Component {
     this.addToAttendance = this.addToAttendance.bind(this);
     this.leaveAttendance = this.leaveAttendance.bind(this);
     this.findUser = this.findUser.bind(this);
-    
+    this.listEvents = this.listEvents.bind(this);
     this.dropDownClose();
 
   }
@@ -71,20 +71,70 @@ class EventShow extends React.Component {
   }
 
   filterEvents() {
-    let newEvents=[];
+    let newEvents = [];
+    let friendEvents = {};
     let events = this.props.events;
+    
     let target = document.querySelector('.event-selected')
-    if (!target) return [];
+    if (!target) return []; // DOUBLE CHECK
     if(target.id === "my") {
-      events.map((event) => {
+      events.forEach((event) => {
         if(event.owner === this.props.currentUser.id || event.attendees.includes(this.props.currentUser.id)) {
           newEvents.push(event);
         }
       })
-    } else {
+      
+      return newEvents;
+    } else if(target.id === "friend") {
+      let user = this.findUser(this.props.currentUser.id);
+
+      user.friends.forEach(friend => {
+        let foundFriend = this.findUser(friend._id)
+        friendEvents[foundFriend.username] = [];
+        foundFriend.events.forEach(event => friendEvents[foundFriend.username].push(event))
+      })
+      return friendEvents;
+    } 
+    else {
       newEvents = this.props.events;
+      
+      return newEvents;
     }
-    return newEvents
+  }
+
+  listEvents(){
+    let filtered = this.filterEvents();
+    
+    if(Array.isArray(filtered)) {
+      return filtered.map((event) => (
+            <IndexItem
+              key={event._id}
+              event={event}
+            />
+      ))
+    } else {
+      let friends = Object.keys(filtered);
+      return friends.map(friend => {
+        if(filtered[friend].length === 0) return;
+        return (
+          <div>
+            <h2>{friend}</h2>
+            {this.createIndexItems(filtered, friend)}
+          </div>
+        )
+      })
+    }
+  }
+
+  createIndexItems(filtered, friend){
+    return filtered[friend].map(event =>  {
+          return (
+              <IndexItem
+                    key={event._id}
+                    event={event}
+              />
+          )
+        })
   }
 
   dropDownClose() {
@@ -207,26 +257,6 @@ class EventShow extends React.Component {
     return selectedEvent;
   }
 
-  // follow(e) {
-  //   this.props.friends.push()
-  // }
-
-  // unfollow(e) {
-
-  // }
-
-  // checkFollow() {
-  //   let event = this.findEvent();
-  //   event.attendees.forEach((attendee) => {
-  //     let friendArr = this.props.friends.filter(friend => friend._id === attendee)
-  //     if (friendArr.length > 0) {// FOLLOWED ICON
-
-  //     } else {
-  //       // NOT FOLLOWED ICON
-  //     }
-  //   })
-  // }
-
   render() {
 
     if (this.props.events.length === 0) return null;
@@ -293,12 +323,7 @@ class EventShow extends React.Component {
             <h2 className="event-choice" id="friend" onClick={(e) => this.handleSelect(e)}>Friend Events</h2>
             <h2 className="event-choice" id="my" onClick={(e) => this.handleSelect(e)}>My Events</h2>
           </div>
-          {this.filterEvents().map((event) => (
-            <IndexItem
-              key={event._id}
-              event={event}
-            />
-          ))}
+          {this.listEvents()}
         </div>
       </div>
     );

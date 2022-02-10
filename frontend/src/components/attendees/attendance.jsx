@@ -17,12 +17,14 @@ class AttendanceIndexItem extends React.Component{
 	checkFollow() {
 		let status = false;
 		let current = this.findUser(this.props.currentUser.id);
-		current.friends.forEach(friend => {
+		if(current) {
+			current.friends.forEach(friend => {
 			if(friend._id === this.props.user._id) {
 				status = true;
 			}
 		})
 		return status;
+		}
 	}
 
 	findUser(userId) {
