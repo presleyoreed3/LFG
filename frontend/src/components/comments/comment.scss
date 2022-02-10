@@ -24,7 +24,14 @@
 }
 
 .comment-index-option{
-  margin-right: 30px;
+  margin-right: 35px;
+  padding: 1px 8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.comment-index-option:hover{
+  background-color: $Green-hex;
 }
 
 .fas.fa-ellipsis-v{
@@ -160,8 +167,6 @@
 .comment-dropdown-content {
   display: none;
   position: absolute;
-  color: #AAAAAA;
-  // background-color: #181818;
   z-index: 1;
 }
 
@@ -179,6 +184,13 @@
   margin: 5px 0px;
   cursor: pointer;
   font-size: 14px;
+}
+
+.comment-dropdown-options{
+  display: flex;
+  z-index: 5;
+  background-color: $Green-hex;
+  color: $Deep-Blue-hex;
 }
 
 .comment-dropdown-content p:hover{
