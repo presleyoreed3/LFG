@@ -12,7 +12,7 @@ class NavBar extends React.Component {
   checkCreate(){
     if (this.props.loggedIn){
       return (
-        <a className="test-button" onClick={() => this.props.openModal('eventForm', 1)}>Create</a>
+        <a className="hover-underline-animation" onClick={() => this.props.openModal('eventForm', 1)}>Create</a>
       )
     }
   }
