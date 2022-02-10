@@ -193,7 +193,7 @@ button:hover:active{
 // -----DROPDOWN CSS------
 
 .dropbtn {
-  background-color: $Deep-Blue-hex;
+  // background-color: $Deep-Blue-hex;
   color: white;
   padding: 10px;
   font-size: 10px;
@@ -204,7 +204,7 @@ button:hover:active{
 
 .dropbtn > i {
 	font-size: 14px;
-	color: $Green-hex;
+	color: $Deep-Blue-hex;
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -220,7 +220,7 @@ button:hover:active{
 }
 
 #myDropdown > div:first-child {
-	border-top-left-radius: 10px;
+	// border-top-left-radius: 10px;
 }
 
 #myDropdown div > i {
