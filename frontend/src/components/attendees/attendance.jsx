@@ -10,11 +10,14 @@ class AttendanceIndexItem extends React.Component{
 		 super(props);
 		 this.followToggle = this.followToggle.bind(this);
 		 this.checkFollow = this.checkFollow.bind(this);
+
+		 this.state = {count: 0}
 	}
 
 	checkFollow() {
 		let status = false;
-		this.props.currentUser.friends.forEach(friend => {
+		let current = this.findUser(this.props.currentUser.id);
+		current.friends.forEach(friend => {
 			if(friend._id === this.props.user._id) {
 				status = true;
 			}
@@ -32,19 +35,18 @@ class AttendanceIndexItem extends React.Component{
 		let current = this.findUser(this.props.currentUser.id)
 
 		if(this.checkFollow()) {
-			// let newFriends = this.props.currentUser.friends.filter(friend => friend._id !== this.props.user._id)
 			let newFriends = current.friends.filter(friend => friend._id !== this.props.user._id);
 			current.friends = newFriends;
 		} else {
 			current.friends.push(this.props.user);
 		}
-		debugger
-		this.props.updateUser(current);
+		this.props.updateUser(current)
+			.then(() => {
+				this.setState({count: this.state.count + 1})
+			})
 	}
 
 	render(){
-
-		// if(!this.props.currentUser) return;
 		let icon;
 
 		if(Object.keys(this.props.currentUser).length === 0) {
@@ -53,11 +55,9 @@ class AttendanceIndexItem extends React.Component{
 			if(this.props.user._id === this.props.currentUser.id) {
 				icon = <i  onClick={this.followToggle} className="fa-solid fa-jedi"></i>
 			} else if(this.checkFollow()){
-				icon = <img  onClick={this.followToggle} className="attendee-logo" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg-logo-green.png"/>
-			} else {
-				// icon = <i  onClick={this.followToggle} className="fa-solid fa-heart"></i>
 				icon = <img  onClick={this.followToggle} className="attendee-logo" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons2/logo-filled.png"/>
-
+			} else {
+				icon = <img  onClick={this.followToggle} className="attendee-logo" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg-logo-green.png"/>
 			}
 		}
 		return(

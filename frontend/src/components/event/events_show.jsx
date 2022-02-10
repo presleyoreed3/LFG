@@ -9,7 +9,7 @@ class EventShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      render: '',
+      render: ''
     }
 
     this.findEvent = this.findEvent.bind(this)
@@ -200,7 +200,7 @@ class EventShow extends React.Component {
     let selectedEvent;
     this.props.events.forEach((event, idx) => {
       if(event._id === this.props.match.params.eventId) {
-        event.index = idx;
+        event["index"] = idx;
         selectedEvent = event;
       }
     })
