@@ -27,9 +27,25 @@
 
 .attendee-item:hover{
     transform: scale(1.1);
-    cursor: pointer;
 }
 
 .attendee-item p{
     text-align: center;
+}
+
+.attendee-logo {
+    height: 30px;
+    width: 30px;
+    // background-color: blue;
+    cursor: pointer;
+}
+
+.attendee-logo {
+    fill: red;
+}
+
+#user-details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }

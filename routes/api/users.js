@@ -106,6 +106,7 @@ router.patch("/:id", async (req, res) => {
   try {
     await User.findById(id, (error, userToUpdate) => {
       userToUpdate.events = req.body.events,
+      userToUpdate.friends = req.body.friends,
       userToUpdate.save();
       res.send(userToUpdate);
     });
