@@ -135,6 +135,8 @@ class EventShow extends React.Component {
       return(
         <button onClick={this.addToAttendance}>Join the Fun</button>
       )
+    } else if (!this.props.loggedIn || this.findEvent().owner === this.props.currentUser.id) {
+      return
     } else {
       return <button onClick={this.leaveAttendance} className="attend-leave-button">Leave the Fun</button>
     }
