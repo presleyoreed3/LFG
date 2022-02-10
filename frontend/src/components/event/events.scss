@@ -41,7 +41,7 @@
 }
 
 .event-show-location a:hover{
-  color: $Dark-Green-hex;
+  color: $Green-hex;
 }
 
 .collapsible{
@@ -163,12 +163,12 @@ button:hover:active{
 }
 
 .collapsible-user:hover{
-	color: $Dark-Green-hex;
+	color: $Green-hex;
 	cursor: pointer;
 }
 
 .collapsible-description:hover{
-	color: $Dark-Green-hex;
+	color: $Green-hex;
 	cursor: pointer;
 }
 
@@ -193,7 +193,7 @@ button:hover:active{
 // -----DROPDOWN CSS------
 
 .dropbtn {
-  background-color: $Deep-Blue-hex;
+  // background-color: $Deep-Blue-hex;
   color: white;
   padding: 10px;
   font-size: 10px;
@@ -204,23 +204,28 @@ button:hover:active{
 
 .dropbtn > i {
 	font-size: 14px;
-	color: $Green-hex;
+	color: $Deep-Blue-hex;
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: $Dark-Green-hex;
+  // background-color: $Dark-Green-hex;
 	cursor: pointer;
 }
 
 #myDropdown div {
-	font-size: 16px;
+	font-size: 21px;
 	display: flex;
 	justify-content: space-evenly;
-	padding: 5px;
+	padding: 6px;
+	// margin: 3px;
+}
+
+#myDropdown div:hover{
+	background-color: $Green-hex;
 }
 
 #myDropdown > div:first-child {
-	border-top-left-radius: 10px;
+	// border-top-left-radius: 10px;
 }
 
 #myDropdown div > i {
@@ -236,17 +241,18 @@ button:hover:active{
 
 .dropdown-content {
   position: absolute;
-  background-color: $Green-hex;
-  width: 80px;
+  background-color: $Tan-hex;
+  width: 125px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 	color: $Deep-Blue-hex;
-	right: -30px;
+	right: 0px;
+	margin: 3px;
 }
 
 .dropdown-content div:hover {
-	background-color: $Dark-Green-hex;
 	cursor: pointer;
+	background-color: $Green-hex;
 }
 
 .hidden {
@@ -254,7 +260,7 @@ button:hover:active{
 }
 
 .clicked {
-	background-color: $Dark-Green-hex;;
+	background-color: $Green-hex;;
 }
 
 .clicked i {
