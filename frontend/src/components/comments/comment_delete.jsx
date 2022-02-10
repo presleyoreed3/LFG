@@ -1,4 +1,5 @@
 import React from "react";
+import './comment_delete_modal.scss';
 
 export default class CommentDelete extends React.Component {
   constructor(props){
