@@ -17,6 +17,7 @@ class EventShow extends React.Component {
     this.getOwnerName = this.getOwnerName.bind(this)
     this.collapseDescription = this.collapseDescription.bind(this)
     this.collapseUser = this.collapseUser.bind(this);
+    this.addToAttendance = this.addToAttendance.bind(this);
     this.dropDownClose();
 
   }
@@ -56,11 +57,22 @@ class EventShow extends React.Component {
     })
   }
 
+  addToAttendance(e) {
+    e.preventDefault();
+    let event = this.findEvent()[0]
+    event.attendees.push(this.props.currentUser.id)
+    debugger
+    this.props.updateEvent(event)
+  }
+
   checkLogin(){
-    if (this.props.loggedIn){
+    let attendees = this.findEvent()[0].attendees
+    if (this.props.loggedIn && !attendees.includes(this.props.currentUser.id)){
       return(
-        <button>Join the Fun</button>
+        <button onClick={this.addToAttendance}>Join the Fun</button>
       )
+    } else {
+      return <button className="attend-leave-button">Leave the Fun</button>
     }
   }
 
