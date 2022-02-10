@@ -17,6 +17,10 @@ class EventShow extends React.Component {
     this.getOwnerName = this.getOwnerName.bind(this)
     this.collapseDescription = this.collapseDescription.bind(this)
     this.collapseUser = this.collapseUser.bind(this);
+    this.addToAttendance = this.addToAttendance.bind(this);
+    this.leaveAttendance = this.leaveAttendance.bind(this);
+    this.findUser = this.findUser.bind(this);
+    
     this.dropDownClose();
 
   }
@@ -49,18 +53,53 @@ class EventShow extends React.Component {
     document.addEventListener("click", (event) => {
       if (!event.target.matches('.dropbtn') && !event.target.matches('.fa-bars')) {
         let dropdown = document.getElementsByClassName("dropdown-content")[0];
-        dropdown.classList.add("hidden");
-        let button = document.getElementsByClassName('dropbtn')[0];
-        button.classList.remove("clicked");
+        if(dropdown) {
+          dropdown.classList.add("hidden");
+          let button = document.getElementsByClassName('dropbtn')[0];
+          button.classList.remove("clicked");
+        }
       }
     })
   }
 
+  findUser(userId) {
+    return this.props.users.filter(user => user._id === userId)[0]
+  }
+
+  addToAttendance(e) {
+    e.preventDefault();
+    let event = this.findEvent()[0];
+    event.attendees.push(this.props.currentUser.id);
+    this.props.updateEvent(event);
+
+    let userId = this.props.currentUser.id;
+    let user = this.findUser(userId);
+    user.events.push(event);
+    this.props.updateUser(user);
+  }
+
+  leaveAttendance(e) {
+    e.preventDefault();
+    let event = this.findEvent()[0];
+    let newAttend = event.attendees.filter(id => id !== this.props.currentUser.id);
+    event.attendees = newAttend;
+    this.props.updateEvent(event);
+    
+    let userId = this.props.currentUser.id;
+    let user = this.findUser(userId);
+    let newEvents = user.events.filter(evnt => evnt._id !== event._id);
+    user.events = newEvents;
+    this.props.updateUser(user);
+  }
+
   checkLogin(){
-    if (this.props.loggedIn){
+    let attendees = this.findEvent()[0].attendees
+    if (this.props.loggedIn && !attendees.includes(this.props.currentUser.id)){
       return(
-        <button>Join the Fun</button>
+        <button onClick={this.addToAttendance}>Join the Fun</button>
       )
+    } else {
+      return <button onClick={this.leaveAttendance} className="attend-leave-button">Leave the Fun</button>
     }
   }
 

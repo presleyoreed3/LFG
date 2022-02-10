@@ -75,6 +75,7 @@ router.patch('/:id', async (req, res) => {
       eventToUpdate.eventType= req.body.eventType,
       eventToUpdate.category= req.body.category,
       eventToUpdate.website= req.body.website,
+      eventToUpdate.attendees = req.body.attendees,
       eventToUpdate.index= index,
       eventToUpdate.save();
       res.send(eventToUpdate)

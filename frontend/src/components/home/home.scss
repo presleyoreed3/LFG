@@ -31,3 +31,17 @@
 	margin-bottom: 10px;
 }
 
+.events-header {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	font-size: 18px;
+	color: $Tan-hex;
+	margin-bottom: 10px;
+}
+
+.event-selected {
+	font-size: 22px;
+	font-weight: 500;
+}
+

@@ -35,7 +35,17 @@
 }
 
 .fas.fa-ellipsis-v{
-  color: #053868;
+  color: $Deep-Blue-hex;
+}
+
+.comment-index-option:hover{
+  background-color: $Green-hex;
+}
+
+.comment-dropdown-options{
+  display:flex;
+  color: $Deep-Blue-hex;
+  background-color: $Light-Green-hex;
 }
 
 .comment-index-item-username{

@@ -76,7 +76,7 @@ class EventUpdateForm extends React.Component {
         <form onSubmit={this.handleSubmit} className='event-form'>
           <div id="modal-top">
             <h2>Update your LFG</h2>
-            <div onClick={this.props.closeModal} class="close">&times;</div>
+            <div onClick={this.props.closeModal} className="close">&times;</div>
           </div>
             <input type="text" onChange={this.update('title')} value={this.state.title}/>
             <textarea placeholder="Description of your event" value={this.state.description} onChange={this.update('description')} >{this.state.description}</textarea>
