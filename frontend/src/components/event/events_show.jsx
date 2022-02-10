@@ -10,7 +10,6 @@ class EventShow extends React.Component {
     super(props);
     this.state = {
       render: '',
-      events: this.props.events
     }
 
     this.findEvent = this.findEvent.bind(this)
@@ -39,10 +38,6 @@ class EventShow extends React.Component {
       })
   }
 
-  // componentDidUpdate(){
-  //   this.filterEvents(this.props.events, "my") //newEvents (filtered)
-  // }
-
   checkAttendance(user){
     const event = this.findEvent();
      if (event.attendees.includes(user._id)){
@@ -65,18 +60,19 @@ class EventShow extends React.Component {
   handleSelect(e, type) {
     e.preventDefault();
     let elements = Array.from(document.getElementsByClassName('event-choice'));
-    // let selected = Array.from(document.getElementsByClassName('event-selected'));
-    // if(selected.length === 0) elements[0].classList.add('event-selected');
     elements.forEach((ele) => {
       if(ele.classList.contains('event-selected')) ele.classList.remove('event-selected')
     })
     e.currentTarget.classList.add('event-selected');
-    // this.setState({events: this.filterEvents(this.props.events, type)})
+    this.setState({render: "1"})
   }
 
-  filterEvents(events, type) {
-    let newEvents = [];
-    if(type === "my") {
+  filterEvents() {
+    let newEvents=[];
+    let events = this.props.events;
+    let target = document.querySelector('.event-selected')
+    if (!target) return [];
+    if(target.id === "my") {
       events.map((event) => {
         if(event.owner === this.props.currentUser.id || event.attendees.includes(this.props.currentUser.id)) {
           newEvents.push(event);
@@ -86,17 +82,6 @@ class EventShow extends React.Component {
       newEvents = this.props.events;
     }
     return newEvents
-  }
-
-  findType() {
-    let choices = ["all", "friends", "my"];
-    let elements = Array.from(document.getElementsByClassName('event-choice'));
-    elements.forEach((el, idx) => {
-      if(el.classList.contains('event-selected')) {
-        // this.setState({events: this.filterEvents(this.props.events, choices[idx])})
-        return choices[idx];
-      }
-    })
   }
 
   dropDownClose() {
@@ -214,7 +199,6 @@ class EventShow extends React.Component {
         selectedEvent = event;
       }
     })
-    debugger
     return selectedEvent;
   }
 
@@ -229,7 +213,6 @@ class EventShow extends React.Component {
     const eventEndTime = new Date(event.eventEnd).toLocaleTimeString();
     const eventOwner = event.owner;
 
-    let choices = document.getElementsByClassName('')
 
     return (
       <div className="home-page-container">
@@ -281,11 +264,11 @@ class EventShow extends React.Component {
         </div>
         <div className="events-index">
           <div className="events-header">
-            <h2 className="event-choice event-selected" onClick={(e) => this.handleSelect(e, "all")}>All Events</h2>
-            <h2 className="event-choice" onClick={(e) => this.handleSelect(e, "friend")}>Friend Events</h2>
-            <h2 className="event-choice" onClick={(e) => this.handleSelect(e, "my")}>My Events</h2>
+            <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>All Events</h2>
+            <h2 className="event-choice" id="friend" onClick={(e) => this.handleSelect(e)}>Friend Events</h2>
+            <h2 className="event-choice" id="my" onClick={(e) => this.handleSelect(e)}>My Events</h2>
           </div>
-          {this.filterEvents(this.props.events, this.findType()).map((event) => (
+          {this.filterEvents().map((event) => (
             <IndexItem
               key={event._id}
               event={event}
