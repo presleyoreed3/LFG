@@ -47,18 +47,13 @@ class EventShow extends React.Component {
 
   dropDownClose() {
     document.addEventListener("click", (event) => {
-      if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
+      if (!event.target.matches('.dropbtn') && !event.target.matches('.fa-bars')) {
+        let dropdown = document.getElementsByClassName("dropdown-content")[0];
+        dropdown.classList.add("hidden");
+        let button = document.getElementsByClassName('dropbtn')[0];
+        button.classList.remove("clicked");
       }
     })
-
   }
 
   checkLogin(){
@@ -69,12 +64,12 @@ class EventShow extends React.Component {
     }
   }
 
-
-
-
   handleDropdown() {
-    document.getElementById('myDropdown').classList.toggle("show");
-}
+    let dropdown = document.getElementById('myDropdown')
+    dropdown.classList.toggle("hidden");
+    let button = document.getElementsByClassName('dropbtn')[0];
+    button.classList.contains('clicked') ? button.classList.remove('clicked') : button.classList.add('clicked')
+  }
 
   checkOwner(owner){
     if (!this.props.currentUser) return
@@ -82,11 +77,15 @@ class EventShow extends React.Component {
       return (
         <div className="dropdown">
           <div onClick={this.handleDropdown} className="dropbtn">
-            PH
+            <i className="fa-solid fa-bars"></i>
           </div>
-          <div id="myDropdown" className="dropdown-content">
-            <div onClick={() => this.props.openModal('eventUpdateForm', this.props.match.params.eventId)}>Update</div>
-            <div onClick={() => this.props.openModal('deleteEvent', this.props.match.params.eventId)}>Delete</div>
+          <div id="myDropdown" className="dropdown-content hidden">
+            <div onClick={() => this.props.openModal('eventUpdateForm', this.props.match.params.eventId)}>
+              Update<i className="fa-solid fa-pencil"></i>
+            </div>
+            <div onClick={() => this.props.openModal('deleteEvent', this.props.match.params.eventId)}>
+              Delete<i className="fa-solid fa-trash-can"></i>
+            </div>
           </div>
         </div>
       )
