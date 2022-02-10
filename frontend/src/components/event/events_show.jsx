@@ -18,6 +18,8 @@ class EventShow extends React.Component {
     this.collapseDescription = this.collapseDescription.bind(this)
     this.collapseUser = this.collapseUser.bind(this);
     this.addToAttendance = this.addToAttendance.bind(this);
+    this.leaveAttendance = this.leaveAttendance.bind(this);
+    
     this.dropDownClose();
 
   }
@@ -61,7 +63,14 @@ class EventShow extends React.Component {
     e.preventDefault();
     let event = this.findEvent()[0]
     event.attendees.push(this.props.currentUser.id)
-    debugger
+    this.props.updateEvent(event)
+  }
+
+  leaveAttendance(e) {
+    e.preventDefault();
+    let event = this.findEvent()[0]
+    let newArr = event.attendees.filter(id => id !== this.props.currentUser.id)
+    event.attendees = newArr
     this.props.updateEvent(event)
   }
 
@@ -72,7 +81,7 @@ class EventShow extends React.Component {
         <button onClick={this.addToAttendance}>Join the Fun</button>
       )
     } else {
-      return <button className="attend-leave-button">Leave the Fun</button>
+      return <button onClick={this.leaveAttendance} className="attend-leave-button">Leave the Fun</button>
     }
   }
 
