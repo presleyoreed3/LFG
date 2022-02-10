@@ -63,7 +63,6 @@ class CommentForm extends React.Component{
   render(){
     let status = (!this.props.user) ? true : false;
     let initial = (this.props.user) ? this.props.user.username : ''
-    console.log(this.props.eventId)
     return(
       <div id="comment-form-real">
         <div id="comment-form-container">
