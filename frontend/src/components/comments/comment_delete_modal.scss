@@ -1,40 +1,53 @@
 @import '../../_colors.scss';
 
 #delete-modal{
-  background-color: white;
+  background-color: $Deep-Blue-hex;
   display: flex;
   flex-direction: column;
-  width: 280px;
-  height: 200px;
-  border-radius: 3px;
+  width: 400px;
+  height: auto;
+  border-radius: 5px;
+  align-items: center;
+  padding: 15px;
 }
 
-.delete-button-confirm .delete-button-cancel{
+#delete-button-confirm{
   display: block;
   text-align: center;
-  border: none;
-  outline: none;
-  text-decoration: none;
   cursor: pointer;
-  background-color: $Deep-Blue-hex;
-  color: white;
-  width: 100%;
-  height: 100px;
+  background-color: $Green-hex;
   color: $Deep-Blue-hex;
-  background-color: black;
-  margin-right: 10px;
+  width: 80%;
+  margin-bottom: 15px;
 }
 
-.delete-button-cancel:hover .delete-button-confirm:hover{
+ #delete-button-cancel{
+  display: block;
+  text-align: center;
+  cursor: pointer;
   background-color: $Green-hex;
+  color: $Deep-Blue-hex;
+  width: 80%;
+ }
+
+#delete-button-cancel:hover{
+  background-color: $Deep-Blue-hex;
+  border: 1px solid $Green-hex;
+  color: $Green-hex;
+}
+
+#delete-button-confirm:hover{
+  background-color: $Deep-Blue-hex;
+  border: 1px solid $Green-hex;
+  color: $Green-hex;
 }
 
 .delete-modal-text{
   width: 100%;
-  color: #AAAAAA;
-  font-size: 20px;
+  color: $Tan-hex;
+  font-size: 34px;
   text-align: left;
-  margin: 10px 0px 20px 0px;
+  margin: 10px;
   text-align: center;
 }
 
