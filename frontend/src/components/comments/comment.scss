@@ -3,10 +3,8 @@
 .comment-index-container .active {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   font-size: 24px;
-  color: #053868;
-  margin-top: 30px;
+  color: $Tan-hex;
 }
 
 .comment-index-username-dropdown{
@@ -16,24 +14,20 @@
 }
 
 .comment-index-option{
-  margin-right: 35px;
+  
   padding: 1px 8px;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .fas.fa-ellipsis-v{
-  color: $Deep-Blue-hex;
-}
-
-.comment-index-option:hover{
-  background-color: $Green-hex;
+  cursor: pointer;
 }
 
 .comment-dropdown-options{
   display:flex;
   color: $Deep-Blue-hex;
-  background-color: $Light-Green-hex;
+  background-color: $Tan-hex;
 }
 
 .comment-index-item-username{
@@ -122,6 +116,7 @@
   font-size: 16px;
   color: $Deep-Blue-hex;
   opacity: 60%;
+  margin-top: 5px;
 }
 
 .comment-form-buttons{
@@ -164,9 +159,10 @@
 .comment-dropdown-content {
   display: none;
   position: absolute;
-  color: #AAAAAA;
-  // background-color: #181818;
+  color: $Tan-hex;
   z-index: 1;
+  width: 100px;
+  right: 0px;
 }
 
 
@@ -179,14 +175,13 @@
 }
 
 .comment-dropdown-content p{
-  padding: 6px;
-  margin: 5px 0px;
+  padding: 10px;
   cursor: pointer;
   font-size: 14px;
 }
 
 .comment-dropdown-content p:hover{
-  background-color: rgba(170, 170, 170,0.3);
+  background-color: $Green-hex;
 }
 
 
