@@ -53,9 +53,11 @@ class EventShow extends React.Component {
     document.addEventListener("click", (event) => {
       if (!event.target.matches('.dropbtn') && !event.target.matches('.fa-bars')) {
         let dropdown = document.getElementsByClassName("dropdown-content")[0];
-        dropdown.classList.add("hidden");
-        let button = document.getElementsByClassName('dropbtn')[0];
-        button.classList.remove("clicked");
+        if(dropdown) {
+          dropdown.classList.add("hidden");
+          let button = document.getElementsByClassName('dropbtn')[0];
+          button.classList.remove("clicked");
+        }
       }
     })
   }
