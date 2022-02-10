@@ -34,6 +34,13 @@ class CommentIndexItem extends React.Component{
         option.classList.toggle("active-flex");
       }
     });
+
+    let dropdown = document.querySelectorAll(`.comment-dropdown-content`);
+    dropdown.forEach((option) => {
+      if (option.classList.contains(this.props.index)) {
+        option.classList.remove('active')
+      }
+    })
   }
 
   setActive(){
@@ -49,11 +56,11 @@ class CommentIndexItem extends React.Component{
     if (this.props.users.length === 0) return null
     let commentOptions;
     if (this.props.currentUser) {
-      commentOptions = (this.props.currentUser.id === this.props.comment.ownerId) ? 'edit' : ''
+      commentOptions = (this.props.currentUser.id === this.props.comment.ownerId) ?  <i className="fas fa-ellipsis-v"></i>
+      : ''
     } else {
       commentOptions = ''
     }
-{/* <i className="fas fa-ellipsis-v"></i> */}
 
     let user;
     user = this.commentUserCheck();
@@ -64,8 +71,8 @@ class CommentIndexItem extends React.Component{
             <div className="comment-index-dropdown" >
                 <p className="comment-index-option" onClick={this.setActive}>{commentOptions}</p>
                 <div className={`comment-dropdown-content ${this.props.index}`}> 
-                  <p className="comment-dropdown-options" onClick={this.editComment}>Edit</p>
-                  <p className="comment-dropdown-options" onClick={() => this.props.openModal('deleteComment', this.props.comment._id)}>Delete</p>
+                  <p className="comment-dropdown-options" onClick={this.editComment}><i className="fa-solid fa-pencil"></i> Edit</p>
+                  <p className="comment-dropdown-options" onClick={() => this.props.openModal('deleteComment', this.props.comment._id)}> <i className="fa-solid fa-trash-can"></i> Delete</p>
                 </div>
             </div>
         </div>

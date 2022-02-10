@@ -101,4 +101,15 @@ router.post('/login', (req,res) => {
     })
 })
 
+router.patch("/:id", async (req, res) => {
+  const id = req.body._id;
+  try {
+    await User.findById(id, (error, userToUpdate) => {
+      userToUpdate.events = req.body.events,
+      userToUpdate.save();
+      res.send(userToUpdate);
+    });
+  } catch (error) {}
+});
+
 module.exports = router;

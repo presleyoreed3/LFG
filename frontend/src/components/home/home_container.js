@@ -4,7 +4,8 @@ import { fetchEvents } from "../../actions/event_actions";
 
 const mSTP = (state) => {
   return {
-    events: state.entities.events
+    events: state.entities.events,
+    currentUser: state.session.user
   }
 }
 
