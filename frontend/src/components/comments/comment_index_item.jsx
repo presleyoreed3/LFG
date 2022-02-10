@@ -35,7 +35,12 @@ class CommentIndexItem extends React.Component{
       }
     });
 
-    this.setActive()
+    let dropdown = document.querySelectorAll(`.comment-dropdown-content`);
+    dropdown.forEach((option) => {
+      if (option.classList.contains(this.props.index)) {
+        option.classList.remove('active')
+      }
+    })
   }
 
   setActive(){
