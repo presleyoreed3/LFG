@@ -71,7 +71,8 @@ class CommentForm extends React.Component{
             <textarea onKeyUp={this.handleErrors} className="comment-form-textarea" placeholder='Add a public comment...' value={this.state.text} onChange={this.update('text')}/>
             <div className="comment-form-buttons">
               <button className='comment-form-input' type='submit' placeholder="Comment" disabled={status}>Submit</button>
-              <button className='comment-form-button' onClick={this.handleCancel} disabled={status}>Cancel</button>            </div>
+              <button className='comment-form-button' onClick={this.handleCancel} disabled={status}>Cancel</button> 
+            </div>
           </form>
         </div>
       </div>
