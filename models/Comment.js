@@ -18,7 +18,6 @@ const CommentSchema = new Schema({
     type: Number,
     required: false
   },
-}, {
   date: {
     type: Date,
     default: Date.now
