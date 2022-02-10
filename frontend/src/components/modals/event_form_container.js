@@ -4,7 +4,6 @@ import {openModal, closeModal} from '../../actions/modal_actions';
 import { createEvent } from '../../actions/event_actions';
 
 const mSTP = (state, ownProps) => {
-  console.log(ownProps)
   return {
     user: state.session.user
   }

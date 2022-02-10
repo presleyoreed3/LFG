@@ -64,7 +64,6 @@ router.post('/',
 router.patch('/:id', async (req, res) => {
   const id = req.body._id;
   const index = req.body.index
-  debugger
   try {
     await Event.findById(id, (error, eventToUpdate) => {
       eventToUpdate.title= req.body.title,
@@ -81,7 +80,6 @@ router.patch('/:id', async (req, res) => {
       res.send(eventToUpdate)
     })
   } catch (error) {
-    console.log(error);
   }
 
 })

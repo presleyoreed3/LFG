@@ -25,7 +25,6 @@ class CommentEdit extends React.Component {
 // }
 
   handleSubmit(e){
-    debugger
     e.preventDefault();
     // const comment = Object.assign({}, this.state);
     this.findIndex(this.props.comment)
@@ -55,7 +54,6 @@ class CommentEdit extends React.Component {
   findIndex(comment){
     let commentIndex = this.props.comments.indexOf(comment);
     let newState = Object.assign({}, this.state, {index: commentIndex})
-    debugger
     this.setState(newState,() => this.props.updateComment(this.state).then(() => this.props.editComment()));
   }
 
