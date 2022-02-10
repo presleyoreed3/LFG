@@ -19,6 +19,7 @@ class EventShow extends React.Component {
     this.collapseUser = this.collapseUser.bind(this);
     this.addToAttendance = this.addToAttendance.bind(this);
     this.leaveAttendance = this.leaveAttendance.bind(this);
+    this.findUser = this.findUser.bind(this);
     
     this.dropDownClose();
 
@@ -59,19 +60,34 @@ class EventShow extends React.Component {
     })
   }
 
+  findUser(userId) {
+    return this.props.users.filter(user => user._id === userId)[0]
+  }
+
   addToAttendance(e) {
     e.preventDefault();
-    let event = this.findEvent()[0]
-    event.attendees.push(this.props.currentUser.id)
-    this.props.updateEvent(event)
+    let event = this.findEvent()[0];
+    event.attendees.push(this.props.currentUser.id);
+    this.props.updateEvent(event);
+
+    let userId = this.props.currentUser.id;
+    let user = this.findUser(userId);
+    user.events.push(event);
+    this.props.updateUser(user);
   }
 
   leaveAttendance(e) {
     e.preventDefault();
-    let event = this.findEvent()[0]
-    let newArr = event.attendees.filter(id => id !== this.props.currentUser.id)
-    event.attendees = newArr
-    this.props.updateEvent(event)
+    let event = this.findEvent()[0];
+    let newAttend = event.attendees.filter(id => id !== this.props.currentUser.id);
+    event.attendees = newAttend;
+    this.props.updateEvent(event);
+    
+    let userId = this.props.currentUser.id;
+    let user = this.findUser(userId);
+    let newEvents = user.events.filter(evnt => evnt._id !== event._id);
+    user.events = newEvents;
+    this.props.updateUser(user);
   }
 
   checkLogin(){

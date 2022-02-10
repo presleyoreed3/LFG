@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import EventShow from './events_show';
 import {fetchEvent, fetchEvents, updateEvent} from '../../actions/event_actions';
+import { updateUser } from '../../actions/user_actions';
 import {openModal} from '../../actions/modal_actions';
 
 const mSTP = (state,ownProps) => {
@@ -18,7 +19,8 @@ const mDTP = (dispatch) => {
   return {
     fetchEvents: () => dispatch(fetchEvents()),
     openModal: (modal, eventId) => dispatch(openModal(modal, eventId)),
-    updateEvent: (event) => dispatch(updateEvent(event))
+    updateEvent: (event) => dispatch(updateEvent(event)),
+    updateUser: (user) => dispatch(updateUser(user))
   }
 }
 
