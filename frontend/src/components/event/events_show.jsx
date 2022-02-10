@@ -46,6 +46,7 @@ class EventShow extends React.Component {
           user={user}
           currentUser={this.props.currentUser}
           updateUser={this.props.updateUser}
+          users={this.props.users}
         />)
       }
   }
