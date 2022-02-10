@@ -25,7 +25,7 @@ function Modal({ modal, closeModal}) {
 
     case 'deleteEvent':
       component = <EventDeleteContainer eventId={modal[1]}/>;
-
+      break;
     case 'deleteComment':
       component = <CommentDeleteContainer commentId={modal[1]}/>;
 

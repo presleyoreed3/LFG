@@ -76,7 +76,10 @@ router.patch('/:id', async (req, res) => {
 
 router.delete('/:id', (req, res) => {
   Comment.deleteOne({_id: req.params.id})
-    .then(() => res.json({deleted: "Comment has been deleted"}))
+    .then((comment) => {
+      res.json({deleted: "Comment has been deleted"})
+      res.send(req)
+      } )
     .catch( error => res.status(404).json({noEventFound: "No Comment was found with that ID"}))
 })
 

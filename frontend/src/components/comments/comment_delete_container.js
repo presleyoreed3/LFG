@@ -7,7 +7,7 @@ import CommentDelete from "./comment_delete";
 const mSTP = (state,ownProps) => {
   return {
     currentUser: state.session.user,
-    commentId: ownProps.commentId
+    comment: ownProps.commentId
   }
 } 
 

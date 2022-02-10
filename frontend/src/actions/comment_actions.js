@@ -20,7 +20,6 @@ export const receiveNewComment = comment => {
 }
 
 export const removeComment = (commentId) => {
-  debugger
   return {
     type: REMOVE_COMMENT,
     commentId
@@ -28,7 +27,6 @@ export const removeComment = (commentId) => {
 }
 
 export const receiveComment = (comment) => {
-  debugger
   return {
     type: RECEIVE_COMMENT,
     comment

@@ -55,7 +55,6 @@ class CommentEdit extends React.Component {
   findIndex(comment){
     let commentIndex = this.props.comments.indexOf(comment);
     let newState = Object.assign({}, this.state, {index: commentIndex})
-    debugger
     this.setState(newState,() => this.props.updateComment(this.state).then(() => this.props.editComment()));
   }
 
