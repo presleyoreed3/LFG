@@ -1,7 +1,7 @@
 @import '../../_colors.scss';
 
 .event-item{
-	background-color: $Light-Green-hex;
+	background-color: $Dark-Green-hex;
 	border: 1px solid $Deep-Blue-hex;
 	display: flex;
 	justify-content: space-between;
@@ -21,6 +21,7 @@
 	font-weight: 500;
 	margin: 5px 5px 5px 0px;
 	font-size: 20px;
+	color: $Tan-hex;
 }
 
 .event-item p{

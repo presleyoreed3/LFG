@@ -88,8 +88,11 @@
 #comments-holder{
   height: 600px;
   overflow: scroll;
-  // border: 1px solid $Deep-Blue-hex;
   padding: 5px;
+}
+
+.comment-form-input{
+  color: $Tan-hex;
 }
 
 .comment-form-textarea{
