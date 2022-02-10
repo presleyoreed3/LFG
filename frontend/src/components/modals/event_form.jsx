@@ -21,18 +21,31 @@ class EventForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
     this.handleEventType = this.handleEventType.bind(this);
+    this.findUser = this.findUser.bind(this);
   }
 
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value});
   }
 
+  componentDidMount() {
+    this.props.fetchUsers();
+  }
+
+  findUser(userId) {
+    return this.props.users.filter(user => user._id === userId)[0]
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.createEvent(this.state)
       .then((event) => {
-        this.props.history.push(`/events/${event.event.data._id}`)
+        this.props.history.push(`/events/${event.event.data._id}`);
+        let user = this.findUser(this.props.user.id)
+        user.events.push(event.event.data)
+        this.props.updateUser(user);
       });
+    
     this.setState({
       title: '',
       description: '',
