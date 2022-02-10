@@ -144,6 +144,11 @@ button:hover:active{
   background-color: $Dark-Green-hex;
 }
 
+#details-container{
+	max-height: 800px;
+	overflow: auto;
+}
+
 .content {
 	overflow-x: auto;
 	white-space: break-spaces;
@@ -164,6 +169,17 @@ button:hover:active{
   overflow: hidden; 
 }
 
+.comment-index-container{
+	margin-top: 20px;
+	overflow-x: auto;
+	white-space: break-spaces;
+	word-wrap: break-word; 
+	padding: 20px;
+	border-radius: 5px;
+  display: none;
+  overflow: hidden; 
+}
+
 .collapsible-user{
 	color: $Dark-Green-hex;
 	cursor: pointer;
@@ -173,6 +189,12 @@ button:hover:active{
 	color: $Dark-Green-hex;
 	cursor: pointer;
 }
+
+.collapsible-comments{
+	color: $Dark-Green-hex;
+	cursor: pointer;
+}
+
 
 .collapsible-user:hover{
 	color: $Green-hex;
@@ -184,16 +206,19 @@ button:hover:active{
 	cursor: pointer;
 }
 
-// Test CSS for create button
-.test-button {
-	width: 100px;
-	height: 30px;
+.collapsible-comments:hover{
+	color: $Green-hex;
+	cursor: pointer;
 }
-
 
 #reveal-buttons{
 	display: flex;
 	justify-content: space-evenly;
+	margin-bottom: 10px;
+}
+
+.details-menu hr{
+	margin: 0px;
 }
 
 .details-menu{

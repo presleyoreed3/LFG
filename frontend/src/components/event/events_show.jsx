@@ -12,11 +12,12 @@ class EventShow extends React.Component {
       render: '',
     }
 
-    this.findEvent = this.findEvent.bind(this)
-    this.checkAttendance = this.checkAttendance.bind(this)
-    this.getOwnerName = this.getOwnerName.bind(this)
+    this.findEvent = this.findEvent.bind(this);
+    this.checkAttendance = this.checkAttendance.bind(this);
+    this.getOwnerName = this.getOwnerName.bind(this);
     this.collapseDescription = this.collapseDescription.bind(this)
     this.collapseUser = this.collapseUser.bind(this);
+    this.collapseComments = this.collapseComments.bind(this);
     this.addToAttendance = this.addToAttendance.bind(this);
     this.leaveAttendance = this.leaveAttendance.bind(this);
     this.findUser = this.findUser.bind(this);
@@ -168,9 +169,9 @@ class EventShow extends React.Component {
     }
   }
 
+  // Following 3 Methods collapse the tiles on the events show
   collapseDescription(){
     let col = document.getElementsByClassName("collapsible-description")
-
     col[0].classList.toggle("active");
     var content = document.getElementsByClassName("content");
     if (content[0].style.display === "block") {
@@ -184,6 +185,17 @@ class EventShow extends React.Component {
     let col = document.getElementsByClassName("collapsible-user")
     col[0].classList.toggle("active");
     var content = document.getElementsByClassName("user-content");
+    if (content[0].style.display === "block") {
+      content[0].style.display = "none";
+    } else {
+      content[0].style.display = "block";
+    }
+  }
+
+  collapseComments(){
+    let col = document.getElementsByClassName("collapsible-comments")
+    col[0].classList.toggle("active");
+    var content = document.getElementsByClassName("comment-index-container");
     if (content[0].style.display === "block") {
       content[0].style.display = "none";
     } else {
@@ -238,14 +250,20 @@ class EventShow extends React.Component {
                 <div id="reveal-buttons"> 
                   <p onClick={() => this.collapseUser()} className="hover-underline-animation collapsible-user">Creator</p>
                   <p onClick={() => this.collapseDescription()} className="hover-underline-animation collapsible-description">Description</p>
+                  <p onClick={() => this.collapseComments()} className="hover-underline-animation collapsible-comments">Comments</p>
                 </div>
-                <div>
+                <hr />
+                <div id='details-container'>
                   <pre className="user-content">
                     {this.getOwnerName(event.owner)}
                   </pre>
                   <pre className="content">
                     {event.description}
                   </pre>
+                  <CommentIndexContainer 
+                    className="comments" 
+                    eventId={event._id}
+                  />
                 </div>
               </div>
             </div>
@@ -260,7 +278,7 @@ class EventShow extends React.Component {
               </div>
             </div>
           </div>
-          <CommentIndexContainer eventId={event._id}/>
+          
         </div>
         <div className="events-index">
           <div className="events-header">
