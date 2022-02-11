@@ -45,7 +45,7 @@ class NavBarClear extends React.Component {
     return (
       <header id="header-clear">
         <div id="header-links">
-          <h1 className="main-logo"><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg-logo-green.png"/></h1> 
+          <h1 className="main-logo"><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/lfg-logo-green.png"/></h1> 
           <span><hr id="seperator"/></span>
           <Link to={"/"} className="hover-underline-animation">Home</Link>
           <Link to={"/home"} className="hover-underline-animation">Calendar</Link>
