@@ -11,7 +11,6 @@ class Footer extends React.Component{
 				<div id="nav-links">
             <Link className="hover-underline-animation" to="/">Home</Link>
             <Link className="hover-underline-animation" to="/home">Calendar</Link>
-            <a className="hover-underline-animation" onClick={() => this.props.openModal('eventForm', 1)}>Create</a>
           </div>
           <div id="devs">
             <div id="dev-list">
