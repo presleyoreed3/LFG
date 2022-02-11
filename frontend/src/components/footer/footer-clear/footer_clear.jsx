@@ -1,5 +1,6 @@
 import React from 'react'
 import './footer_clear.scss'
+import {Link} from 'react-router-dom'
 
 class FooterClear extends React.Component{
 
@@ -8,9 +9,9 @@ class FooterClear extends React.Component{
       <footer className="footer">
         <div id="footer-content-clear">
 				<div id="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Create Activity</a>
-            <a href="#">Calendar</a>
+            <Link className="hover-underline-animation" to="/">Home</Link>
+            <Link className="hover-underline-animation" to="/home">Calendar</Link>
+            <a className="hover-underline-animation" onClick={() => this.props.openModal('eventForm', 1)}>Create</a>
           </div>
           <div id="devs">
             <div id="dev-list">
