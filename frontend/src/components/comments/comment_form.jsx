@@ -6,10 +6,10 @@ class CommentForm extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      ownerId: this.props.user.id,
-      eventId: this.props.eventId,
+      ownerId: '',
+      eventId: '',
       text: '',
-      errors: []
+      errors: {}
     }
 
     this.handleErrors = this.handleErrors.bind(this);
@@ -17,9 +17,27 @@ class CommentForm extends React.Component{
     this.handleCancel = this.handleCancel.bind(this);
   }
 
+
+  componentDidMount(){
+    // only signed in users can post comment
+    // doing it in component did mount bc comments post to old events
+    if (!this.props.user) return null;
+    this.setState({ownerId: this.props.user.id, 
+                  eventId: this.props.eventId,
+                  errors: {}
+                  })
+  }
+
+  componentDidUpdate(prevProps){
+    if (this.props.eventId !== prevProps.eventId){
+      this.componentDidMount()
+    }
+  }
+
+
   handleErrors(e){
     if (e.currentTarget.value.length > 0) {
-      this.setState({errors: []})
+      this.setState({errors: {}})
     }
   }
 

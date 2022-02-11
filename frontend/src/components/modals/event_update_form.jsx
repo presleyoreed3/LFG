@@ -20,7 +20,6 @@ class EventUpdateForm extends React.Component {
   findEvent(events) {
 
     events.forEach((event, i) => {
-
       if (event._id === this.props.eventId) {
         let newState = Object.assign({}, event, {index: i})
         this.setState(newState)

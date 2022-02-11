@@ -20,6 +20,11 @@ const UserSchema = new Schema(
       required: true,
       default: [],
     },
+    friends: {
+      type: [Schema.Types.Mixed],
+      required: true,
+      default: [],
+    }
   },
   {
     date: {

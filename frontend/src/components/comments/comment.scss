@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+.comment-index-option:hover{
+  background-color: $Green-hex;
+}
+
 .fas.fa-ellipsis-v{
   cursor: pointer;
 }
@@ -179,6 +183,13 @@
   padding: 10px;
   cursor: pointer;
   font-size: 14px;
+}
+
+.comment-dropdown-options{
+  display: flex;
+  z-index: 5;
+  background-color: $Green-hex;
+  color: $Deep-Blue-hex;
 }
 
 .comment-dropdown-content p:hover{

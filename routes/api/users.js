@@ -80,7 +80,9 @@ router.post('/login', (req,res) => {
             const payload = {
               id: user.id,
               username: user.username,
-              email: user.email
+              email: user.email,
+              events: user.events,
+              friends: user.friends
             }
             jwt.sign(
               payload,
@@ -106,6 +108,7 @@ router.patch("/:id", async (req, res) => {
   try {
     await User.findById(id, (error, userToUpdate) => {
       userToUpdate.events = req.body.events,
+      userToUpdate.friends = req.body.friends,
       userToUpdate.save();
       res.send(userToUpdate);
     });
