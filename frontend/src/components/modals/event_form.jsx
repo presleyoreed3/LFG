@@ -41,8 +41,8 @@ class EventForm extends React.Component {
     this.props.createEvent(this.state)
       .then((event) => {
         this.props.history.push(`/events/${event.event.data._id}`);
-        let user = this.findUser(this.props.user.id)
-        user.events.push(event.event.data)
+        let user = this.findUser(this.props.user.id);
+        user.events.push(event.event.data);
         this.props.updateUser(user);
       });
     
