@@ -14,85 +14,41 @@ class Home extends React.Component {
 
   componentDidMount(){
     this.props.fetchEvents()
-      .then(() => this.props.fetchUsers())
+      .then(() => {
+        let choices = ["all", "friends", "my"];
+        let elements = Array.from(document.getElementsByClassName('event-choice'));
+        elements.forEach((el, idx) => {
+          if(el.classList.contains('event-selected')) {
+            this.setState({events: this.filterEvents(this.props.events, choices[idx])})
+          }
+        })
+      })
   }
 
-   handleSelect(e, type) {
+  handleSelect(e, type) {
     e.preventDefault();
     let elements = Array.from(document.getElementsByClassName('event-choice'));
+    let selected = Array.from(document.getElementsByClassName('event-selected'));
+    if(selected.length === 0) elements[0].classList.add('event-selected');
     elements.forEach((ele) => {
       if(ele.classList.contains('event-selected')) ele.classList.remove('event-selected')
     })
     e.currentTarget.classList.add('event-selected');
-    this.setState({render: "1"})
+    this.setState({events: this.filterEvents(this.props.events, type)})
   }
 
-  filterEvents() {
+  filterEvents(events, type) {
     let newEvents = [];
-    let friendEvents = {};
-    let events = this.props.events;
-    
-    let target = document.querySelector('.event-selected')
-    if (!target) return [];
-    if(target.id === "my") {
-      events.forEach((event) => {
+    if(type === "my") {
+      events.map((event) => {
         if(event.owner === this.props.currentUser.id || event.attendees.includes(this.props.currentUser.id)) {
           newEvents.push(event);
         }
       })
-      return newEvents;
-    } else if(target.id === "friend") {
-      let user = this.findUser(this.props.currentUser.id);
-      user.friends.forEach(friend => {
-        let foundFriend = this.findUser(friend._id)
-        friendEvents[foundFriend.username] = [];
-        foundFriend.events.forEach(event => friendEvents[foundFriend.username].push(event))
-      })
-      return friendEvents;
-    } 
-    else {
-      newEvents = this.props.events;
-      return newEvents;
-    }
-  }
-
-  listEvents(){
-    let filtered = this.filterEvents();
-    
-    if(Array.isArray(filtered)) {
-      return filtered.map((event) => (
-        <IndexItem
-          key={event._id}
-          event={event}
-        />
-      ))
     } else {
-      let friends = Object.keys(filtered);
-      return friends.map(friend => {
-        if(filtered[friend].length === 0) return;
-        return (
-          <div>
-            <h2>{friend}</h2>
-            {this.createIndexItems(filtered, friend)}
-          </div>
-        )
-      })
+      newEvents = this.props.events;
     }
-  }
-
-  createIndexItems(filtered, friend){
-    return filtered[friend].map(event =>  {
-      return (
-          <IndexItem
-            key={event._id}
-            event={event}
-          />
-      )
-    })
-  }
-
-  findUser(userId) {
-    return this.props.users.filter(user => user._id === userId)[0]
+    return newEvents
   }
 
   render() {
@@ -101,13 +57,18 @@ class Home extends React.Component {
     return <div className="home-page-container">
       <HomeCalendar events={this.state.events} className="calendar"/>
       <div className="events-index">
-          <div className="events-header">
-            <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>All Events</h2>
-            <h2 className="event-choice" id="friend" onClick={(e) => this.handleSelect(e)}>Friend Events</h2>
-            <h2 className="event-choice" id="my" onClick={(e) => this.handleSelect(e)}>My Events</h2>
-          </div>
-          {this.listEvents()}
+        <div className="events-header">
+          <h2 className="event-choice event-selected" onClick={(e) => this.handleSelect(e, "all")}>All Events</h2>
+          <h2 className="event-choice" onClick={(e) => this.handleSelect(e, "friends")}>Friend Events</h2>
+          <h2 className="event-choice" onClick={(e) => this.handleSelect(e, "my")}>My Events</h2>
         </div>
+          {this.state.events.map(event => (
+            <IndexItem 
+              key={event._id}
+              event={event}
+            />
+          ))}
+      </div>
     </div>
   }
 }

@@ -1,21 +1,17 @@
 import { connect } from "react-redux";
 import Home from './home'
 import { fetchEvents } from "../../actions/event_actions";
-import { updateUser, fetchUsers } from "../../actions/user_actions";
 
 const mSTP = (state) => {
   return {
     events: state.entities.events,
-    currentUser: state.session.user,
-    users: state.entities.users
+    currentUser: state.session.user
   }
 }
 
 const mDTP = (dispatch) => {
   return {
-    fetchEvents: () => dispatch(fetchEvents()),
-    updateUser: (user) => dispatch(updateUser(user)),
-    fetchUsers: () => dispatch(fetchUsers())
+    fetchEvents: () => dispatch(fetchEvents())
     // fetchEvent: (eventId) => dispatch(fetchEvent(eventId))
   }
 }
