@@ -118,7 +118,7 @@ class EventShow extends React.Component {
       return friends.map(friend => {
         if(filtered[friend].length === 0) return;
         return (
-          <div>
+          <div id="friend-category">
             <h2>{friend}</h2>
             {this.createIndexItems(filtered, friend)}
           </div>
