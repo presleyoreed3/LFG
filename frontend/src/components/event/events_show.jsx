@@ -115,10 +115,10 @@ class EventShow extends React.Component {
       ))
     } else {
       let friends = Object.keys(filtered);
-      return friends.map(friend => {
+      return friends.map((friend, idx) => {
         if(filtered[friend].length === 0) return;
         return (
-          <div id="friend-category">
+          <div key={idx} id="friend-category">
             <h2>{friend}</h2>
             {this.createIndexItems(filtered, friend)}
           </div>
@@ -163,7 +163,19 @@ class EventShow extends React.Component {
 
     let userId = this.props.currentUser.id;
     let user = this.findUser(userId);
-    user.events.push(event);
+    let pushEvent = {};
+    pushEvent["title"] = event.title;
+    pushEvent["eventStart"] = event.eventStart;
+    pushEvent["eventEnd"] = event.eventEnd;
+    pushEvent["location"] = event.location;
+    pushEvent["website"] = event.website;
+    pushEvent["limit"] = event.limit;
+    pushEvent["owner"] = event.owner;
+    pushEvent["eventType"] = event.eventType;
+    pushEvent["category"] = event.category;
+    pushEvent["_id"] = event._id;
+    pushEvent["description"] = event.description;
+    user.events.push(pushEvent);
     this.props.updateUser(user);
   }
 

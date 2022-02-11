@@ -40,7 +40,11 @@ class AttendanceIndexItem extends React.Component{
 			let newFriends = current.friends.filter(friend => friend._id !== this.props.user._id);
 			current.friends = newFriends;
 		} else {
-			current.friends.push(this.props.user);
+			let newPush = {};
+			newPush["events"] = this.props.user.events;
+			newPush["_id"] = this.props.user._id;
+			newPush["username"] = this.props.user.username;
+			current.friends.push(newPush);
 		}
 		this.props.updateUser(current)
 			.then(() => {
