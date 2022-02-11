@@ -55,7 +55,7 @@ class AttendanceIndexItem extends React.Component{
 	render(){
 		let icon;
 
-		if(Object.keys(this.props.currentUser).length === 0) {
+		if(!this.props.currentUser) {
 			icon = "";
 		} else {
 			if(this.props.user._id === this.props.currentUser.id) {
