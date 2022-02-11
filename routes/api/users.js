@@ -82,7 +82,7 @@ router.post('/login', (req,res) => {
               username: user.username,
               email: user.email,
               events: user.events,
-              friends: user.friends
+              // friends: user.friends
             }
             jwt.sign(
               payload,
