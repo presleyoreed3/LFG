@@ -71,7 +71,7 @@ class Home extends React.Component {
       return friends.map((friend, idx) => {
         if(filtered[friend].length === 0) return;
         return (
-          <div key={idx}>
+          <div key={idx} id="friend-category">
             <h2>{friend}</h2>
             {this.createIndexItems(filtered, friend)}
           </div>
