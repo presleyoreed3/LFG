@@ -27,16 +27,7 @@ class EventShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchEvents()
-      .then(() => {
-        let choices = ["all", "friends", "my"];
-        let elements = Array.from(document.getElementsByClassName('event-choice'));
-        elements.forEach((el, idx) => {
-          if(el.classList.contains('event-selected')) {
-            this.setState({events: this.filterEvents(this.props.events, choices[idx])})
-          }
-        })
-      })
+    this.props.fetchEvents();
   }
 
   checkAttendance(user){
@@ -77,7 +68,7 @@ class EventShow extends React.Component {
     let events = this.props.events;
     
     let target = document.querySelector('.event-selected')
-    if (!target) return []; // DOUBLE CHECK
+    if (!target) return [];
     if(target.id === "my") {
       events.forEach((event) => {
         if(event.owner === this.props.currentUser.id || event.attendees.includes(this.props.currentUser.id)) {
