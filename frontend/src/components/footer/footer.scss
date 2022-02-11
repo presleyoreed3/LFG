@@ -50,6 +50,10 @@
 	text-decoration: none;
 }
 
+#nav-links a:hover{
+	cursor: pointer;
+}
+
 #dev-list{
 	display: flex;
 	text-align: center;

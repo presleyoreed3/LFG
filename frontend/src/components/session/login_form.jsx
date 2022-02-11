@@ -39,7 +39,6 @@ class LoginForm extends React.Component {
       password: "123456"
     }
     this.props.login(user);
-    this.props.history.push('/home');
   }
 
   handleSubmit(e) {
@@ -50,11 +49,9 @@ class LoginForm extends React.Component {
       password: this.state.password,
     };
 
-    this.props.login(user);
-    this.props.history.push('/home');
+    this.props.login(user)
   }
 
-  // Render the session errors if there are any
   renderErrors() {
     return (
       <ul>

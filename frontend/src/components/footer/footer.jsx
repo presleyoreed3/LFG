@@ -1,5 +1,6 @@
 import React from 'react'
 import './footer.scss'
+import {Link} from 'react-router-dom'
 
 class Footer extends React.Component{
 
@@ -8,9 +9,8 @@ class Footer extends React.Component{
       <footer className="footer">
         <div id="footer-content">
 				<div id="nav-links">
-            <a className="hover-underline-animation" href="#">Home</a>
-            <a className="hover-underline-animation" href="#">Calendar</a>
-            <a className="hover-underline-animation" href="#">Profile</a>
+            <Link className="hover-underline-animation" to="/">Home</Link>
+            <Link className="hover-underline-animation" to="/home">Calendar</Link>
           </div>
           <div id="devs">
             <div id="dev-list">

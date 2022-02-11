@@ -40,7 +40,11 @@ class AttendanceIndexItem extends React.Component{
 			let newFriends = current.friends.filter(friend => friend._id !== this.props.user._id);
 			current.friends = newFriends;
 		} else {
-			current.friends.push(this.props.user);
+			let newPush = {};
+			newPush["events"] = this.props.user.events;
+			newPush["_id"] = this.props.user._id;
+			newPush["username"] = this.props.user.username;
+			current.friends.push(newPush);
 		}
 		this.props.updateUser(current)
 			.then(() => {
@@ -59,7 +63,7 @@ class AttendanceIndexItem extends React.Component{
 			} else if(this.checkFollow()){
 				icon = <img  onClick={this.followToggle} className="attendee-logo" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons2/logo-filled.png"/>
 			} else {
-				icon = <img  onClick={this.followToggle} className="attendee-logo" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg-logo-green.png"/>
+				icon = <img  onClick={this.followToggle} className="attendee-logo" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/lfg-logo-green.png"/>
 			}
 		}
 		return(

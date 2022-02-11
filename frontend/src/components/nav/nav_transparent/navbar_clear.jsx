@@ -12,7 +12,7 @@ class NavBarClear extends React.Component {
   checkCreate(){
     if (this.props.loggedIn){
       return (
-        <Link className="hover-underline-animation">Create</Link>
+        <a className="hover-underline-animation" onClick={() => this.props.openModal('eventForm', 1)}>Create</a>
       )
     }
   }
@@ -28,7 +28,7 @@ class NavBarClear extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className="navbar-logout">
-          <Link className="hover-underline-animation" onClick={this.logoutUser}>Logout</Link>
+          <a className="hover-underline-animation" onClick={this.logoutUser}>Logout</a>
         </div>
       );
     } else {
