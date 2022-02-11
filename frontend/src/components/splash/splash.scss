@@ -51,17 +51,31 @@
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  
 }
 
 #splash-seperator{
-  height: 300px;
+  height: 400px;
   width: 0px;
   border: 1px solid $Green-hex;
 }
 
-#about-groups{
-  margin: 40px;
+#logo-groups img{
+  height: 150px;
+  width: 150px;
+  margin-top: 75px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 15px;
+  filter: drop-shadow;
+}
 
+#about-groups{
+  margin-top: 40px;
+  text-align: center;
+}
+
+#logo-groups{
   text-align: center;
 }
 
@@ -72,12 +86,39 @@
 
 #about-groups img{
   height: 200px;
-  width: 200px;
+  width: 300px;
+}
+
+#logo-groups h3{
+  margin-top: 20px;
+  font-size: 28px;
+  text-shadow: 2px 2px #2f2f2f;
+  color: $Green-hex;
+}
+
+#about-groups h3{
+  margin-top: 20px;
+  font-size: 28px;
+  text-shadow: 2px 2px #2f2f2f;
+  color: $Green-hex;
+}
+
+#logo-groups p{
+  font-size: 20px;
+  width: 300px;
+  line-height: 1.2;
+  text-shadow: 2px 2px #2f2f2f;
+  color: $Green-hex;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 #about-groups p{
+  margin: 0 auto;
   margin-top: 20px;
-  font-size: 24px;
+  font-size: 20px;
+  width: 300px;
+  line-height: 1.2;
   text-shadow: 2px 2px #2f2f2f;
   color: $Green-hex;
 }
