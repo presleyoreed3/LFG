@@ -4,24 +4,24 @@
 	display: flex;
 	justify-content: space-evenly;
 	padding-top: 100px;
-	padding-bottom: 200px;
+	padding-bottom: 100px;
 
 }
 
 .calendar{
 	margin-left: 50px;
-	width: 75%;
+	// width: 75%;
 }
 
 .events-index{
 	width: 25%;
 	height: 720px;
+	min-width: 200px;
 	overflow: auto;
 	background-color: $Deep-Blue-hex;
 	border: 1px solid $Deep-Blue-hex;
 	padding: 20px;
 	border-radius: 5px;
-	margin-right: 50px;
 	box-shadow: 3px 3px rgba(0,0,0,.25);
 }
 

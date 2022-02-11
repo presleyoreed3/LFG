@@ -5,20 +5,14 @@
 }
 
 #event{
+	min-width: 700px;
 	width: 900px;
-	margin-right: auto;
+	margin: auto;
   background-color: white;
   border: 1px solid $Deep-Blue-hex;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 3px 3px rgba(0,0,0,.25);
-}
-
-.events-index{
-	width: 25%;
-	height: 100%;
-	background-color: $Tan-hex;
-	margin-right: 50px;
 }
 
 .events-index h1{
@@ -30,8 +24,8 @@
 .event-show-container {
 	display: flex;
 	justify-content: space-between;
-	width: 75%;
-  margin-left: 50px;
+	width: 900px;
+  // margin-left: 50px;
 	font-size: 24px;
 	color: $Deep-Blue-hex;
 }
