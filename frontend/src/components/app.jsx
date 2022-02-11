@@ -21,7 +21,7 @@ const App = () => (
     <Route exact path="/" component={NavBarClearContainer} />
     <Switch>
       <Route exact path="/home" component={HomeContainer} />
-      <Route exact path="/events/:eventId" component={EventShowContainer} />
+      <ProtectedRoute exact path="/events/:eventId" component={EventShowContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/" component={SplashPage} />
