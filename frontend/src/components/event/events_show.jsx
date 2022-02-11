@@ -28,15 +28,6 @@ class EventShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchEvents()
-      .then(() => {
-        let choices = ["all", "friends", "my"];
-        let elements = Array.from(document.getElementsByClassName('event-choice'));
-        elements.forEach((el, idx) => {
-          if(el.classList.contains('event-selected')) {
-            this.setState({events: this.filterEvents(this.props.events, choices[idx])})
-          }
-        })
-      })
   }
 
   checkAttendance(user){
@@ -61,7 +52,7 @@ class EventShow extends React.Component {
     }
   }
 
-  handleSelect(e, type) {
+  handleSelect(e) {
     e.preventDefault();
     let elements = Array.from(document.getElementsByClassName('event-choice'));
     elements.forEach((ele) => {
@@ -206,6 +197,28 @@ class EventShow extends React.Component {
     }
   }
 
+  checkLoggedIn() {
+    let header;
+    if (this.props.loggedIn) {
+      header = <div className="events-index">
+                <div className="events-header">
+                  <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>All Events</h2>
+                  <h2 className="event-choice" id="friend" onClick={(e) => this.handleSelect(e)}>Friend Events</h2>
+                  <h2 className="event-choice" id="my" onClick={(e) => this.handleSelect(e)}>My Events</h2>
+                </div>
+                {this.listEvents()}
+              </div>
+    } else {
+      header = <div className="events-index">
+                <div className="events-header">
+                  <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>All Events</h2>
+                </div>
+                {this.listEvents()}
+              </div>
+    }
+    return header;
+  }
+
   handleDropdown() {
     let dropdown = document.getElementById('myDropdown')
     dropdown.classList.toggle("hidden");
@@ -347,14 +360,7 @@ class EventShow extends React.Component {
           </div>
           
         </div>
-        <div className="events-index">
-          <div className="events-header">
-            <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>All Events</h2>
-            <h2 className="event-choice" id="friend" onClick={(e) => this.handleSelect(e)}>Friend Events</h2>
-            <h2 className="event-choice" id="my" onClick={(e) => this.handleSelect(e)}>My Events</h2>
-          </div>
-          {this.listEvents()}
-        </div>
+        {this.checkLoggedIn()}
       </div>
     );
   }
