@@ -21,7 +21,7 @@
 }
 
 .comment-index-option:hover{
-  background-color: $Green-hex;
+  cursor: pointer;
 }
 
 .fas.fa-ellipsis-v{
@@ -188,8 +188,12 @@
 .comment-dropdown-options{
   display: flex;
   z-index: 5;
-  background-color: $Green-hex;
+  background-color: $Tan-hex;
   color: $Deep-Blue-hex;
+}
+
+.comment-dropdown-content p:active{
+  background-color: $Dark-Green-hex;
 }
 
 .comment-dropdown-content p:hover{
