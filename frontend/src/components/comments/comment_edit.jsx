@@ -65,8 +65,8 @@ class CommentEdit extends React.Component {
         <form onSubmit={this.handleSubmit} className="edit-comment">
           <textarea onKeyUp={this.handleErrors} className="edit-comment-textarea" value={this.state.text} onChange={this.update('text')}/>
             <div className="edit-comment-buttons">
+              <input className='edit-comment-input'type='submit'/>
               <button className='edit-comment-button' onClick={this.handleCancel}>Cancel</button>
-              <input className='edit-comment-input'type='submit' placeholder="Comment"/>
             </div>
         </form>
       </div>

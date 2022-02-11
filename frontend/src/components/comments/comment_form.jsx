@@ -17,6 +17,7 @@ class CommentForm extends React.Component{
     this.handleCancel = this.handleCancel.bind(this);
   }
 
+
   componentDidMount(){
     // only signed in users can post comment
     // doing it in component did mount bc comments post to old events
@@ -32,6 +33,7 @@ class CommentForm extends React.Component{
       this.componentDidMount()
     }
   }
+
 
   handleErrors(e){
     if (e.currentTarget.value.length > 0) {
@@ -71,7 +73,7 @@ class CommentForm extends React.Component{
             <textarea onKeyUp={this.handleErrors} className="comment-form-textarea" placeholder='Add a public comment...' value={this.state.text} onChange={this.update('text')}/>
             <div className="comment-form-buttons">
               <button className='comment-form-input' type='submit' placeholder="Comment" disabled={status}>Submit</button>
-              <button className='comment-form-button' onClick={this.handleCancel} disabled={status}>Cancel</button> 
+              <button className='comment-form-button' onClick={this.handleCancel} disabled={status}>Clear</button> 
             </div>
           </form>
         </div>
