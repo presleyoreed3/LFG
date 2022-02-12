@@ -1,0 +1,13 @@
+@import '../../_colors.scss';
+
+.developers{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#developer-seperator{
+  height: 400px;
+  width: 0px;
+  border: 1px solid $Green-hex;
+}
+
