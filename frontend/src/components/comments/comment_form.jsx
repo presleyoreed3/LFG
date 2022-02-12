@@ -47,7 +47,7 @@ class CommentForm extends React.Component{
   }
 
   renderErrors() {
-    debugger
+    console.log(this.state.errors, "STATE ERRORS")
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
@@ -92,7 +92,7 @@ class CommentForm extends React.Component{
               <button className='comment-form-button' onClick={this.handleCancel} disabled={status}>Clear</button> 
             </div>
           </form>
-          {this.renderErrors()}
+          {Object.keys(this.state.errors).length !== 0 ? this.renderErrors() : ""}
         </div>
       </div>
     )

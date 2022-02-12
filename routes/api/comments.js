@@ -40,7 +40,7 @@ router.post('/',
       if (!isValid) {
         return res.status(400).json(errors);
       }
-  
+      
       const newComment = new Comment({
         ownerId: req.body.ownerId,
         text: req.body.text,
