@@ -37,7 +37,8 @@ class CommentIndex extends React.Component {
     return (
       <div className="comment-index-container">
           <h2>{EventsComments.length} Comments</h2>
-            <CommentForm eventId={this.props.eventId}  user={this.props.currentUser} createComment={this.props.createComment} />
+            <CommentForm eventId={this.props.eventId}  user={this.props.currentUser} createComment={this.props.createComment} 
+              errors={this.props.errors}/>
           <div id="comments-holder">
           {EventsComments.map((comment) => {
               return <CommentIndexItem key={comment._id} index={comment._id} comment={comment} users={this.props.users} 

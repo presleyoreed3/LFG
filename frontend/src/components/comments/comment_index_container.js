@@ -11,8 +11,8 @@ const mSTP = (state,ownProps) => {
     comments: state.entities.comments,
     users: state.entities.users,
     eventId: ownProps.eventId,
-    currentUser: state.session.user
-    // errors: state.errors.commentErrors
+    currentUser: state.session.user,
+    errors: state.errors.comment
   }
 }
 
