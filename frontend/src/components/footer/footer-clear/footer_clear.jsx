@@ -11,6 +11,7 @@ class FooterClear extends React.Component{
 				<div id="nav-links">
             <Link className="hover-underline-animation" to="/">Home</Link>
             <Link className="hover-underline-animation" to="/home">Calendar</Link>
+            <Link className="hover-underline-animation" to="/developers">Developers</Link>
           </div>
           <div id="devs">
             <div id="dev-list">

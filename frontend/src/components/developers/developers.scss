@@ -41,6 +41,12 @@
 	padding: 20px;
 }
 
+#about p{
+	color: $Tan-hex;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 #developer-seperator{
   height: 400px;
   width: 0px;
@@ -67,9 +73,25 @@
 
 .developer-headshot{
   height: 300px;
-  width: auto;
+  width: 225px;
   margin-left: 25px;
   margin-right: 25px;
   margin-bottom: 15px;
   filter: drop-shadow;
+  object-fit: cover;
+}
+
+.developer-headshot-chris{
+  height: 300px;
+  width: 225px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 15px;
+  filter: drop-shadow;
+  object-fit: cover;
+}
+
+#dev-icons a{
+	margin-left: 5px;
+	margin-right: 5px;
 }

@@ -25,7 +25,7 @@ class Developers extends React.Component{
 		            </div>
 		            <div id="developer-seperator" ><hr/></div>
 		            <div id="about">
-		              {/*<img className="developer-headshot" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/one-2-many-logo-green.png" />*/}
+		              <img className="developer-headshot-chris" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/chris.png" />
 		              <h3>Chris Park</h3>
 		              <h4>Team Lead</h4>
 		              <p>About Developer Goes here</p>
