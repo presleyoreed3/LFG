@@ -7,7 +7,6 @@ const CommentErrorsReducer = (state = _nullErrors, action) => {
   switch (action.type) {
     case RECEIVE_COMMENT_ERRORS:
       debugger
-      // action.errors.response.data gives me proxy errors
       return action.errors;
     default:
       return state;
