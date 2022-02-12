@@ -8,12 +8,12 @@ class Developers extends React.Component{
 			<div className="developer-page-background">
 				<div className="developer-page-container">
 		          <div className="developer-page-intro-container">
-		            {/*<img className="developer-logo-large" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/lfg-logo-green.png" />*/}
+		            <img className="top-logo" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/lfg-logo-green.png" />
 		            <h1 className="developer-page-title">Meet the Developers</h1>
 		          </div>
 		          <div className="developers">
-		            <div id="about">
-		              {/*<img className="developer-logo-large" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/one-2-many-logo-green.png" />*/}
+		            <div id="about">		              
+		              <img className="developer-headshot" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/brian.jpeg" />
 		              <h3>Brian Ko</h3>
 		              <h4>Lead Back-End Developer</h4>
 		              <p>About Developer Goes here</p>
@@ -25,9 +25,9 @@ class Developers extends React.Component{
 		            </div>
 		            <div id="developer-seperator" ><hr/></div>
 		            <div id="about">
-		              {/*<img className="developer-logo-large" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/lfg-logo-green.png" />*/}
+		              {/*<img className="developer-headshot" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/one-2-many-logo-green.png" />*/}
 		              <h3>Chris Park</h3>
-		              <h4>Team Leader</h4>
+		              <h4>Team Lead</h4>
 		              <p>About Developer Goes here</p>
 		              <div id="dev-icons">
 		              	<a className="hover-underline-animation" href="https://www.github.com/cpark04" target='_blank'><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons-white/github_white.png" width="30px" alt=""/></a>
@@ -37,7 +37,7 @@ class Developers extends React.Component{
 		            </div>
 		            <div id="developer-seperator" ><hr/></div>
 		            <div id="about">
-		              {/*<img className="developer-logo-large" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/group-logo-green.png" />*/}
+		              <img className="developer-headshot" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/jerry.jpg" />
 		              <h3>Jerry Phan</h3>
 		              <h4>Flex Developer</h4>
 		              <p>About Developer Goes here</p>
@@ -49,7 +49,7 @@ class Developers extends React.Component{
 		            </div>
 		            <div id="developer-seperator" ><hr/></div>
 		            <div id="about">
-		              {/*<img className="developer-logo-large" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/group-logo-green.png" />*/}
+		              <img className="developer-headshot" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/Presley+Reed.jpg" />
 		              <h3>Presley Reed III</h3>
 		              <h4>Lead Front-End Developer</h4>
 		              <p>About Developer Goes here</p>

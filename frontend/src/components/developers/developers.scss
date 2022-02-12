@@ -1,5 +1,10 @@
 @import '../../_colors.scss';
 
+.top-logo{
+	height: 200px;
+	width: 200px;
+}
+
 .developers{
 	display: flex;
 	justify-content: space-evenly;
@@ -18,6 +23,7 @@
 .developer-page-intro-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
   z-index: 10;
   margin: 0 auto;
@@ -57,4 +63,13 @@
   font-size: 22px;
   text-shadow: 2px 2px #2f2f2f;
   color: $Green-hex;
+}
+
+.developer-headshot{
+  height: 300px;
+  width: auto;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 15px;
+  filter: drop-shadow;
 }
