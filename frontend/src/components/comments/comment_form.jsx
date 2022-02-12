@@ -42,7 +42,12 @@ class CommentForm extends React.Component{
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ errors: nextProps.errors });
+  }
+
   renderErrors() {
+    debugger
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
