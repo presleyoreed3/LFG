@@ -52,7 +52,7 @@ class Developers extends React.Component{
 		              <img className="developer-headshot" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/Presley+Reed.jpg" />
 		              <h3>Presley Reed III</h3>
 		              <h4>Lead Front-End Developer</h4>
-		              <p>About Developer Goes here</p>
+		              <p>I graduated from the University of Puget Sound with a Bachelor of Science in Computer Science class of 2018. I worked to develop software during college and continue this work today. I am interested in applying my considerable skills, abilities, and talents to work with other developers to build software tools that make a difference.</p>
 		              <div id="dev-icons">
 		              	<a className="hover-underline-animation" href="https://github.com/presleyoreed3" target='_blank'><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons-white/github_white.png" width="30px" alt=""/></a>
 						<a className="hover-underline-animation" href="https://www.linkedin.com/in/presleyoreed3/" target='_blank'><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons-white/linkedin_white.png" width='30px' /></a>
