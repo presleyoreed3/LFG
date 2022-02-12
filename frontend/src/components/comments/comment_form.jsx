@@ -68,10 +68,7 @@ class CommentForm extends React.Component{
     const comment = Object.assign({}, this.state);
     this.props.createComment(comment)
       .then(() => this.setState({ text: ''}))
-      // .fail(() => this.setState({ errors: this.props.errors }));
-
-
-      // this.props.processForm(user).fail(() => this.setState({ errors: this.props.errors }));
+      // .catch(() => this.setState({ errors: this.props.errors}))
   }
 
   update(field){
@@ -92,12 +89,11 @@ class CommentForm extends React.Component{
               <button className='comment-form-button' onClick={this.handleCancel} disabled={status}>Clear</button> 
             </div>
           </form>
-          {Object.keys(this.state.errors).length !== 0 ? this.renderErrors() : ""}
+          {this.renderErrors()}
         </div>
       </div>
     )
   }
-
 }
 
 export default CommentForm;

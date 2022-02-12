@@ -49,17 +49,15 @@ export const fetchEventComments = (eventId) => dispatch => (
 )
 
 export const createComment = (comment) => (dispatch) => {
-  debugger
-    return CommentAPIUtil.createComment(comment)
-      .then(comment => dispatch(receiveNewComment(comment)))
-      .catch(err =>dispatch(receiveCommentErrors(err)))
+  return CommentAPIUtil.createComment(comment)
+    .then(comment => dispatch(receiveNewComment(comment)))
+    .catch(err =>dispatch(receiveCommentErrors(err.response.data)))
 }
-
 
 export const updateComment = (comment) => dispatch => (
   CommentAPIUtil.updateComment(comment)
     .then(comment => dispatch(receiveComment(comment)))
-    .catch(err =>dispatch(receiveCommentErrors(err)))
+    .catch(err =>dispatch(receiveCommentErrors(err.response.data)))
 )
 
 export const deleteComment = (commentId) => dispatch => (
