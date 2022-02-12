@@ -9,7 +9,7 @@ module.exports = function validateCommentInput(data) {
   if (Validator.isEmpty(data.text)) {
     errors.text = 'Text field cannot be empty';
   }
-  console.log("ERRORS VALIDATIONS", errors)
+
   return {
     errors,
     isValid: Object.keys(errors).length === 0

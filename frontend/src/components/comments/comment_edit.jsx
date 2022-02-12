@@ -6,7 +6,7 @@ class CommentEdit extends React.Component {
   constructor(props){
     super(props)
     this.state = Object.assign({errors: []} , this.props.comment)
-    this.handleErrors = this.handleErrors.bind(this);
+    // this.handleErrors = this.handleErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.findIndex = this.findIndex.bind(this);
@@ -23,15 +23,15 @@ class CommentEdit extends React.Component {
     this.findIndex(this.props.comment)
   }
 
-  handleErrors(e){
-    if (e.currentTarget.value.length > 0) {
-      this.setState({errors: {}})
-    }
-  }
+  // handleErrors(e){
+  //   if (e.currentTarget.value.length > 0) {
+  //     this.setState({errors: {}})
+  //   }
+  // }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ errors: nextProps.errors });
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
   handleCancel(e){
     e.preventDefault();
@@ -39,11 +39,12 @@ class CommentEdit extends React.Component {
   }
 
   renderErrors() {
-    console.log(this.state.errors, "STATE ERRORS")
+    // console.log(this.props.errors, "STATE ERRORS")
+    // debugger
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+        {Object.keys(this.props.errors).map((error, i) => (
+          <li key={`error-${i}`}>{this.props.errors[error]}</li>
         ))}
       </ul>
     );
@@ -56,7 +57,12 @@ class CommentEdit extends React.Component {
   findIndex(comment){
     let commentIndex = this.props.comments.indexOf(comment);
     let newState = Object.assign({}, this.state, {index: commentIndex})
-    this.setState(newState,() => this.props.updateComment(this.state).then(() => this.props.editComment()));
+    this.setState(newState,() => this.props.updateComment(this.state)
+      .then(()=> {
+        if(Object.keys(this.props.errors).length === 0) {
+          this.props.editComment();
+        }
+      }));
   }
 
   render(){
@@ -70,8 +76,9 @@ class CommentEdit extends React.Component {
               <input className='edit-comment-input'type='submit'/>
               <button className='edit-comment-button' onClick={this.handleCancel}>Cancel</button>
             </div>
+            {this.renderErrors()}
         </form>
-        {this.renderErrors()}
+
       </div>
     )
   }

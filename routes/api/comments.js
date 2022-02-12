@@ -37,6 +37,7 @@ router.post('/',
 
     (req, res) => {
       const { errors, isValid } = validateCommentInput(req.body);
+      console.log(errors);
       if (!isValid) {
         return res.status(400).json(errors);
       }
@@ -53,6 +54,11 @@ router.post('/',
 
 
 router.patch('/:id', async (req, res) => {
+  const { errors, isValid } = validateCommentInput(req.body);
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   const id = req.body._id;
   const index = req.body.index
   try {
@@ -63,7 +69,6 @@ router.patch('/:id', async (req, res) => {
       res.send(commentToUpdate)
     })
   } catch (error) {
-    return res.status(400).json(error)
   }
 
 })

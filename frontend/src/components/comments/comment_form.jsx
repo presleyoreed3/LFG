@@ -12,7 +12,7 @@ class CommentForm extends React.Component{
       errors: {}
     }
 
-    this.handleErrors = this.handleErrors.bind(this);
+    // this.handleErrors = this.handleErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
@@ -25,7 +25,7 @@ class CommentForm extends React.Component{
     if (!this.props.user) return null;
     this.setState({ownerId: this.props.user.id, 
                   eventId: this.props.eventId,
-                  errors: {}
+                  // errors: {}
                   })
   }
 
@@ -36,18 +36,18 @@ class CommentForm extends React.Component{
   }
 
 
-  handleErrors(e){
-    if (e.currentTarget.value.length > 0) {
-      this.setState({errors: {}})
-    }
-  }
+  // handleErrors(e){
+  //   if (e.currentTarget.value.length > 0) {
+  //     this.setState({errors: {}})
+  //   }
+  // }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ errors: nextProps.errors });
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
   renderErrors() {
-    console.log(this.state.errors, "STATE ERRORS")
+    // console.log(this.state.errors, "STATE ERRORS")
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
@@ -67,8 +67,7 @@ class CommentForm extends React.Component{
     e.preventDefault();
     const comment = Object.assign({}, this.state);
     this.props.createComment(comment)
-      .then(() => this.setState({ text: ''}))
-      // .catch(() => this.setState({ errors: this.props.errors}))
+      .then((res) => {this.setState({ text: ''}); debugger}, (err) => {this.setState({ errors: err.response.data}); debugger})
   }
 
   update(field){
