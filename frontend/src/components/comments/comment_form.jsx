@@ -67,7 +67,13 @@ class CommentForm extends React.Component{
     e.preventDefault();
     const comment = Object.assign({}, this.state);
     this.props.createComment(comment)
-      .then((res) => {this.setState({ text: ''}); debugger}, (err) => {this.setState({ errors: err.response.data}); debugger})
+      .then((res) => {
+        if (res.errors) {
+          this.setState({errors: res.errors})
+        } else {
+          this.setState({ text: '', errors: {}})
+        }
+      })
   }
 
   update(field){
