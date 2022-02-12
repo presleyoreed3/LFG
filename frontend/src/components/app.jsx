@@ -18,7 +18,7 @@ import '../app.scss'
 const App = () => (
   <main>
     <Modal />
-    <Route exact path={["/home", "/login", "/signup", "/events/:eventId"]} component={NavBarContainer} />
+    <Route exact path={["/home", "/login", "/signup", "/events/:eventId", "/developers"]} component={NavBarContainer} />
     <Route exact path="/" component={NavBarClearContainer} />
     <Switch>
       <Route exact path="/home" component={HomeContainer} />
