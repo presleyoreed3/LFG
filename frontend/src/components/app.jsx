@@ -29,7 +29,7 @@ const App = () => (
       <Route exact path="/" component={SplashPage} />
     </Switch>
     <Route exact path={["/home", "/login", "/signup", "/events/:eventId"]} component={FooterContainer} />
-    <Route exact path={["/", "/developers"]} component={FooterClearContainer} />
+    <Route exact path={["/"]} component={FooterClearContainer} />
 
   </main>
 );
