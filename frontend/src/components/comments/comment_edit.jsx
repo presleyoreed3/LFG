@@ -35,7 +35,8 @@ class CommentEdit extends React.Component {
 
   handleCancel(e){
     e.preventDefault();
-    this.props.editComment();
+    this.props.editComment()
+    this.setState({errors: {}});
   }
 
   renderErrors() {
@@ -43,8 +44,8 @@ class CommentEdit extends React.Component {
     // debugger
     return (
       <ul>
-        {Object.keys(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.props.errors[error]}</li>
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
@@ -58,9 +59,14 @@ class CommentEdit extends React.Component {
     let commentIndex = this.props.comments.indexOf(comment);
     let newState = Object.assign({}, this.state, {index: commentIndex})
     this.setState(newState,() => this.props.updateComment(this.state)
-      .then(()=> {
-        if(Object.keys(this.props.errors).length === 0) {
-          this.props.editComment();
+      .then((res)=> {
+        if (res.errors) {
+          this.setState({errors: res.errors})
+        } else {
+          this.setState({ text: '', errors: {}})
+          if(Object.keys(this.props.errors).length === 0) {
+            this.props.editComment();
+          }
         }
       }));
   }

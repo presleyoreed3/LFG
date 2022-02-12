@@ -12,7 +12,7 @@ class CommentForm extends React.Component{
       errors: {}
     }
 
-    // this.handleErrors = this.handleErrors.bind(this);
+    this.handleErrors = this.handleErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
@@ -25,7 +25,7 @@ class CommentForm extends React.Component{
     if (!this.props.user) return null;
     this.setState({ownerId: this.props.user.id, 
                   eventId: this.props.eventId,
-                  // errors: {}
+                  errors: {}
                   })
   }
 
@@ -36,11 +36,11 @@ class CommentForm extends React.Component{
   }
 
 
-  // handleErrors(e){
-  //   if (e.currentTarget.value.length > 0) {
-  //     this.setState({errors: {}})
-  //   }
-  // }
+  handleErrors(e){
+    if (e.currentTarget.value.length > 0) {
+      this.setState({errors: {}})
+    }
+  }
 
   // componentWillReceiveProps(nextProps) {
   //   this.setState({ errors: nextProps.errors });
