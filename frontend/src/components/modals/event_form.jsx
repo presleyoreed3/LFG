@@ -15,13 +15,15 @@ class EventForm extends React.Component {
       owner: this.props.user.id,
       eventType: '',
       category: '',
-      attendees: [this.props.user.id]
+      attendees: [this.props.user.id],
+      errors: {}
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
     this.handleEventType = this.handleEventType.bind(this);
     this.findUser = this.findUser.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(field) {
@@ -40,26 +42,33 @@ class EventForm extends React.Component {
     e.preventDefault();
     this.props.createEvent(this.state)
       .then((event) => {
-        this.props.history.push(`/events/${event.event.data._id}`);
-        let user = this.findUser(this.props.user.id);
-        user.events.push(event.event.data);
-        this.props.updateUser(user);
-      });
+        if (event.errors) {
+          this.setState({errors: event.errors.response.data})
+        } else {
+          console.log("EVENT", event)
+          this.props.history.push(`/events/${event.event.data._id}`);
+          let user = this.findUser(this.props.user.id);
+          user.events.push(event.event.data);
+          this.props.updateUser(user);
+          this.setState({
+            title: '',
+            description: '',
+            eventStart: '',
+            eventEnd: '',
+            location: '',
+            website: '',
+            limit: '',
+            owner: this.props.user.id,
+            eventType: '',
+            category: '',
+            attendees: [this.props.user.id],
+            errors: {}
+          })
+          this.props.closeModal();
+      };
+
+      })
     
-    this.setState({
-      title: '',
-      description: '',
-      eventStart: '',
-      eventEnd: '',
-      location: '',
-      website: '',
-      limit: '',
-      owner: this.props.user.id,
-      eventType: '',
-      category: '',
-      attendees: [this.props.user.id]
-    })
-    this.props.closeModal();
   }
 
   handleCategory(e) {
@@ -74,6 +83,17 @@ class EventForm extends React.Component {
     selected.forEach((input) => {
       if (input.selected) this.setState({eventType: e.currentTarget.value})
     })
+  }
+
+  renderErrors() {
+    // console.log(this.state.errors, "STATE ERRORS")
+    return (
+      <ul>
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
@@ -171,6 +191,7 @@ class EventForm extends React.Component {
               value={this.state.limit}
             />
           <button>Create Event</button>
+          {this.renderErrors()}
         </form>
       </div>
     );

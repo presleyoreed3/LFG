@@ -6,10 +6,11 @@ class CommentEdit extends React.Component {
   constructor(props){
     super(props)
     this.state = Object.assign({errors: []} , this.props.comment)
-    // this.handleErrors = this.handleErrors.bind(this);
+    this.handleErrors = this.handleErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.findIndex = this.findIndex.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
 
@@ -17,34 +18,37 @@ class CommentEdit extends React.Component {
     this.props.fetchEventComments(this.props.eventId)
   }
 
-//   componentWillUnmount() {
-//     // fix Warning: Can't perform a React state update on an unmounted component
-//     this.setState = (state,callback)=>{
-//         return;
-//     };
-// }
-
   handleSubmit(e){
     e.preventDefault();
-    // const comment = Object.assign({}, this.state);
     this.findIndex(this.props.comment)
-    // this.props.updateComment(this.state)
-    // testEdit is to close the form
-    // .then(() => this.props.editComment())
-      // .fail(() => this.setState({ errors: this.props.errors }));
-      return null
   }
 
-  // handleErrors(e){
-  //   if (e.currentTarget.value.length > 0) {
-  //     this.setState({errors: []})
-  //   }
+  handleErrors(e){
+    if (e.currentTarget.value.length > 0) {
+      this.setState({errors: {}})
+    }
+  }
+
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({ errors: nextProps.errors });
   // }
 
   handleCancel(e){
-    //reset body to empty
     e.preventDefault();
-    this.props.editComment();
+    this.props.editComment()
+    this.setState({errors: {}});
+  }
+
+  renderErrors() {
+    // console.log(this.props.errors, "STATE ERRORS")
+    // debugger
+    return (
+      <ul>
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+        ))}
+      </ul>
+    );
   }
 
   update(field){
@@ -54,7 +58,17 @@ class CommentEdit extends React.Component {
   findIndex(comment){
     let commentIndex = this.props.comments.indexOf(comment);
     let newState = Object.assign({}, this.state, {index: commentIndex})
-    this.setState(newState,() => this.props.updateComment(this.state).then(() => this.props.editComment()));
+    this.setState(newState,() => this.props.updateComment(this.state)
+      .then((res)=> {
+        if (res.errors) {
+          this.setState({errors: res.errors})
+        } else {
+          this.setState({ text: '', errors: {}})
+          if(Object.keys(this.props.errors).length === 0) {
+            this.props.editComment();
+          }
+        }
+      }));
   }
 
   render(){
@@ -68,7 +82,9 @@ class CommentEdit extends React.Component {
               <input className='edit-comment-input'type='submit'/>
               <button className='edit-comment-button' onClick={this.handleCancel}>Cancel</button>
             </div>
+            {this.renderErrors()}
         </form>
+
       </div>
     )
   }

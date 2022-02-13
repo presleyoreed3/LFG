@@ -8,8 +8,8 @@ const mSTP = (state,ownProps) => {
     comment: ownProps.comment,
     currentUser: ownProps.currentUser,
     comments: state.entities.comments,
-    eventId: ownProps.eventId
-    // errors: state.errors.commentErrors
+    eventId: ownProps.eventId,
+    errors: state.errors.comment
   }
 }
 

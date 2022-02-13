@@ -15,6 +15,7 @@ class CommentForm extends React.Component{
     this.handleErrors = this.handleErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
 
@@ -41,6 +42,21 @@ class CommentForm extends React.Component{
     }
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({ errors: nextProps.errors });
+  // }
+
+  renderErrors() {
+    // console.log(this.state.errors, "STATE ERRORS")
+    return (
+      <ul>
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+        ))}
+      </ul>
+    );
+  }
+
   handleCancel(e){
     //reset text to empty
     e.preventDefault();
@@ -51,11 +67,13 @@ class CommentForm extends React.Component{
     e.preventDefault();
     const comment = Object.assign({}, this.state);
     this.props.createComment(comment)
-      .then(() => this.setState({ text: ''}))
-      // .fail(() => this.setState({ errors: this.props.errors }));
-
-
-      // this.props.processForm(user).fail(() => this.setState({ errors: this.props.errors }));
+      .then((res) => {
+        if (res.errors) {
+          this.setState({errors: res.errors})
+        } else {
+          this.setState({ text: '', errors: {}})
+        }
+      })
   }
 
   update(field){
@@ -76,11 +94,11 @@ class CommentForm extends React.Component{
               <button className='comment-form-button' onClick={this.handleCancel} disabled={status}>Clear</button> 
             </div>
           </form>
+          {this.renderErrors()}
         </div>
       </div>
     )
   }
-
 }
 
 export default CommentForm;

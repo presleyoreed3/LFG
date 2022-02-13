@@ -7,7 +7,6 @@ const passport = require('passport');
 
 const Comment = require('../../models/Comment');
 const validateCommentInput = require('../../validation/comments');
-const { route } = require('./comments');
 
 router.get('/', (req, res) => {
   Comment.find()
@@ -35,14 +34,16 @@ router.get('/:id', (req, res) => {
 
 router.post('/',
     passport.authenticate('jwt', { session: false }),
+
     (req, res) => {
       const { errors, isValid } = validateCommentInput(req.body);
+      console.log(errors);
       if (!isValid) {
         return res.status(400).json(errors);
       }
-  
+      
       const newComment = new Comment({
-        ownerId: req.user.id,
+        ownerId: req.body.ownerId,
         text: req.body.text,
         eventId: req.body.eventId,
       });
@@ -51,14 +52,13 @@ router.post('/',
     }
   );
 
-// router.patch('/:id', (req, res) => {
-//   Comment.updateOne({_id: req.params.id})
-//     .then(() => res.json({updated: "Comment has been successfully updated"}, req.body))
-//     .catch( error => res.status(404).json({noCommentFound: "No Comment was found with that ID"}))
-// })
-
 
 router.patch('/:id', async (req, res) => {
+  const { errors, isValid } = validateCommentInput(req.body);
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   const id = req.body._id;
   const index = req.body.index
   try {
@@ -77,7 +77,7 @@ router.delete('/:id', (req, res) => {
   Comment.deleteOne({_id: req.params.id})
     .then((comment) => {
       res.json({deleted: "Comment has been deleted"})
-      res.send(req)
+      // res.send(req)
       } )
     .catch( error => res.status(404).json({noEventFound: "No Comment was found with that ID"}))
 })
