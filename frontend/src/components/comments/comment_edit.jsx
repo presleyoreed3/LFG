@@ -6,7 +6,7 @@ class CommentEdit extends React.Component {
   constructor(props){
     super(props)
     this.state = Object.assign({errors: []} , this.props.comment)
-    // this.handleErrors = this.handleErrors.bind(this);
+    this.handleErrors = this.handleErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.findIndex = this.findIndex.bind(this);
@@ -23,11 +23,11 @@ class CommentEdit extends React.Component {
     this.findIndex(this.props.comment)
   }
 
-  // handleErrors(e){
-  //   if (e.currentTarget.value.length > 0) {
-  //     this.setState({errors: {}})
-  //   }
-  // }
+  handleErrors(e){
+    if (e.currentTarget.value.length > 0) {
+      this.setState({errors: {}})
+    }
+  }
 
   // componentWillReceiveProps(nextProps) {
   //   this.setState({ errors: nextProps.errors });
