@@ -3,7 +3,7 @@ import React from 'react';
 class EventUpdateForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {errors: {}};
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
@@ -33,21 +33,29 @@ class EventUpdateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateEvent(this.state);
-    this.setState({
-      title: '',
-      description: '',
-      eventStart: '',
-      eventEnd: '',
-      location: '',
-      website: '',
-      limit: '',
-      owner: this.props.user.id,
-      eventType: '',
-      category: '',
-      attendees: [this.props.user.id]
-    })
-    this.props.closeModal();
+    this.props.updateEvent(this.state)
+      .then(event => {
+        if (event.errors) {
+          this.setState({errors: event.errors.response.data})
+        } else {
+          console.log("UPDATE", event)
+          this.setState({
+            title: '',
+            description: '',
+            eventStart: '',
+            eventEnd: '',
+            location: '',
+            website: '',
+            limit: '',
+            owner: this.props.user.id,
+            eventType: '',
+            category: '',
+            attendees: [this.props.user.id],
+            errors: {}
+          })
+          this.props.closeModal();
+        }
+      })
   }
 
   handleCategory(e) {
@@ -62,6 +70,16 @@ class EventUpdateForm extends React.Component {
     selected.forEach((input) => {
       if (input.selected) this.setState({eventType: e.currentTarget.value})
     })
+  }
+
+  renderErrors() {
+    return (
+      <ul>
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
@@ -106,6 +124,7 @@ class EventUpdateForm extends React.Component {
             <input placeholder="Website" type="text" onChange={this.update('website')} value={this.state.website}/>
             <input type="number" onChange={this.update('limit')} value={this.state.limit}/>
           <button>Update Event</button>
+          {this.renderErrors()}
         </form>
       </div>
     )

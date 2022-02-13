@@ -62,6 +62,10 @@ router.post('/',
   );
 
 router.patch('/:id', async (req, res) => {
+  const { errors, isValid } = validateEventInput(req.body);
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
   const id = req.body._id;
   const index = req.body.index
   try {
