@@ -29,8 +29,20 @@ module.exports = function validateEventInput(data) {
     errors.limit = "Limit must be greater than 1"
   }
 
-  if(!Validator.isISO8601(data.eventStart)) {
+  if (!Validator.isISO8601(data.eventStart)) {
     errors.eventStart = "Start date is not valid"
+  }
+
+  if (Date.parse(data.eventStart) > Date.parse(data.eventEnd)) {
+    errors.eventStart = "Start date cannot be set after end date"
+  }
+
+  if (Date.parse(data.eventStart) < Date.now()) {
+    errors.eventStart = "Start date cannot be set in the past"
+  }
+
+  if (Date.parse(data.eventStart) === Date.parse(data.eventEnd)) {
+    errors.eventStart = "Start date/time cannot be the same as end date/time"
   }
 
   if(!Validator.isISO8601(data.eventEnd)) {
