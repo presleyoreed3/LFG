@@ -18,8 +18,8 @@ import '../app.scss'
 const App = () => (
   <main>
     <Modal />
-    <Route exact path={["/home", "/login", "/signup", "/events/:eventId", "/developers"]} component={NavBarContainer} />
-    <Route exact path="/" component={NavBarClearContainer} />
+    <Route exact path={["/home", "/login", "/signup", "/events/:eventId"]} component={NavBarContainer} />
+    <Route exact path={["/", "/developers"]} component={NavBarClearContainer} />
     <Switch>
       <Route exact path="/home" component={HomeContainer} />
       <ProtectedRoute exact path="/events/:eventId" component={EventShowContainer} />
@@ -29,7 +29,7 @@ const App = () => (
       <Route exact path="/" component={SplashPage} />
     </Switch>
     <Route exact path={["/home", "/login", "/signup", "/events/:eventId"]} component={FooterContainer} />
-    <Route exact path="/" component={FooterClearContainer} />
+    <Route exact path={["/"]} component={FooterClearContainer} />
 
   </main>
 );
