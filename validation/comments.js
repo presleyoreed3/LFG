@@ -7,7 +7,7 @@ module.exports = function validateCommentInput(data) {
   data.text = validText(data.text) ? data.text : '';
 
   if (Validator.isEmpty(data.text)) {
-    errors.text = 'Text field cannot be empty';
+    errors.text = 'Comment cannot be empty';
   }
 
   return {
