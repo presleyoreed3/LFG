@@ -110,7 +110,7 @@ class EventShow extends React.Component {
         if(filtered[friend].length === 0) return;
         return (
           <div key={idx} id="friend-category">
-            <h2>{friend}</h2>
+            <h2>{friend}'s Events</h2>
             {this.createIndexItems(filtered, friend)}
           </div>
         )
@@ -203,7 +203,7 @@ class EventShow extends React.Component {
       header = <div className="events-index">
                 <div className="events-header">
                   <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>All Events</h2>
-                  <h2 className="event-choice" id="friend" onClick={(e) => this.handleSelect(e)}>Friend Events</h2>
+                  <h2 className="event-choice" id="friend" onClick={(e) => this.handleSelect(e)}>Followed Users</h2>
                   <h2 className="event-choice" id="my" onClick={(e) => this.handleSelect(e)}>My Events</h2>
                 </div>
                 {this.listEvents()}
