@@ -22,6 +22,7 @@ class EventShow extends React.Component {
     this.leaveAttendance = this.leaveAttendance.bind(this);
     this.findUser = this.findUser.bind(this);
     this.listEvents = this.listEvents.bind(this);
+    this.resetState = this.resetState.bind(this);
     this.dropDownClose();
 
   }
@@ -39,8 +40,13 @@ class EventShow extends React.Component {
           currentUser={this.props.currentUser}
           updateUser={this.props.updateUser}
           users={this.props.users}
+          resetState={this.resetState}
         />)
       }
+  }
+
+  resetState() {
+    this.setState({render: '3'});
   }
 
   getOwnerName(userId){
