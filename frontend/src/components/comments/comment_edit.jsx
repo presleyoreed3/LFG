@@ -29,10 +29,6 @@ class CommentEdit extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({ errors: nextProps.errors });
-  // }
-
   handleCancel(e){
     e.preventDefault();
     this.props.editComment()
@@ -40,8 +36,6 @@ class CommentEdit extends React.Component {
   }
 
   renderErrors() {
-    // console.log(this.props.errors, "STATE ERRORS")
-    // debugger
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
@@ -72,7 +66,6 @@ class CommentEdit extends React.Component {
   }
 
   render(){
-    // no current user
     if (!this.props.currentUser) return null;
     return (
       <div className={`comment-edit-hide ${this.props.index}`} id="edit-comment-container">

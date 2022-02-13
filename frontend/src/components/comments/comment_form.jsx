@@ -20,8 +20,6 @@ class CommentForm extends React.Component{
 
 
   componentDidMount(){
-    // only signed in users can post comment
-    // doing it in component did mount bc comments post to old events
     if (!this.props.user) return null;
     this.setState({ownerId: this.props.user.id, 
                   eventId: this.props.eventId,
@@ -42,12 +40,7 @@ class CommentForm extends React.Component{
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({ errors: nextProps.errors });
-  // }
-
   renderErrors() {
-    // console.log(this.state.errors, "STATE ERRORS")
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
@@ -58,7 +51,6 @@ class CommentForm extends React.Component{
   }
 
   handleCancel(e){
-    //reset text to empty
     e.preventDefault();
     this.setState({text: ''})
   }

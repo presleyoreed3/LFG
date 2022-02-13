@@ -2,8 +2,6 @@ import React from "react";
 import './attendance.scss'
 import {withRouter} from 'react-router-dom'
 
-// we have access to user in question, THE CURRENT USER
-
 class AttendanceIndexItem extends React.Component{
 
  	constructor(props) {

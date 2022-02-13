@@ -45,7 +45,6 @@ class EventForm extends React.Component {
         if (event.errors) {
           this.setState({errors: event.errors.response.data})
         } else {
-          console.log("EVENT", event)
           this.props.history.push(`/events/${event.event.data._id}`);
           let user = this.findUser(this.props.user.id);
           user.events.push(event.event.data);
@@ -86,7 +85,6 @@ class EventForm extends React.Component {
   }
 
   renderErrors() {
-    // console.log(this.state.errors, "STATE ERRORS")
     return (
       <ul id="errors-container">
         {Object.keys(this.state.errors).map((error, i) => (

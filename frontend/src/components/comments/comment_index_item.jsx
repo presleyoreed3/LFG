@@ -5,8 +5,6 @@ import CommentEditContainer from './comment_edit_container';
 class CommentIndexItem extends React.Component{
   constructor(props){
     super(props)
-
-    // this.editComment = this.editComment.bind(this);
     this.setActive = this.setActive.bind(this);
     this.editComment = this.editComment.bind(this);
   }
@@ -27,7 +25,6 @@ class CommentIndexItem extends React.Component{
       }
     });
 
-    
     let editComment = document.querySelectorAll(`.comment-edit-hide`);
     editComment.forEach((option) => {
       if (option.classList.contains(this.props.index)) {

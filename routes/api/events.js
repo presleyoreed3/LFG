@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-// const jwt = require('jsonwebtoken');
-
 
 const Event = require('../../models/Event');
 const validateEventInput = require('../../validation/events');

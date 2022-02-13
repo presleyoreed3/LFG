@@ -13,8 +13,6 @@ class EventUpdateForm extends React.Component {
   componentDidMount() {
     this.props.fetchEvents()
       .then((events) => this.findEvent(this.props.events))
-    // this.findEvent(this.props.events)
-    // this.setState({_id: this.props.eventId})
   }
 
   findEvent(events) {
@@ -38,7 +36,6 @@ class EventUpdateForm extends React.Component {
         if (event.errors) {
           this.setState({errors: event.errors.response.data})
         } else {
-          console.log("UPDATE", event)
           this.setState({
             title: '',
             description: '',
