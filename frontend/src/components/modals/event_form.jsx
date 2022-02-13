@@ -88,9 +88,9 @@ class EventForm extends React.Component {
   renderErrors() {
     // console.log(this.state.errors, "STATE ERRORS")
     return (
-      <ul>
+      <ul id="errors-container">
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li id="modal-errors" key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
@@ -190,8 +190,8 @@ class EventForm extends React.Component {
               onChange={this.update("limit")}
               value={this.state.limit}
             />
+            {this.renderErrors()}
           <button>Create Event</button>
-          {this.renderErrors()}
         </form>
       </div>
     );

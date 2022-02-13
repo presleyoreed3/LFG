@@ -170,3 +170,12 @@ select{
   background-color: $Dark-Green-hex;
   border-radius: 5px;
 }
+
+#session-errors{
+  color: red;
+  font-size: 20px;
+  margin: 10px;
+  margin-top: -5px;
+  line-height: 1.1;
+}
+

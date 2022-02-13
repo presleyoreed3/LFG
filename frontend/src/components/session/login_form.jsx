@@ -56,7 +56,7 @@ class LoginForm extends React.Component {
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li id="session-errors" key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
@@ -82,8 +82,9 @@ class LoginForm extends React.Component {
                 placeholder="Password"
               />
               <br />
-              <button>Log In</button>
               {this.renderErrors()}
+              <button>Log In</button>
+              
               <button onClick={this.demoLogin}>Demo Log In</button>
           </form>
         </div>
