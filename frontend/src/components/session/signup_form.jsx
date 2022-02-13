@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li id="session-errors" key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
@@ -93,8 +93,8 @@ class SignupForm extends React.Component {
                 placeholder="Confirm Password"
               />
               <br />
-              <button>Create Account</button>
               {this.renderErrors()}
+              <button>Create Account</button>
           </form>
         </div>
       </div>
