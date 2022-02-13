@@ -1,0 +1,60 @@
+@import '../../_colors.scss';
+
+.developers{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.developer-page-background {
+  background: #5CDB95 url('https://i.imgur.com/8kHp0WB.jpg') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.developer-page-container{
+	padding: 50px;
+}
+
+.developer-page-intro-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  z-index: 10;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.developer-page-title {
+  font-size: 50px;
+  margin-top: 30px;
+  text-shadow: 2px 2px #2f2f2f;
+  color: $Green-hex;
+}
+
+#about{
+	padding: 20px;
+}
+
+#developer-seperator{
+  height: 400px;
+  width: 0px;
+  border: 1px solid $Green-hex;
+}
+
+#about{
+	text-align: center;
+}
+
+#about h3{
+  margin-top: 20px;
+  font-size: 28px;
+  text-shadow: 2px 2px #2f2f2f;
+  color: $Green-hex;
+}
+
+#about h4{
+  margin-top: 10px;
+  font-size: 22px;
+  text-shadow: 2px 2px #2f2f2f;
+  color: $Green-hex;
+}

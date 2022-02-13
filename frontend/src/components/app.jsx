@@ -12,18 +12,20 @@ import FooterClearContainer from "./footer/footer-clear/footer_clear_container";
 import HomeContainer from "./home/home_container";
 import Modal from './modals/modal'
 import EventShowContainer from './event/events_show_container';
+import Developers from './developers/developers'
 import '../app.scss'
 
 const App = () => (
   <main>
     <Modal />
-    <Route exact path={["/home", "/login", "/signup", "/events/:eventId"]} component={NavBarContainer} />
+    <Route exact path={["/home", "/login", "/signup", "/events/:eventId", "/developers"]} component={NavBarContainer} />
     <Route exact path="/" component={NavBarClearContainer} />
     <Switch>
       <Route exact path="/home" component={HomeContainer} />
       <ProtectedRoute exact path="/events/:eventId" component={EventShowContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route exact path="/developers" component={Developers} />
       <Route exact path="/" component={SplashPage} />
     </Switch>
     <Route exact path={["/home", "/login", "/signup", "/events/:eventId"]} component={FooterContainer} />
