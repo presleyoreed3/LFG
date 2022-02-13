@@ -48,8 +48,7 @@ module.exports = function validateEventInput(data) {
   if(!Validator.isISO8601(data.eventEnd)) {
     errors.eventEnd = "End date is not valid"
   }
-  console.log("VALIDATION", errors)
-  console.log("DATA", data)
+  
   return {
     errors,
     isValid: Object.keys(errors).length === 0

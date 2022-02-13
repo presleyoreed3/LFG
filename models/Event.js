@@ -52,12 +52,6 @@ const EventSchema = new Schema({
     type: Number,
     required: false
   }
-  // comments: {
-  //   type: [Schema.Types.ObjectId],
-  //   ref: 'comments',
-  //   required: true,
-  //   default: []
-  // }
 }, {
   date: {
     type: Date,

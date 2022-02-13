@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import EventUpdateForm from './event_update_form';
-import {openModal, closeModal} from '../../actions/modal_actions';
+import {closeModal} from '../../actions/modal_actions';
 import { updateEvent, fetchEvents } from '../../actions/event_actions';
 import {withRouter} from 'react-router-dom';
 
@@ -14,7 +14,6 @@ const mSTP = state => {
 const mDTP = dispatch => {
   return {
     closeModal: () => dispatch(closeModal()),
-    // openModal: (modal) => dispatch(openModal(modal)),
     updateEvent: (event) => dispatch(updateEvent(event)),
     fetchEvents: () => dispatch(fetchEvents())
   }
