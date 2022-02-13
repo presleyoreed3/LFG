@@ -16,7 +16,7 @@ class Developers extends React.Component{
 		              <img className="developer-headshot" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/brian.jpeg" />
 		              <h3>Brian Ko</h3>
 		              <h4>Lead Back-End Developer</h4>
-		              <p>About Developer Goes here</p>
+		              <p>Hello, my name is Brian and I decided to become a software developer after graduating from UCLA with a Bachelor of Science in Aerospace Engineering. I enjoy the creative freedom that being a software developer gives me. I am excited to utilize my skills in helping your team and I look forward to hearing from you!</p>
 		              <div id="dev-icons">
 		              	<a className="hover-underline-animation" href="https://github.com/brianko90" target='_blank'><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons-white/github_white.png" width="30px" alt=""/></a>
 		                <a className="hover-underline-animation" href="https://www.linkedin.com/in/brian-ko-ba5742229/" target='_blank'><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons-white/linkedin_white.png" width='30px' /></a>
@@ -28,7 +28,7 @@ class Developers extends React.Component{
 		              <img className="developer-headshot-chris" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/chris.png" />
 		              <h3>Chris Park</h3>
 		              <h4>Team Lead</h4>
-		              <p>About Developer Goes here</p>
+		              <p>Prior to becoming a software engineer, I dedicated the past 10 years growing my family manufacturing business from a small shop to a multi-million dollar company. I decided to leave in order to pursue my dream of becoming a full-stack developer. I hope to one day work alongside a team to develop applications that is equally meaningful and fulfilling.</p>
 		              <div id="dev-icons">
 		              	<a className="hover-underline-animation" href="https://www.github.com/cpark04" target='_blank'><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons-white/github_white.png" width="30px" alt=""/></a>
                  		<a className="hover-underline-animation" href="https://www.linkedin.com/in/chris-p-7b087b46/" target='_blank'><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons-white/linkedin_white.png" width='30px' /></a>
@@ -40,7 +40,7 @@ class Developers extends React.Component{
 		              <img className="developer-headshot" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/lfg/jerry.jpg" />
 		              <h3>Jerry Phan</h3>
 		              <h4>Flex Developer</h4>
-		              <p>About Developer Goes here</p>
+		              <p>From Chemistry to Computer Science, my interests quickly began to shift when I first saw how creative and flexible one could be when solving problems. There on out, I worked to sharpen my skills as a programmer, by building anything from a simple tic tac toe game to a full scale youtube clone. I am interested in the constant pursuit of knowledge to spark my passions and interests while tackling complex problems daily with other software developers.</p>
 		              <div id="dev-icons">
 		              	<a className="hover-underline-animation" href="https://github.com/jerryphan1" target='_blank'><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons-white/github_white.png" width="30px" alt=""/></a>
                   		<a className="hover-underline-animation" href="https://www.linkedin.com/in/jerry-phan-8615a7a3/" target='_blank'><img src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons-white/linkedin_white.png" width='30px' /></a>
