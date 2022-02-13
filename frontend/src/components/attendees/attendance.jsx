@@ -48,7 +48,8 @@ class AttendanceIndexItem extends React.Component{
 		}
 		this.props.updateUser(current)
 			.then(() => {
-				this.setState({count: this.state.count + 1})
+				this.props.resetState();
+				this.setState({count: this.state.count + 1});
 			})
 	}
 
