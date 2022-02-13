@@ -74,9 +74,9 @@ class EventUpdateForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul id="errors-container">
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li id="modal-errors" key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
@@ -123,8 +123,8 @@ class EventUpdateForm extends React.Component {
             <input type="text" onChange={this.update('location')} value={this.state.location}/>
             <input placeholder="Website" type="text" onChange={this.update('website')} value={this.state.website}/>
             <input type="number" onChange={this.update('limit')} value={this.state.limit}/>
+            {this.renderErrors()}
           <button>Update Event</button>
-          {this.renderErrors()}
         </form>
       </div>
     )
