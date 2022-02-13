@@ -65,3 +65,11 @@ formatEvents(events) {
   }
 
 ```
+
+### **Filtering**
+
+- Users can filter events by clicking the different selection tabs on the Events List.
+- Following other users will also dynamically update the filtered Event List.
+
+![](./readme_images/filtering.gif)
+
