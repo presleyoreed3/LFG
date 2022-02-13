@@ -1,9 +1,8 @@
 import React from "react";
-import FullCalendar from "@fullcalendar/react"; // must go before plugins
-import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
-import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
+import FullCalendar from "@fullcalendar/react"; 
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction"; 
 import { withRouter } from "react-router-dom";
-import { Calendar } from "@fullcalendar/core";
 import './calendar.scss'
 
 class HomeCalendar extends React.Component {
@@ -29,7 +28,6 @@ class HomeCalendar extends React.Component {
       <div id="calendar">
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin]}
-          dateClick={this.handleDateClick}
           events={events}
           eventTimeFormat={{hour: 'numeric',
             minute: '2-digit',
@@ -38,11 +36,6 @@ class HomeCalendar extends React.Component {
       </div>
     );
   }
-
-  handleDateClick = (arg) => {
-    // bind with an arrow function
-    alert(arg.dateStr);
-  };
 }
 
 export default withRouter(HomeCalendar);

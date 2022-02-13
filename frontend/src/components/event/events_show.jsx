@@ -74,14 +74,13 @@ class EventShow extends React.Component {
     let events = this.props.events;
     
     let target = document.querySelector('.event-selected')
-    if (!target) return []; // DOUBLE CHECK
+    if (!target) return [];
     if(target.id === "my") {
       events.forEach((event) => {
         if(event.owner === this.props.currentUser.id || event.attendees.includes(this.props.currentUser.id)) {
           newEvents.push(event);
         }
       })
-      
       return newEvents;
     } else if(target.id === "friend") {
       let user = this.findUser(this.props.currentUser.id);

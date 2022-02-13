@@ -19,11 +19,9 @@ class NavBarClear extends React.Component {
 
   logoutUser(e) {
     e.preventDefault();
-    // this.props.history.push('/')
     this.props.logout();
   }
 
-  // Selectively render links dependent on whether the user is logged in
   getLinks() {
     if (this.props.loggedIn) {
       return (

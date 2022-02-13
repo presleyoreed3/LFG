@@ -8,7 +8,6 @@ export default class CommentDelete extends React.Component {
   }
 
   handleClick(){
-    debugger
     this.props.deleteComment(this.props.commentId).then(
       this.props.closeModal()
     )
