@@ -66,8 +66,8 @@ class CommentIndexItem extends React.Component{
             <div className="comment-index-dropdown" >
                 <p className="comment-index-option" onClick={this.setActive}>{commentOptions}</p>
                 <div className={`comment-dropdown-content ${this.props.index}`}> 
-                  <p className="comment-dropdown-options" onClick={this.editComment}><i class="fa-solid fa-pencil"></i> Edit</p>
-                  <p className="comment-dropdown-options" onClick={() => this.props.openModal('deleteComment', this.props.comment._id)}><i class="fa-solid fa-trash-can"></i> Delete</p>
+                  <p className="comment-dropdown-options" onClick={this.editComment}><i className="fa-solid fa-pencil"></i> Edit</p>
+                  <p className="comment-dropdown-options" onClick={() => this.props.openModal('deleteComment', this.props.comment._id)}><i className="fa-solid fa-trash-can"></i> Delete</p>
                 </div>
             </div>
         </div>
