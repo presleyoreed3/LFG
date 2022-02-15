@@ -58,7 +58,7 @@ class AttendanceIndexItem extends React.Component{
 			icon = "";
 		} else {
 			if(this.props.user._id === this.props.currentUser.id) {
-				icon = <i  onClick={this.followToggle} className="fa-solid fa-jedi"></i>
+				icon = <i className="fa-solid fa-jedi"></i>
 			} else if(this.checkFollow()){
 				icon = <img  onClick={this.followToggle} className="attendee-logo" src="https://some-trails-aa-dev.s3.us-west-1.amazonaws.com/buttons2/logo-filled.png"/>
 			} else {
