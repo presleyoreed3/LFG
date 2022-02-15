@@ -3,7 +3,9 @@
 .splash-page-background {
   background: #5CDB95 url('https://i.imgur.com/8kHp0WB.jpg') no-repeat center;
   background-size: cover;
-  height: 100vh;
+  height: 1700px;
+  object-fit: overflow;
+  // overflow: hidden;
 }
 
 .splash-page-container {
@@ -12,11 +14,12 @@
   align-items: center;
   justify-items: center;
   width: auto;
-  height: 800px;
+  height: auto;
   overflow: hidden;
   padding-top: 100px;
   color: #edf5e1;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .splash-page-intro-container {
