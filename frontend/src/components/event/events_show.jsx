@@ -162,6 +162,7 @@ class EventShow extends React.Component {
     let pushEvent = {};
     pushEvent["title"] = event.title;
     pushEvent["eventStart"] = event.eventStart;
+    pushEvent["attendees"] = event.attendees;
     pushEvent["eventEnd"] = event.eventEnd;
     pushEvent["location"] = event.location;
     pushEvent["website"] = event.website;
