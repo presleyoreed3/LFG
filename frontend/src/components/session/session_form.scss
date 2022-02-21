@@ -4,13 +4,15 @@
   background: url('https://i.imgur.com/fjrEiZL.jpg') no-repeat center;
   background-size: cover;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .session-form-container {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 220px;
 }
 
 .signup-form{
