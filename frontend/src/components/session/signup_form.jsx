@@ -14,12 +14,14 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
+    this.handleErrors = this.handleErrors.bind(this);
+
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
-      this.props.history.push("/login");
+      this.setState({errors: {}})
+      return;
     }
 
     this.setState({ errors: nextProps.errors });
@@ -43,9 +45,16 @@ class SignupForm extends React.Component {
 
     this.props.signup(user)
       .then(() => {
-        this.props.login(user);
+        if (Object.values(this.state.errors).length < 1) {
+          this.props.login(user);
+        }
       })
-      .catch( err => console.log(err))
+  }
+
+  handleErrors(e){
+    if (e.currentTarget.value.length > 0) {
+      this.setState({errors: {}})
+    }
   }
 
   renderErrors() {
@@ -67,6 +76,7 @@ class SignupForm extends React.Component {
               <br />
               <input
                 type="text"
+                onKeyUp={this.handleErrors}
                 value={this.state.email}
                 onChange={this.update("email")}
                 placeholder="Email"
@@ -74,6 +84,7 @@ class SignupForm extends React.Component {
               <br />
               <input
                 type="text"
+                onKeyUp={this.handleErrors}
                 value={this.state.username}
                 onChange={this.update("username")}
                 placeholder="Username"
@@ -81,6 +92,7 @@ class SignupForm extends React.Component {
               <br />
               <input
                 type="password"
+                onKeyUp={this.handleErrors}
                 value={this.state.password}
                 onChange={this.update("password")}
                 placeholder="Password"
@@ -88,6 +100,7 @@ class SignupForm extends React.Component {
               <br />
               <input
                 type="password"
+                onKeyUp={this.handleErrors}
                 value={this.state.password2}
                 onChange={this.update("password2")}
                 placeholder="Confirm Password"

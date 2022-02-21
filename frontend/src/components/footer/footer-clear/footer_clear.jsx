@@ -6,7 +6,7 @@ class FooterClear extends React.Component{
 
 	render(){
 		return (
-      <footer className="footer">
+      <footer className="footer-clear">
         <div id="footer-content-clear">
 				<div id="nav-links">
             <Link className="hover-underline-animation" to="/">Home</Link>
