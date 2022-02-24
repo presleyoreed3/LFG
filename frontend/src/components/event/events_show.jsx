@@ -93,7 +93,9 @@ class EventShow extends React.Component {
       return friendEvents;
     } 
     else {
-      newEvents = this.props.events;
+      newEvents = this.props.events.filter((event) => {
+        return Date.parse(event.eventEnd) > Date.now()
+      })
       
       return newEvents;
     }
@@ -155,7 +157,9 @@ class EventShow extends React.Component {
     e.preventDefault();
     let event = this.findEvent();
     event.attendees.push(this.props.currentUser.id);
+    debugger
     this.props.updateEvent(event);
+    
 
     let userId = this.props.currentUser.id;
     let user = this.findUser(userId);
@@ -191,8 +195,12 @@ class EventShow extends React.Component {
   }
 
   checkLogin(){
+    let event = this.findEvent();
     let attendees = this.findEvent().attendees
-    if (this.props.loggedIn && !attendees.includes(this.props.currentUser.id)){
+    if (Date.now() > Date.parse(event.eventEnd)) {
+      return <div className="event-ended">Event Ended</div>
+    }
+    else if (this.props.loggedIn && !attendees.includes(this.props.currentUser.id)){
       return(
         <button onClick={this.addToAttendance}>Join the Fun</button>
       )
@@ -208,7 +216,7 @@ class EventShow extends React.Component {
     if (this.props.loggedIn) {
       header = <div className="events-index">
                 <div className="events-header">
-                  <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>All Events</h2>
+                  <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>Upcoming Events</h2>
                   <h2 className="event-choice" id="friend" onClick={(e) => this.handleSelect(e)}>Followed Users</h2>
                   <h2 className="event-choice" id="my" onClick={(e) => this.handleSelect(e)}>My Events</h2>
                 </div>
@@ -217,7 +225,7 @@ class EventShow extends React.Component {
     } else {
       header = <div className="events-index">
                 <div className="events-header">
-                  <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>All Events</h2>
+                  <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>Upcoming Events</h2>
                 </div>
                 {this.listEvents()}
               </div>
