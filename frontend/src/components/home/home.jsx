@@ -51,7 +51,9 @@ class Home extends React.Component {
       return friendEvents;
     } 
     else {
-      newEvents = this.props.events;
+      newEvents = this.props.events.filter((event) => {
+        return Date.parse(event.eventEnd) > Date.now()
+      })
       return newEvents;
     }
   }
@@ -113,7 +115,7 @@ class Home extends React.Component {
     if(this.props.loggedIn) {
       header = <div className="events-index">
                   <div className="events-header">
-                    <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>All Events</h2>
+                    <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>Upcoming Events</h2>
                     <h2 className="event-choice" id="friend" onClick={(e) => this.handleSelect(e)}>Followed Users</h2>
                     <h2 className="event-choice" id="my" onClick={(e) => this.handleSelect(e)}>My Events</h2>
                   </div>
@@ -122,7 +124,7 @@ class Home extends React.Component {
     } else {
       header = <div className="events-index">
                 <div className="events-header">
-                  <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>All Events</h2>
+                  <h2 className="event-choice event-selected" id="all" onClick={(e) => this.handleSelect(e)}>Upcoming Events</h2>
                 </div>
                 {this.listEvents()}
               </div>
